@@ -1,0 +1,12 @@
+name: baseline_monitoring
+title: baseline_monitoring
+username: brcisiii
+account: brcisiii
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11216996
+bundleId: 8577678
+url: https://brcisiii.shinyapps.io/baseline_monitoring/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,32 @@
+<li class="nav-item dropdown"> 
+						  <a class="nav-link d-flex justify-content-between dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown" href="#summary">
+						  <div class="parent-icon"><i class="bx bx-home-alt"></i>
+									</div>
+						  <div class="menu-title d-flex align-items-center">EWEA</div>
+						  <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
+						  </a>
+						  <ul class="dropdown-menu">
+						      <li><a class="dropdown-item" href="#eweaHome"><i class="bx bx-pie-chart-alt"></i>Home</a></li>
+								  <li><a class="dropdown-item" href="#summary"><i class="bx bx-pie-chart-alt"></i>Red-flagging Analysis</a></li>
+								  <li><a class="dropdown-item" href="#variable"><i class="bx bx-shield-alt-2"></i>Variable Analysis</a></li>
+								  <li><a class="dropdown-item" href="#district"><i class="bx bx-line-chart"></i>District Analysis</a></li>
+								</ul>
+						</li>
+					
+						<div class="">
+						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						
+							<div class="user-info">
+								<p class="user-name mb-0 text-primary">Pauline Seitz</p>
+							
+							</div>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end">
+					
+							<li>
+								<div class="dropdown-divider mb-0"></div>
+							</li>
+							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
+							</li>
+						</ul>
+					</div>

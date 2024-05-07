@@ -1,0 +1,99 @@
+<div class="page-wrapper" style="margin-top:50px">
+			<div class="page-content">
+			  <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
+	  d-flex justify-content-between">
+							<div class="d-flex align-items-center">
+								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
+								</div>
+								<div class="ms-3">
+									<h6 class="mb-0 ">BRCIS III BASELINE DASHBOARD</h6>
+									
+								</div>
+							</div>
+							 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded" style="    --bs-navbar-padding-x: unset;
+--bs-navbar-padding-y: unset;">
+					<div class="container-fluid">	
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent5" aria-controls="navbarSupportedContent5" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent5">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Summary</a>
+								</li>
+								<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Red-flagging</a>
+								</li>
+								<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Indicator Analysis</a>
+								</li>
+								<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>District Analysis</a>
+								</li>
+							
+							</ul>
+							
+						</div>
+					</div>
+				</nav>
+						</div>
+						
+						
+						
+			  <div class="row">
+          <div class="col-3 col-lg-3 col-md-3  col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>,
+          <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+            <div class="mb-3">
+										
+											{{Segrigation}}
+									</div>
+          </div>
+         
+        </div>
+        
+    
+			<div class="row">
+			  <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					 <div class="card radius-10 border-start border-0 border-4 border-warning">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Rondom walk target vs achieved</p>
+									<h4 class="my-1 text-warning">{{random_total_target}}</h4>
+									<p class="mb-0 font-13">{{random_total_achieved}}</p>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-warning opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+								</div>
+							</div>
+						</div>
+					 </div>
+				   </div>
+				  <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-info">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Snowball Target vs Achieved</p>
+								   <h4 class="my-1 text-info">{{snowball_total_target}}</h4>
+								  <p class="mb-0 font-13">{{snowball_total_achieved}}</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-info opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+			</div>
+       
+
+		
+			</div><!--end row-->
+			
+			
+		

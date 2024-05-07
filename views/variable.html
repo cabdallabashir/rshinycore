@@ -1,0 +1,109 @@
+<div class="page-wrapper">
+			<div class="page-content">
+			  <div class="row">
+          <div class="col-3 col-lg-3 col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-3 col-lg-3 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>,
+          <div class="col-3 col-lg-3 col-sm-12">
+            <div class="mb-3">
+										
+											{{variableController}}
+									</div>
+          </div>
+         
+        </div>
+        
+        	<div class="row">
+        	
+        	 <div class="col-12 col-md-12 col-sm-12">
+				     <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center justify-content-between">
+								<div>
+									<h6 class="mb-0">Variable Analysis</h6>
+								</div>
+								{{districtDropDown}}
+							</div>
+						</div>
+						  <div class="card-body">
+							{{districtVariableAnalysis}}
+						  </div>
+						  
+					  </div>
+				    
+				  </div>  
+        	  
+				  <div class="col-12 col-md-12 col-sm-12">
+				     <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Variable by District</h6>
+								</div>
+								
+							</div>
+						</div>
+						  <div class="card-body">
+							{{districtsbyvariable}}
+						  </div>
+						  
+					  </div>
+				    
+				  </div>
+				  
+				   <div class="col-12 col-md-12 col-sm-12">
+				     <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Variable by Date</h6>
+								</div>
+								
+							</div>
+						</div>
+						  <div class="card-body">
+							{{datebyvariable}}
+						  </div>
+						  
+					  </div>
+				    
+				  </div>
+				   
+				</div>
+			
+			
+       
+	<div class="row">
+			  <div class="col-12">
+			    	<div class="card radius-10">
+					<div class="card-header">
+						<div class="d-flex align-items-center">
+							<div>
+								<h6 class="mb-0">Variable Report</h6>
+							</div>
+							
+						</div>
+					</div>
+                         <div class="card-body">
+						 <div class="table-responsive">
+						   {{variableReportTable}}
+						  </div>
+						 </div>
+					</div>
+
+			  </div>
+			</div>
+		
+			</div><!--end row-->
+			
+			
+		

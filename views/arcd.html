@@ -1,0 +1,861 @@
+
+<style>
+  .shiny-input-container{
+    width: 100%;
+  }
+</style>
+
+
+
+<div class="page-wrapper" style="margin-top:60px">
+  
+	<div class="page-content">
+	  <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
+	  d-flex justify-content-between">
+	            <div class="row" style="width:100%">
+	              <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12">
+	                <div class="d-flex align-items-center">
+    								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
+    								</div>
+    								<div class="ms-3">
+    									<h6 class="mb-0 ">BRCiS III Community Engagement Baseline (Arc-D)</h6>
+    									
+    								</div>
+    							</div>
+	              </div>
+	              <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 d-flex 
+	              justify-content-end align-items-center">
+	                	<div class="row">
+	              <div class="col d-flex justify-content-center align-items-center">
+  								<button type="button" class="btn btn-primary" 
+  								data-bs-toggle="modal" data-bs-target  ="#exampleVerticallycenteredModal"><i 
+  								class="bx bx-cloud-download mr-1"></i>Load Data
+  								</button>
+							  </div>
+	           </div>
+	              </div>
+	            </div>
+							
+						
+						</div>
+						
+
+<div class="row">
+  
+  <div class="col-12">
+            {{warningToLoadDATA}}
+            </div>
+          </div>
+						 <div class="row">
+						   <span class="mb-0">Filter by</span>
+  								<hr>
+          <div class="col-lg-2 col-md-2  col-sm-12">
+            <div class="mb-3">
+									
+										{{memberController}}
+									</div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12">
+            <div class="mb-3">
+										
+											{{regionController}}
+									</div>
+          </div>,
+         <div class="col-lg-2 col-md-2 col-sm-12">
+                          <div class="mb-3">
+                        			{{districtController}}
+                        	</div>
+                        </div>
+               <div class="col-lg-2 col-md-2 col-sm-12">
+                  <div class="mb-3">
+                			{{communityController}}
+                	</div>
+               </div>
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                  <div class="mb-3">
+                			{{riskController}}
+                	</div>
+               </div>
+               
+               <div class="col-lg-1 col-md-1 col-sm-12">
+                  <div class="mb-3">
+                			{{arcDPhaseController}}
+                	</div>
+               </div>
+         
+        </div>
+        
+        <div class="row">
+          <span class="mb-0">Preferred Score to Display</span>
+  								<hr>
+									    <div class="col-lg-12 col-md-12 col-sm-12">
+									      <div class="card">
+                					<div class="card-body">
+                
+                						<div class="d-flex align-items-center gap-3">
+                							<div class="form-check form-check-success">
+                								<input class="form-check-input" type="radio" value="score_all" checked name="arcd-spiderCheckbox">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  Community Score
+                								</label>
+                							</div>
+                						  <div class="form-check form-check-success">
+                								<input class="form-check-input" type="radio" value="score_male" name="arcd-spiderCheckbox">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  Male Score
+                								</label>
+                							</div>
+                              <div class="form-check form-check-success">
+                								<input class="form-check-input" type="radio" value="score_female" name="arcd-spiderCheckbox">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  Female Score
+                								</label>
+                							</div>
+                						</div>
+                                         
+                
+                					</div>
+                				</div>
+									    </div>
+									   
+									  </div>
+         <div class="row">
+                    <div class="col-12">
+                      <div class="alert alert-info border-0 bg-info alert-dismissible fade show py-2">
+      									<div class="d-flex align-items-center">
+      										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+      										</div>
+      										<div class="ms-3">
+      											<h6 class="mb-0 text-dark">Notice</h6>
+      											<div class="text-dark">If Community or Risk Scenario is selected as "all" , then the data will be display as avarage</p></div>
+      										</div>
+      									</div>
+      									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      								</div>
+                    </div>
+                  </div>    	 
+						  
+						<hr>
+						<div class="card" style="background: unset;box-shadow:unset">
+							<div class="card-body">
+								<ul class="nav nav-tabs nav-success" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" data-bs-toggle="tab" href="#spiderChart" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Risk Scenario Analysis Summary</div>
+											</div>
+										</a>
+									</li>
+									
+      						<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#thematicSector" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Themic Area Analaysis</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#systemSector" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">System Sector Analaysis</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#backgroundAnalysis" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Community Background Summary</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<div class="tab-content py-3">
+								  
+								  <div class="tab-pane fade active show" id="spiderChart" role="tabpanel">
+									 
+									  <div class="row">
+    									<div class=" col-lg-6 col-md-6 col-sm-6">
+            					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+            						<div class="card-body">
+            							<div class="d-flex align-items-center">
+            								<div>
+            									<p class="mb-0 text-warning">Risk Scenario Details</p>
+            									<h5 class="my-1 text-primary">{{theRiskScenarioValue}}</h5>
+            								  <p class="mb-0 text-secondary font-14">{{theRiskScenarioType}}</p>
+            								</div>
+            								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+            								</div>
+            							</div>
+            						</div>
+            					 </div>
+            				   </div>
+            				   <div class=" col-lg-6 col-md-6 col-sm-6">
+            					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+            						<div class="card-body">
+            							<div class="d-flex align-items-center">
+            								<div>
+            									<p class="mb-0 text-warning">Community Details</p>
+            									<h5 class="my-1 text-primary">{{communityName}}</h5>
+            								  <p class="mb-0 text-secondary font-14">{{CommunityDistrict}}</p>
+            								</div>
+            								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+            								</div>
+            							</div>
+            						</div>
+            					 </div>
+            				   </div>
+  								</div>
+  								 <div class="row">
+          
+									    <div class="col-lg-12 col-md-12 col-sm-12">
+									      <div class="card">
+                					<div class="card-body">
+                
+                						<div class="d-flex align-items-center gap-3">
+                							<div class="form-check form-check-danger">
+                								<input class="form-check-input" type="radio" value="qno" checked name="arcd-spiderCheckbox-type">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  Components
+                								</label>
+                							</div>
+                						  <div class="form-check form-check-danger">
+                								<input class="form-check-input" type="radio" value="thematic_desc" name="arcd-spiderCheckbox-type">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  Thematic areas
+                								</label>
+                							</div>
+                              <div class="form-check form-check-danger">
+                								<input class="form-check-input" type="radio" value="question_system" name="arcd-spiderCheckbox-type">
+                								<label class="form-check-label" for="flexCheckSuccess">
+                								  System Sector
+                								</label>
+                							</div>
+                						</div>
+                                         
+                
+                					</div>
+                				</div>
+									    </div>
+									   
+									  </div>
+									  <div class="row ">
+									     <div class="col-lg-12 col-md-12 col-sm-12">
+									        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body d-flex justify-content-center">
+                    						  {{spiderChart}}
+                    						</div>
+                    			</div>
+									      
+									    </div>
+									  </div>
+									  <div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Component scores</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{componentScoresTables}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Component scores summary</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{componentScoresChart}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Component scores Distribution</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{componentScoresBarChart}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Community scores summary</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{communityScoresChart}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Community scores Comparison</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{communityScoresComparison}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+									</div>
+									
+									<div class="tab-pane fade" id="backgroundAnalysis" role="tabpanel">                   
+							
+							      <div class="row">
+							          <div class=" col-lg-12 col-md-12 col-sm-12">
+							              <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Member Community report</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{memberCommunityReport}}
+              						  </div>
+              						  
+              					  </div>
+							          </div>
+							      </div>
+							      
+							       <div class="row mt-5">
+							          <div class=" col-lg-12 col-md-12 col-sm-12">
+							              <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Member Community Summary</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{memberCommunitySummary}}
+              						  </div>
+              						  
+              					  </div>
+							          </div>
+							      </div>
+  								
+  								  <div class="row mt-5">
+  								    	  <span class="mb-0">Population Figures</span>
+  								<hr>
+  								    	<div class=" col-lg-6 col-md-6 col-sm-12">
+              					    <div class="row">
+              					      <div class="col-lg-6 col-md-6 col-sm-12">
+              					        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<p class="mb-0 text-warning">Total Households</p>
+                    									<h4 class="my-1 text-warning">{{total_households}}</h4>
+                    								</div>
+                    								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					 </div>
+              					      </div>
+              					      <div class="col-lg-6 col-md-6 col-sm-12">
+              					        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<p class="mb-0 text-warning">Total Communities</p>
+                    									<h4 class="my-1 text-warning">{{total_communities}}</h4>
+                    								</div>
+                    								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					 </div>
+              					      </div>
+              					      <div class="col-lg-12 col-md-12 col-sm-12">
+              					        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<p class="mb-0 text-warning">Total Population</p>
+                    									<h4 class="my-1 text-warning">{{total_population}}</h4>
+                    								</div>
+                    								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					 </div>
+              					      </div>
+              					      <div class="col-lg-12 col-md-12 col-sm-12">
+              					        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<p class="mb-0 text-warning">Total Male</p>
+                    									<h4 class="my-1 text-warning">{{total_male}}</h4>
+                    								</div>
+                    								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					 </div>
+              					      </div>
+              					      <div class="col-lg-12 col-md-12 col-sm-12">
+              					        <div class="card radius-10 border-start border-0 border-4 border-primary">
+                    						<div class="card-body">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<p class="mb-0 text-warning">Total Female</p>
+                    									<h4 class="my-1 text-warning">{{total_female}}</h4>
+                    								</div>
+                    							<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					 </div>
+              					      </div>
+              					      
+              					    </div>
+              				  </div>
+              				  <div class=" col-lg-6 col-md-6 col-sm-12">
+              				    {{populationGroupChart}}
+              				  </div>
+  								  </div>
+  								  
+  								  
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Population Characteristics</span>
+  								    <hr>
+  								    	<div class=" col-lg-6 col-md-6 col-sm-12">
+              					    {{livelihood_zoneChart}}
+              				  </div>
+              				  <div class=" col-lg-6 col-md-6 col-sm-12">
+              				    {{education_levelChart}}
+              				  </div>
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Organization type</span>
+  								    <hr>
+  								    	<div class=" col-lg-6 col-md-6 col-sm-12">
+              					    {{local_community_groupsChart}}
+              				  </div>
+              				  <div class=" col-lg-6 col-md-6 col-sm-12">
+              				    {{external_org_typeChart}}
+              				  </div>
+              			
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Check list of available plans</span>
+  								    <hr>
+  								    	<div class=" col-lg-12 col-md-12 col-sm-12">
+              					    {{check_list_of_available_plans}}
+              				  </div>
+              				 
+              			
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Most vulnerable groups</span>
+  								    <hr>
+  								    	<div class=" col-lg-12 col-md-12 col-sm-12">
+              					    {{vul_groups}}
+              				  </div>
+              				 
+              			
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Identified Risk Scenario</span>
+  								    <hr>
+  								    	<div class=" col-lg-12 col-md-12 col-sm-12">
+              					    {{shock_list1}}
+              				  </div>
+              				 
+              			
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Stresses</span>
+  								    <hr>
+  								    	<div class=" col-lg-12 col-md-12 col-sm-12">
+              					    {{stress2}}
+              				  </div>
+              				 
+              			
+  								  </div>
+  								  
+  								  <div class="row mt-5">
+  								    <span class="mb-0">Risk Scenario Analysis</span>
+  								    <hr>
+  								    	<div class=" col-lg-12 col-md-12 col-sm-12">
+              					    {{most_devastating_shock}}
+              				  </div>
+              				 
+              			
+  								  </div>
+  									
+									</div>
+								
+									<div class="tab-pane fade" id="thematicSector" role="tabpanel">
+									    <div class="row">
+      									<div class=" col-lg-6 col-md-6 col-sm-6">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Risk Scenario</p>
+              									<h5 class="my-1 text-primary">{{theRiskScenarioValue2}}</h5>
+              								  <p class="mb-0 text-secondary font-14">{{theRiskScenarioType2}}</p>
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-6 col-md-6 col-sm-6">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Community</p>
+              									<h5 class="my-1 text-primary">{{communityName2}}</h5>
+              								  <p class="mb-0 text-secondary font-14">{{CommunityDistrict2}}</p>
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+    								  </div>
+    								  
+  									
+  								
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Thematic area scores for identified Risk Scenarios</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{thematicScoreTable}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Thematic area Resilience Percentage Comparison</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{thematicScorePercentageComparisonTable}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Thematic area scores Summary</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{thematicScoreChart}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									
+								</div>
+									
+									<div class="tab-pane fade" id="systemSector" role="tabpanel">
+									    <div class="row">
+      									<div class=" col-lg-6 col-md-6 col-sm-6">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Risk Scenario</p>
+              									<h5 class="my-1 text-primary">{{theRiskScenarioValue3}}</h5>
+              								  <p class="mb-0 text-secondary font-14">{{theRiskScenarioType3}}</p>
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-6 col-md-6 col-sm-6">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Community</p>
+              									<h5 class="my-1 text-primary">{{communityName3}}</h5>
+              								  <p class="mb-0 text-secondary font-14">{{CommunityDistrict3}}</p>
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+    								  </div>
+    								
+  									
+  									
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">System Sector scores for identified Risk Scenarios</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{systemScoreTable}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">System Sector Resilience Percentage Comparison</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{systemScorePercentageComparisonTable}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+              				     <div class="card radius-10 w-100" style="height:100%">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">System area scores Summary</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+              						  <div class="card-body">
+              							{{systemScoreChart}}
+              						  </div>
+              						  
+              					  </div>
+              				    
+              				  </div>
+          				
+				 
+  									</div>
+  									
+								</div>
+					
+							</div>
+						</div>
+					</div>
+</div>
+	
+	 
+	 
+
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Load Data</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+										
+
+											<div class="modal-body">	
+												<div class="row mb-3" style="">
+												 {{messageBox}}
+							
+												</div>
+							
+							          <div class="row mb-3">
+							    
+								<div class="col-12">
+									{{onaUser}}
+								</div>
+							  </div>
+							
+							        <div class="row mb-3">
+								
+								<div class="col-12">
+									{{onaPass}}
+								</div>
+							</div>
+						
+							
+							</div>
+							<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+														 {{submitOnaData}}
+													</div>
+										
+											
+										</div>
+									</div>
+								</div>
+			
+			
+	
+	</div>
+</div>
+
+
+
+<script src="assets/plugins/validation/jquery.validate.min.js"></script>
+<script src="assets/plugins/validation/validation-script.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#arcd-submitOnaData").on("click",function(){
+          $("#arcd-messageBox").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+								</div></div>`)
+        })
+        
+     
+      $('input[name="arcd-spiderCheckbox"]').change(function() {
+        // When a radio button is selected, send its value to Shiny
+        
+        Shiny.setInputValue('arcd-selectedspiderCheckbox', this.value);
+      });
+      
+      $('input[name="arcd-spiderCheckbox-type"]').change(function() {
+        // When a radio button is selected, send its value to Shiny
+        
+        Shiny.setInputValue('arcd-selectedspiderCheckboxtype', this.value);
+      });
+
+      
+        
+    });
+</script>
+

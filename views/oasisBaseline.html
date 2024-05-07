@@ -1,0 +1,1251 @@
+
+<style>
+  .shiny-input-container{
+    width: 100%;
+  }
+</style>
+
+<div class="page-wrapper" style="margin-top:60px">
+  
+	<div class="page-content">
+	  <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
+	  d-flex justify-content-between">
+	            <div class="row" style="width:100%">
+	              <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12">
+	                <div class="d-flex align-items-center">
+    								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
+    								</div>
+    								<div class="ms-3">
+    									<h6 class="mb-0 ">OASIS BASELINE MONITORING</h6>
+    									
+    								</div>
+    							</div>
+	              </div>
+	              <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 d-flex 
+	              justify-content-end align-items-center">
+	                	<div class="row">
+	              <div class="col d-flex justify-content-center align-items-center">
+  								<button type="button" class="btn btn-primary" 
+  								data-bs-toggle="modal" data-bs-target  ="#exampleVerticallycenteredModal"><i 
+  								class="bx bx-cloud-download mr-1"></i>Load Data
+  								</button>
+							  </div>
+	           </div>
+	              </div>
+	            </div>
+							
+						
+						</div>
+						
+
+<div class="row">
+  <div class="col-12">
+            {{warningToLoadDATA}}
+						 <div class="row">
+          <div class="col-lg-2 col-md-2  col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>,
+         <div class="col-lg-3 col-md-3 col-sm-12">
+                          <div class="mb-3">
+                        			{{Segrigation}}
+                        	</div>
+                        </div>
+               <div class="col-lg-3 col-md-3 col-sm-12">
+                  <div class="mb-3">
+                			{{Segrigation_element}}
+                	</div>
+               </div>
+         
+        </div>
+						<hr>
+						<div class="card" style="background: unset;box-shadow:unset">
+							<div class="card-body">
+								<ul class="nav nav-tabs nav-success" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" data-bs-toggle="tab" href="#successhome" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Summary</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#targetvsachieved" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Target vs Achieved</div>
+											</div>
+										</a>
+									</li>
+								
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#enumirator_performance" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Enumerator Performance</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#spotcheckAnalysis" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Spotcheck Analysis</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#MapData" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Map</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item" role="presentation" style="display:none">
+										<a class="nav-link" data-bs-toggle="tab" href="#allData" role="tab" aria-selected="false" tabindex="-1">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">All Survey Data</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<div class="tab-content py-3">
+									<div class="tab-pane fade active show" id="successhome" role="tabpanel">                   
+									    
+									    
+									   <span class="mb-0">Interview Status</span>
+  									  <hr>
+  									  
+  									  <div class="row">
+									<div class=" col-lg-12 col-md-12 col-sm-12">
+        					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+        						<div class="card-body">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<p class="mb-0 text-warning">Re-interviewed Households</p>
+        									<h4 class="my-1 text-warning">{{duplicateInterViewCount}}</h4>
+        								  <p class="mb-0 text-secondary font-14">Households where short-duration survey is detected are re-surveyed again resulting duplicate survey for same Households <br> therefore among those duplicates ,the valid survey based on duration will be selected , and the rest will be ignored for same household. </p>
+        								</div>
+        								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+        								</div>
+        							</div>
+        						</div>
+        					 </div>
+        					
+        				   </div>
+        				         
+        				        
+								</div>
+  									<div class="row">
+  									 
+  									<div class=" col-lg-6 col-md-6 col-sm-12">
+            					
+            					 	
+            					
+            					
+            					<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Interview Status</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{interviewStatusChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   <ul class="list-group list-group-flush">
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">Total Interviews 
+          							<h5 class="rounded-pill">{{total_interviews}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Valid Interviews 
+          							<h5 class="rounded-pill">{{valid_interviews}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Invalid Interviews
+          							<h5 class="rounded-pill">{{invalid_interviews}}</h5>
+          							</li>
+          						
+          						</ul>
+          					   </div>
+  					
+  				         </div>
+  				
+  				          <div class=" col-lg-6 col-md-6 col-sm-12">
+  						              <div class="card radius-10 w-100">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Invalid Interview Classification</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+                						   <div class="card-body">
+                							<div class="row">
+                								<div class="col-12">
+                								  {{InvalidinterviewStatusChart}}
+                								</div>
+                							  </div>
+                						   </div>
+                						   <ul class="list-group list-group-flush">
+                							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">Invalid Spot checked Interviews 
+                							<h5 class="rounded-pill">{{invalid_interview_spot_check}}</h5>
+                							</li>
+                						
+                							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Invalid short period Interviews
+                							<h5 class="rounded-pill">{{invalid_interview_short_period}}</h5>
+                							</li>
+                								<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">-
+                							<h5 class="rounded-pill">-</h5>
+                							</li>
+                						
+                						</ul>
+                					   </div>
+  				          </div>
+  									</div>
+  									
+  									<div class="row">
+  									  <span class="mb-0">Consent</span>
+  									  <hr>
+  									  	<div class=" col-lg-6 col-md-6 col-sm-12">
+            				
+            					 
+            					 
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Consent Interview Classification</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{ConsentinterviewStatusChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   <ul class="list-group list-group-flush">
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">Consented Interviews 
+          							<h5 class="rounded-pill">{{consented_interview}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Non-concented Interviews 
+          							<h5 class="rounded-pill">{{non_consented_interview}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">-
+          							<h5 class="rounded-pill">-</h5>
+          							</li>
+          						
+          						</ul>
+          					   </div>
+            					
+            				   </div>
+  				              <div class=" col-lg-6 col-md-6 col-sm-12">
+  						               
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Head of household Gender Classification</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{HHGenderterviewStatusChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   <ul class="list-group list-group-flush">
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">Male Head of HouseHold 
+          							<h5 class="rounded-pill">{{male_household_size}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">Female Head of HouseHold
+          							<h5 class="rounded-pill">{{female_household_size}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">-
+          							<h5 class="rounded-pill">-</h5>
+          							</li>
+          						
+          						</ul>
+          					   </div>
+            					
+            				   </div>
+  				          
+  				             </div>
+  				             
+  				             	<div class="row">
+  									
+  									  	<div class=" col-lg-6 col-md-6 col-sm-12">
+            				  <span class="mb-0">People With Disability</span>
+  									  <hr>
+            					 
+            					 
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">People with Disability Classification</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{peopleWithDisabilityChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   <ul class="list-group list-group-flush">
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">Total People with Disability 
+          							<h5 class="rounded-pill">{{total_poeple_with_disability}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">People with Physical Disability 
+          							<h5 class="rounded-pill">{{total_poeple_with_disability_physical}}</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">People with Physical Mentality
+          							<h5 class="rounded-pill">{{total_poeple_with_disability_mental}}</h5>
+          							</li>
+          						
+          						</ul>
+          					   </div>
+            					
+            				   </div>
+            				   
+            				   <div class=" col-lg-6 col-md-6 col-sm-12">
+            				  <span class="mb-0">Livelihood Zone Classification</span>
+  									  <hr>
+            					 
+            					 
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Livelihood zones</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{LivelihoodZoneChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   <ul class="list-group list-group-flush">
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">- 
+          							<h5 class="rounded-pill">-</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">-
+          							<h5 class="rounded-pill">-</h5>
+          							</li>
+          							<li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">-
+          							<h5 class="rounded-pill">-</h5>
+          							</li>
+          						
+          						</ul>
+          					   </div>
+            					
+            				   </div>
+  									</div>
+  								 <div class="row">
+  								   <span class="mb-0">Farming</span>
+  									  <hr>
+  								   <div class=" col-lg-6 col-md-6 col-sm-12">
+
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0"> Types of farming</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{typesOfFarmingChart}}
+          								</div>
+          							  </div>
+          						   </div>
+          						  
+          					   </div>
+            					
+            				   </div>
+            				   
+            				  <div class=" col-lg-6 col-md-6 col-sm-12">
+            				 
+            					 
+            					 
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Crops cultivated</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{cropsCultivated}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   
+          					   </div>
+            					
+            				   </div>
+  								 </div>
+  								 
+  								 
+  								 <div class="row">
+  								   <span class="mb-0">Water and source of income</span>
+  									  <hr>
+  								   <div class=" col-lg-6 col-md-6 col-sm-12">
+
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Main source of drinking water</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{mainSourceOfDrinkingWater}}
+          								</div>
+          							  </div>
+          						   </div>
+          						  
+          					   </div>
+            					
+            				   </div>
+            				   
+            				  <div class=" col-lg-6 col-md-6 col-sm-12">
+            				 
+            					 
+            					 
+            					 	<div class="card radius-10 w-100">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Main source of income </h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						   <div class="card-body">
+          							<div class="row">
+          								<div class="col-12">
+          								  {{mainSourceofincome}}
+          								</div>
+          							  </div>
+          						   </div>
+          						   
+          					   </div>
+            					
+            				   </div>
+  								 </div>
+  				         
+  									  <div class="row">
+  									  <span class="mb-0">Interview Duration</span>
+  									  <hr>
+  									   <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Avarage Interview Time</p>
+            								   <h4 class="my-1 text-info">{{avarage_interview_time}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+            				  <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Min Interview Time</p>
+            								   <h4 class="my-1 text-info">{{min_interview_time}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+            				  <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Max Interview Time</p>
+            								   <h4 class="my-1 text-info">{{max_interview_time}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+  									</div>
+  									
+  								
+  									
+  									<div class="row">
+  									  <span class="mb-0">Age Of head of households</span>
+  									  <hr>
+  									   <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Avarage Age</p>
+            								   <h4 class="my-1 text-info">{{avarage_age_hh}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+            				  <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Min Age of head of household</p>
+            								   <h4 class="my-1 text-info">{{min_age_hh}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+            				  <div class=" col-lg-4 col-md-4 col-sm-12">
+            						 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Max Age of head of household</p>
+            								   <h4 class="my-1 text-info">{{max_age_hh}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				  </div>
+  									</div>
+  									
+  									<div class="row">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Summarised Analysis</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{SummaryAnalysisTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+  									
+  									<div class="row mt-5">
+									      <div class=" col-lg-12col-md-6 col-sm-12">
+  						              <div class="card radius-10 w-100">
+                						<div class="card-header">
+                							<div class="d-flex align-items-center">
+                								<div>
+                									<h6 class="mb-0">Daily Interview Frequency</h6>
+                								</div>
+                								
+                							</div>
+                						</div>
+                						   <div class="card-body">
+                							<div class="row">
+                								<div class="col-12">
+                								  {{dailyInterview}}
+                								</div>
+                							  </div>
+                						   </div>
+                						   
+                					   </div>
+  				          </div>
+									    </div> 
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Member Interview Summary</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{chartSummaryAnalysisTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Member Interview Summary</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{memberSummaryAnalysisTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Short Interviews</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{shortInterviewTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Spotcheck Failure Interviews</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{SpotcheckFailureInterviewsTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+  								
+  									<div class="row mt-5">
+  									  	  <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center justify-content-between">
+          								<div>
+          									<h6 class="mb-0">HouseHold Re-interviewed Information</h6>
+          								</div>
+          							
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{duplicateInterviewsTable}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+  									</div>
+  									
+									</div>
+									<div class="tab-pane fade" id="targetvsachieved" role="tabpanel">
+									
+											
+										
+										<div class="row">
+            			   <div class=" col-lg-12 col-md-12 col-sm-12">
+          					  <div class="card w-100 radius-10">
+          						<div class="card-body">
+          						   <div class="row">
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						        <div class="card radius-10 border shadow-none">
+                							<div class="card-body">
+                							  <div class="d-flex align-items-center">
+                								<div>
+                								  <p class="mb-0 text-secondary">Target</p>
+                								  <h4 class="my-1 text-primary">{{total_target}}</h4>
+                								 
+                								</div>
+                								<div class="widgets-icons-2 bg-gradient-cosmic text-white ms-auto">
+                								  <i class="bx bxs-bar-chart-alt-2"></i>
+                								</div>
+                							  </div>
+                							</div>
+                						  </div>
+                						  <div class="card radius-10 border shadow-none">
+                							<div class="card-body">
+                							  <div class="d-flex align-items-center">
+                								<div>
+                								  <p class="mb-0 text-secondary">Total Achieved</p>
+                								  <h4 class="my-1 text-primary">{{total_achieved}}</h4>
+                								  
+                								</div>
+                								<div class="widgets-icons-2 bg-gradient-ibiza text-white ms-auto">
+                								  <i class="bx bxs-bar-chart-alt-2"></i>
+                								</div>
+                							  </div>
+                							</div>
+                						  </div>
+                						  
+                						  <div class="card radius-10 border shadow-none">
+                							<div class="card-body">
+                							  <div class="d-flex align-items-center">
+                								<div>
+                								  <p class="mb-0 text-warning">Total Varience</p>
+                								  <h4 class="my-1 text-danger">{{total_varience}}</h4>
+                								  
+                								</div>
+                								<div class="widgets-icons-2 bg-gradient-ibiza text-white ms-auto">
+                								  <i class="bx bxs-bar-chart-alt-2"></i>
+                								</div>
+                							  </div>
+                							</div>
+                						  </div>
+          						     </div>
+          						     
+          						     
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						       {{target_vs_achieved_chart}}
+          						     </div>
+          						     
+          						   </div>
+          						</div>
+          					  </div>
+          					</div>
+            			</div>
+			
+			
+			
+			
+			
+            			
+										<div class="row mt-2">
+        	
+        
+        	  
+          				  <div class="col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Summarised Analysis</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{SegrigationAnalysis}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+				   
+			            	</div>
+			            	<div class="row mt-2">
+        	
+        
+        	  
+          				  <div class="col-12 col-md-12 col-sm-12">
+          				     <div class="card radius-10 w-100" style="height:100%">
+          						<div class="card-header">
+          							<div class="d-flex align-items-center">
+          								<div>
+          									<h6 class="mb-0">Summarised Graphical Analysis</h6>
+          								</div>
+          								
+          							</div>
+          						</div>
+          						  <div class="card-body">
+          							{{ChartSegrigationAnalysis}}
+          						  </div>
+          						  
+          					  </div>
+          				    
+          				  </div>
+          				
+				 
+				   
+			            	</div>
+			            	
+			            	
+										</div>
+										
+									
+									<div class="tab-pane fade" id="enumirator_performance" role="tabpanel">
+									  	<div class="row">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Overall Enumerator Performance</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{enumirator_performance_DT}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									   
+									<div class="row mt-4">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex justify-content-between align-items-center">
+        								<div>
+        									<h6 class="mb-0">Surveys Per Enumerator</h6>
+        								</div>
+        								      <div class="mb-3">
+                          			{{enumirator_dropdown2}}
+                          	</div>
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{enumirator_survey_table}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									
+									<div class="row mt-4">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex justify-content-between align-items-center">
+        								<div>
+        									<h6 class="mb-0">Enumerators with More than 1 invalid spotcheck in same community</h6>
+        								</div>
+        								  
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{enumirator_with_more_than_1_invalid_spotcheck}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									  </div>
+									  
+									 <div class="tab-pane fade" id="spotcheckAnalysis" role="tabpanel">
+									<div class="row">
+									  <span class="mb-0">SpotCheck OverView</span>
+									  <hr>
+									   <div class=" col-lg-6 col-md-6 col-sm-12">
+            					 <div class="card radius-10 border-start border-0 border-4 border-info">
+            						<div class="card-body">
+            							<div class="d-flex align-items-center">
+            								<div>
+            									<p class="mb-0 text-info">Total SpotChecks</p>
+            									<h4 class="my-1 text-info">{{total_spotchecks_done}}</h4>
+            								
+            								</div>
+            								<div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            								</div>
+            							</div>
+            						</div>
+            					 </div>
+            					 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Valid SpotChecks</p>
+            								   <h4 class="my-1 text-info">{{total_valid_spotchecks_done}}</h4>
+            								 
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            					 <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Invalid SpotChecks</p>
+            								   <h4 class="my-1 text-info">{{total_invalid_spotchecks_done}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            	</div>
+            	         <div class="card radius-10 border-start border-0 border-4 border-info">
+            					   <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-info">Mismatch SpotChecks</p>
+            								   <h4 class="my-1 text-info">{{total_mismatch_spotchecks_done}}</h4>
+            								  
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					</div>
+            				
+          				   </div>
+        				      <div class=" col-lg-6 col-md-6 col-sm-12">
+        				        {{spotcheckAnalysisChart}}
+        				      </div>
+        				      
+        					
+							    </div>
+						    	<div class="row">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Spotcheck Analysis</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{spotcheckAnalysisTable}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									<div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Spotcheck Analysis per Enumerator</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{spotcheckAnalysisEnumiratorTable}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									<div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Invalid Spotchecks</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{invalidSpotcheckTable}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+								<div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+											<div class="card radius-10 w-100" style="height:100%">
+												<div class="card-header">
+													<div class="d-flex align-items-center">
+														<div>
+															<h6 class="mb-0">Mismatched Spotchecks</h6>
+														</div>
+														
+													</div>
+												</div>
+												<div class="card-body">
+													{{mismatchSpotcheckTable}}
+												</div>
+												
+											</div>
+											
+										</div>
+        				
+			 
+									</div>
+									<div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Spotchecks Done</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{allSpotchecksDone}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									<div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">Data to be backchecked</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{dataToBeBackChecked}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+									</div>
+								 
+								  <div class="tab-pane fade" id="MapData" role="tabpanel">
+								    <div class="row mt-5">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center justify-content-between">
+        								<div>
+        									<h6 class="mb-0">Map</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{surveyMap}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+								  </div>
+								  <div class="tab-pane fade" id="allData" role="tabpanel">
+								    <div class="row">
+									  	  <div class="col-12 col-md-12 col-sm-12">
+        				     <div class="card radius-10 w-100" style="height:100%">
+        						<div class="card-header">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<h6 class="mb-0">All Survey Data</h6>
+        								</div>
+        								
+        							</div>
+        						</div>
+        						  <div class="card-body">
+        							{{allSurveyDataTable}}
+        						  </div>
+        						  
+        					  </div>
+        				    
+        				  </div>
+        				
+			 
+									</div>
+								  </div>
+							</div>
+						</div>
+					</div>
+</div>
+	
+	 
+	 
+
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Load Data</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+										
+
+											<div class="modal-body">	
+												<div class="row mb-3" style="">
+												 {{messageBox}}
+							
+												</div>
+							
+							          <div class="row mb-3">
+							    
+								<div class="col-12">
+									{{onaUser}}
+								</div>
+							  </div>
+							
+							        <div class="row mb-3">
+								
+								<div class="col-12">
+									{{onaPass}}
+								</div>
+							</div>
+						
+							
+							</div>
+							<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+														 {{submitOnaData}}
+													</div>
+										
+											
+										</div>
+									</div>
+								</div>
+			
+			
+	
+	</div>
+</div>
+
+
+
+<script src="assets/plugins/validation/jquery.validate.min.js"></script>
+<script src="assets/plugins/validation/validation-script.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#oasisBaseline-submitOnaData").on("click",function(){
+          $("#oasisBaseline-messageBox").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+								</div></div>`)
+        })
+        
+        
+    });
+</script>
+

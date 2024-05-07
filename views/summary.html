@@ -1,0 +1,219 @@
+<div class="page-wrapper">
+			<div class="page-content">
+			  <div class="row">
+          <div class="col-3 col-lg-3 col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-3 col-lg-3 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>
+         
+        </div>
+				<div class="row">
+				  
+				  <div class="col-4 col-lg-4 col-md-4 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-danger">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Alarm cases</p>
+								   <h4 class="my-1 text-danger">{{total_alarms}}</h4>
+								  
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-danger opacity-25 text-white ms-auto"><i class="bx bx-upside-down"></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col-4 col-lg-4 col-md-4 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-warning">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total alert cases</p>
+								   <h4 class="my-1 text-warning">{{total_alerts}}</h4>
+								 
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-warning opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col-4 col-lg-4 col-md-4 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-success">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Normal cases</p>
+								   <h4 class="my-1 text-success">{{total_normal}}</h4>
+								   
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-success opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+					
+          <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					 <div class="card radius-10 border-start border-0 border-4 border-warning">
+						<div class="card-body">
+							<div class="d-flex align-items-center">
+								<div>
+									<p class="mb-0 text-secondary">Total Shocks Occurence</p>
+									<h4 class="my-1 text-warning">{{total_shocks}}</h4>
+									<p class="mb-0 font-13">{{total_districts_shock_occurence}}</p>
+								</div>
+								<div class="widgets-icons-2 rounded-circle bg-warning opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+								</div>
+							</div>
+						</div>
+					 </div>
+				   </div>
+				  <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-info">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Shock Effects</p>
+								   <h4 class="my-1 text-info">{{total_shock_effects}}</h4>
+								  <p class="mb-0 font-13">{{districts_effected_by_shock}}</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-info opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-danger">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Red-flags recorded</p>
+								   <h4 class="my-1 text-danger">{{total_red_flags}}</h4>
+								  <p class="mb-0 font-13">{{red_flags_districts}}</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-danger opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				  </div>
+				  <div class="col-3 col-lg-3 col-md-3 col-sm-12">
+					<div class="card radius-10 border-start border-0 border-4 border-success">
+					   <div class="card-body">
+						   <div class="d-flex align-items-center">
+							   <div>
+								   <p class="mb-0 text-secondary">Total Non Red-flags</p>
+								   <h4 class="my-1 text-success">{{total_not_red_flags}}</h4>
+								   <p class="mb-0 font-13">{{not_red_flags_districts}}</p>
+							   </div>
+							   <div class="widgets-icons-2 rounded-circle bg-success opacity-25 text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+							   </div>
+							   </div>
+						   </div>
+					   </div>
+					</div>
+				
+				  </div> 
+			
+        
+				<div class="row">
+                   <div class="col-12 col-lg-8 d-flex">
+                      <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Red Flagged Area</h6>
+								</div>
+								
+							</div>
+						</div>
+						  <div class="card-body">
+							{{RedFalggedDistrictMap}}
+						  </div>
+						  
+					  </div>
+				   </div>
+				   <div class="col-12 col-lg-4 d-flex">
+                       <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Red-Flag Classification</h6>
+								</div>
+							</div>
+						</div>
+						   <div class="card-body">
+							  {{displyclassifychart}}
+						   </div>
+						  
+					   </div>
+				   </div>
+				 
+				</div><!--end row-->
+				
+				<div class="row">
+				  <div class="col-12 col-md-12 col-sm-12">
+				     <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Red-Flagging by District</h6>
+								</div>
+								
+							</div>
+						</div>
+						  <div class="card-body">
+							{{redFlagBarChartSummary}}
+						  </div>
+						  
+					  </div>
+				    
+				  </div>
+				   <div class="col-12 col-md-12 col-sm-12">
+				     <div class="card radius-10 w-100">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<div>
+									<h6 class="mb-0">Red-Flagging by Month</h6>
+								</div>
+								
+							</div>
+						</div>
+						  <div class="card-body">
+							{{redFlagBarChartSummarybyMonth}}
+						  </div>
+						  
+					  </div>
+				    
+				  </div>
+				</div>
+				<div class="card radius-10">
+					<div class="card-header">
+						<div class="d-flex align-items-center">
+							<div>
+								<h6 class="mb-0">Red Flagging Report</h6>
+							</div>
+							
+						</div>
+					</div>
+                         <div class="card-body">
+						 <div class="table-responsive">
+						   {{displayRedFlagTable}}
+						  </div>
+						 </div>
+					</div>
+			
+
+		
+			</div><!--end row-->

@@ -1,0 +1,556 @@
+"Community","Level","variable","From","Up to"
+"Adaado","Normal","Sorghum Prices",0,0.54
+"Adaado","Alert","Sorghum Prices",0.55,0.61
+"Adaado","Alarm","Sorghum Prices",0.62,0.68
+"Galkaayo CESVI","Normal","Sorghum Prices",0,0.26
+"Galkaayo CESVI","Alert","Sorghum Prices",0.27,0.37
+"Galkaayo CESVI","Alarm","Sorghum Prices",0.38,0.45
+"Afgoye CESVI","Normal","Sorghum Prices",0,0.72
+"Afgoye CESVI","Alert","Sorghum Prices",0.73,0.8
+"Afgoye CESVI","Alarm","Sorghum Prices",0.81,0.84
+"Afgoye CWW","Normal","Sorghum Prices",0,0.52
+"Afgoye CWW","Alert","Sorghum Prices",0.53,0.72
+"Afgoye CWW","Alarm","Sorghum Prices",0.73,0.96
+"Afmadow","Normal","Sorghum Prices",0,0.3
+"Afmadow","Alert","Sorghum Prices",0.31,0.4
+"Afmadow","Alarm","Sorghum Prices",0.41,0.52
+"Baidoa","Normal","Sorghum Prices",0,0.4
+"Baidoa","Alert","Sorghum Prices",0.41,0.56
+"Baidoa","Alarm","Sorghum Prices",0.57,0.72
+"Bardera","Normal","Sorghum Prices",0,0.88
+"Bardera","Alert","Sorghum Prices",0.89,0.99
+"Bardera","Alarm","Sorghum Prices",1,1.1
+"Beledweyne","Normal","Sorghum Prices",0,0.86
+"Beledweyne","Alert","Sorghum Prices",0.87,0.95
+"Beledweyne","Alarm","Sorghum Prices",0.96,1.05
+"Belet-Hawa","Normal","Sorghum Prices",0,0.75
+"Belet-Hawa","Alert","Sorghum Prices",0.76,1
+"Belet-Hawa","Alarm","Sorghum Prices",1.01,1.5
+"Bondhere","Normal","Sorghum Prices",0,0.42
+"Bondhere","Alert","Sorghum Prices",0.43,0.71
+"Bondhere","Alarm","Sorghum Prices",0.72,1
+"Borama","Normal","Sorghum Prices",0,0.42
+"Borama","Alert","Sorghum Prices",0.43,0.7
+"Borama","Alarm","Sorghum Prices",0.71,0.98
+"Burtinle","Normal","Sorghum Prices",0,0.68
+"Burtinle","Alert","Sorghum Prices",0.69,1.03
+"Burtinle","Alarm","Sorghum Prices",1.04,1.16
+"Daynile","Normal","Sorghum Prices",0,0.44
+"Daynile","Alert","Sorghum Prices",0.45,0.64
+"Daynile","Alarm","Sorghum Prices",0.65,1
+"Dhusamareb IRC","Normal","Sorghum Prices",0,0.62
+"Dhusamareb IRC","Alert","Sorghum Prices",0.63,0.66
+"Dhusamareb IRC","Alarm","Sorghum Prices",0.67,0.72
+"Dhusamareb NRC","Normal","Sorghum Prices",0,0.59
+"Dhusamareb NRC","Alert","Sorghum Prices",0.6,0.69
+"Dhusamareb NRC","Alarm","Sorghum Prices",0.7,0.9
+"Dinsoor","Normal","Sorghum Prices",0,0.21
+"Dinsoor","Alert","Sorghum Prices",0.22,0.42
+"Dinsoor","Alarm","Sorghum Prices",0.43,0.83
+"Elbarde","Normal","Sorghum Prices",0,0.41
+"Elbarde","Alert","Sorghum Prices",0.42,0.43
+"Elbarde","Alarm","Sorghum Prices",0.44,0.57
+"Erigavo","Normal","Sorghum Prices",0,2
+"Erigavo","Alert","Sorghum Prices",2.01,2.35
+"Erigavo","Alarm","Sorghum Prices",2.36,2.71
+"Galdogob","Normal","Sorghum Prices",0,0.68
+"Galdogob","Alert","Sorghum Prices",0.69,1.03
+"Galdogob","Alarm","Sorghum Prices",1.04,1.16
+"Galkaayo IRC","Normal","Sorghum Prices",0,0.26
+"Galkaayo IRC","Alert","Sorghum Prices",0.27,0.37
+"Galkaayo IRC","Alarm","Sorghum Prices",0.38,0.45
+"Hamarwen","Normal","Sorghum Prices",0,0.31
+"Hamarwen","Alert","Sorghum Prices",0.32,0.45
+"Hamarwen","Alarm","Sorghum Prices",0.46,0.65
+"Hobyo","Normal","Sorghum Prices",0,0.32
+"Hobyo","Alert","Sorghum Prices",0.33,0.38
+"Hobyo","Alarm","Sorghum Prices",0.39,0.42
+"Hodan","Normal","Sorghum Prices",0,0.4
+"Hodan","Alert","Sorghum Prices",0.41,0.64
+"Hodan","Alarm","Sorghum Prices",0.65,1
+"Holwadag","Normal","Sorghum Prices",0,0.4
+"Holwadag","Alert","Sorghum Prices",0.41,0.64
+"Holwadag","Alarm","Sorghum Prices",0.65,1
+"Hudur","Normal","Sorghum Prices",0,0.4
+"Hudur","Alert","Sorghum Prices",0.41,0.6
+"Hudur","Alarm","Sorghum Prices",0.61,0.8
+"Iskushuban","Normal","Sorghum Prices",0,0.9
+"Iskushuban","Alert","Sorghum Prices",0.91,1
+"Iskushuban","Alarm","Sorghum Prices",1.01,1.5
+"Kahda","Normal","Sorghum Prices",0,0.72
+"Kahda","Alert","Sorghum Prices",0.73,0.76
+"Kahda","Alarm","Sorghum Prices",0.77,0.8
+"Karaan","Normal","Sorghum Prices",0,0.44
+"Karaan","Alert","Sorghum Prices",0.45,0.64
+"Karaan","Alarm","Sorghum Prices",0.65,1
+"Kismayo","Normal","Sorghum Prices",0,0.46
+"Kismayo","Alert","Sorghum Prices",0.47,0.58
+"Kismayo","Alarm","Sorghum Prices",0.59,0.69
+"Lascanod","Normal","Sorghum Prices",0,0.4
+"Lascanod","Alert","Sorghum Prices",0.41,0.53
+"Lascanod","Alarm","Sorghum Prices",0.54,0.72
+"Luuq","Normal","Sorghum Prices",0,0.48
+"Luuq","Alert","Sorghum Prices",0.49,0.72
+"Luuq","Alarm","Sorghum Prices",0.73,1
+"Mataban","Normal","Sorghum Prices",0,0.76
+"Mataban","Alert","Sorghum Prices",0.77,0.84
+"Mataban","Alarm","Sorghum Prices",0.85,0.92
+"Qardho","Normal","Sorghum Prices",0,1
+"Qardho","Alert","Sorghum Prices",1.01,1.25
+"Qardho","Alarm","Sorghum Prices",1.26,1.5
+"Wadajir","Normal","Sorghum Prices",0,0.36
+"Wadajir","Alert","Sorghum Prices",0.37,0.6
+"Wadajir","Alarm","Sorghum Prices",0.61,0.88
+"Wajid","Normal","Sorghum Prices",0,0.36
+"Wajid","Alert","Sorghum Prices",0.37,0.44
+"Wajid","Alarm","Sorghum Prices",0.45,0.72
+"Wanlaweyn","Normal","Sorghum Prices",0,0.56
+"Wanlaweyn","Alert","Sorghum Prices",0.57,0.76
+"Wanlaweyn","Alarm","Sorghum Prices",0.77,1.04
+"Yaqshid","Normal","Sorghum Prices",0,0.44
+"Yaqshid","Alert","Sorghum Prices",0.45,0.6
+"Yaqshid","Alarm","Sorghum Prices",0.61,1
+"Adaado","Normal","Maize Prices",0,0.59
+"Adaado","Alert","Maize Prices",0.6,0.64
+"Adaado","Alarm","Maize Prices",0.65,0.71
+"Galkaayo CESVI","Normal","Maize Prices",0,0.43
+"Galkaayo CESVI","Alert","Maize Prices",0.44,0.46
+"Galkaayo CESVI","Alarm","Maize Prices",0.47,0.53
+"Afgoye CESVI","Normal","Maize Prices",0,0.72
+"Afgoye CESVI","Alert","Maize Prices",0.73,0.76
+"Afgoye CESVI","Alarm","Maize Prices",0.77,0.84
+"Afgoye CWW","Normal","Maize Prices",0,0.64
+"Afgoye CWW","Alert","Maize Prices",0.65,0.72
+"Afgoye CWW","Alarm","Maize Prices",0.73,1
+"Afmadow","Normal","Maize Prices",0,0.48
+"Afmadow","Alert","Maize Prices",0.49,0.64
+"Afmadow","Alarm","Maize Prices",0.65,0.8
+"Baidoa","Normal","Maize Prices",0,0.32
+"Baidoa","Alert","Maize Prices",0.33,0.48
+"Baidoa","Alarm","Maize Prices",0.49,0.68
+"Bardera","Normal","Maize Prices",0,1
+"Bardera","Alert","Maize Prices",1.01,0.98
+"Bardera","Alarm","Maize Prices",0.99,1.1
+"Beledweyne","Normal","Maize Prices",0,0.5
+"Beledweyne","Alert","Maize Prices",0.51,0.59
+"Beledweyne","Alarm","Maize Prices",0.6,0.73
+"Belet-Hawa","Normal","Maize Prices",0,1.23
+"Belet-Hawa","Alert","Maize Prices",1.24,1.85
+"Belet-Hawa","Alarm","Maize Prices",1.86,2.47
+"Bondhere","Normal","Maize Prices",0,0.5
+"Bondhere","Alert","Maize Prices",0.51,0.67
+"Bondhere","Alarm","Maize Prices",0.68,0.88
+"Borama","Normal","Maize Prices",0,0.63
+"Borama","Alert","Maize Prices",0.64,0.84
+"Borama","Alarm","Maize Prices",0.85,1.12
+"Burtinle","Normal","Maize Prices",0,0.73
+"Burtinle","Alert","Maize Prices",0.74,1.14
+"Burtinle","Alarm","Maize Prices",1.15,1.24
+"Daynile","Normal","Maize Prices",0,0.44
+"Daynile","Alert","Maize Prices",0.45,0.68
+"Daynile","Alarm","Maize Prices",0.69,0.8
+"Dhusamareb IRC","Normal","Maize Prices",0,0.83
+"Dhusamareb IRC","Alert","Maize Prices",0.84,0.9
+"Dhusamareb IRC","Alarm","Maize Prices",0.91,0.93
+"Dhusamareb NRC","Normal","Maize Prices",0,0.62
+"Dhusamareb NRC","Alert","Maize Prices",0.63,0.69
+"Dhusamareb NRC","Alarm","Maize Prices",0.7,0.83
+"Dinsoor","Normal","Maize Prices",0,0.25
+"Dinsoor","Alert","Maize Prices",0.26,0.75
+"Dinsoor","Alarm","Maize Prices",0.76,1.04
+"Elbarde","Normal","Maize Prices",0,0.5
+"Elbarde","Alert","Maize Prices",0.51,0.59
+"Elbarde","Alarm","Maize Prices",0.6,0.68
+"Erigavo","Normal","Maize Prices",0,1.71
+"Erigavo","Alert","Maize Prices",1.72,2
+"Erigavo","Alarm","Maize Prices",2.01,2.35
+"Galdogob","Normal","Maize Prices",0,0.73
+"Galdogob","Alert","Maize Prices",0.74,1.11
+"Galdogob","Alarm","Maize Prices",1.12,1.24
+"Galkaayo IRC","Normal","Maize Prices",0,0.43
+"Galkaayo IRC","Alert","Maize Prices",0.44,0.46
+"Galkaayo IRC","Alarm","Maize Prices",0.47,0.53
+"Hamarwen","Normal","Maize Prices",0,0.37
+"Hamarwen","Alert","Maize Prices",0.38,0.53
+"Hamarwen","Alarm","Maize Prices",0.54,0.69
+"Hobyo","Normal","Maize Prices",0,0.35
+"Hobyo","Alert","Maize Prices",0.36,0.4
+"Hobyo","Alarm","Maize Prices",0.41,0.45
+"Hodan","Normal","Maize Prices",0,0.44
+"Hodan","Alert","Maize Prices",0.45,0.68
+"Hodan","Alarm","Maize Prices",0.69,0.8
+"Holwadag","Normal","Maize Prices",0,0.44
+"Holwadag","Alert","Maize Prices",0.45,0.68
+"Holwadag","Alarm","Maize Prices",0.69,0.8
+"Hudur","Normal","Maize Prices",0,0.4
+"Hudur","Alert","Maize Prices",0.41,0.64
+"Hudur","Alarm","Maize Prices",0.65,0.8
+"Iskushuban","Normal","Maize Prices",0,0.9
+"Iskushuban","Alert","Maize Prices",0.91,1
+"Iskushuban","Alarm","Maize Prices",1.01,1.38
+"Kahda","Normal","Maize Prices",0,0.76
+"Kahda","Alert","Maize Prices",0.77,0.8
+"Kahda","Alarm","Maize Prices",0.81,0.86
+"Karaan","Normal","Maize Prices",0,0.48
+"Karaan","Alert","Maize Prices",0.49,0.64
+"Karaan","Alarm","Maize Prices",0.65,0.84
+"Kismayo","Normal","Maize Prices",0,0.42
+"Kismayo","Alert","Maize Prices",0.43,0.54
+"Kismayo","Alarm","Maize Prices",0.55,0.73
+"Lascanod","Normal","Maize Prices",0,0.47
+"Lascanod","Alert","Maize Prices",0.48,0.53
+"Lascanod","Alarm","Maize Prices",0.54,0.58
+"Luuq","Normal","Maize Prices",0,0.44
+"Luuq","Alert","Maize Prices",0.45,0.56
+"Luuq","Alarm","Maize Prices",0.57,0.72
+"Mataban","Normal","Maize Prices",0,0.44
+"Mataban","Alert","Maize Prices",0.45,0.52
+"Mataban","Alarm","Maize Prices",0.53,0.64
+"Qardho","Normal","Maize Prices",0,0.9
+"Qardho","Alert","Maize Prices",0.91,1
+"Qardho","Alarm","Maize Prices",1.01,1.5
+"Wadajir","Normal","Maize Prices",0,0.44
+"Wadajir","Alert","Maize Prices",0.45,0.68
+"Wadajir","Alarm","Maize Prices",0.69,0.84
+"Wajid","Normal","Maize Prices",0,0.44
+"Wajid","Alert","Maize Prices",0.45,0.52
+"Wajid","Alarm","Maize Prices",0.53,0.72
+"Wanlaweyn","Normal","Maize Prices",0,0.72
+"Wanlaweyn","Alert","Maize Prices",0.73,0.84
+"Wanlaweyn","Alarm","Maize Prices",0.85,1.2
+"Yaqshid","Normal","Maize Prices",0,0.44
+"Yaqshid","Alert","Maize Prices",0.45,0.64
+"Yaqshid","Alarm","Maize Prices",0.65,0.8
+"Adaado","Normal","Goat prices",0,43.39
+"Adaado","Alert","Goat prices",43.4,52.07
+"Adaado","Alarm","Goat prices",52.08,54.96
+"Galkaayo CESVI","Normal","Goat prices",0,44.74
+"Galkaayo CESVI","Alert","Goat prices",44.75,50
+"Galkaayo CESVI","Alarm","Goat prices",50.01,60
+"Afgoye CESVI","Normal","Goat prices",0,64
+"Afgoye CESVI","Alert","Goat prices",64.01,76
+"Afgoye CESVI","Alarm","Goat prices",76.01,100
+"Afgoye CWW","Normal","Goat prices",0,64
+"Afgoye CWW","Alert","Goat prices",64.01,76
+"Afgoye CWW","Alarm","Goat prices",76.01,100
+"Afmadow","Normal","Goat prices",0,26
+"Afmadow","Alert","Goat prices",26.01,36
+"Afmadow","Alarm","Goat prices",36.01,48
+"Baidoa","Normal","Goat prices",0,40
+"Baidoa","Alert","Goat prices",40.01,48
+"Baidoa","Alarm","Goat prices",48.01,56
+"Bardera","Normal","Goat prices",0,23.28
+"Bardera","Alert","Goat prices",23.29,33.72
+"Bardera","Alarm","Goat prices",33.73,38.79
+"Beledweyne","Normal","Goat prices",0,34.55
+"Beledweyne","Alert","Goat prices",34.56,45.45
+"Beledweyne","Alarm","Goat prices",45.46,55.68
+"Belet-Hawa","Normal","Goat prices",0,55.33
+"Belet-Hawa","Alert","Goat prices",55.34,61.67
+"Belet-Hawa","Alarm","Goat prices",61.68,86.33
+"Bondhere","Normal","Goat prices",0,93.75
+"Bondhere","Alert","Goat prices",93.76,141.67
+"Bondhere","Alarm","Goat prices",141.68,160.42
+"Borama","Normal","Goat prices",0,56
+"Borama","Alert","Goat prices",56.01,78.4
+"Borama","Alarm","Goat prices",78.41,98
+"Burtinle","Normal","Goat prices",0,27.04
+"Burtinle","Alert","Goat prices",27.05,27.05
+"Burtinle","Alarm","Goat prices",27.06,27.05
+"Daynile","Normal","Goat prices",0,110
+"Daynile","Alert","Goat prices",110.01,130
+"Daynile","Alarm","Goat prices",130.01,155.8
+"Dhusamareb IRC","Normal","Goat prices",0,41.38
+"Dhusamareb IRC","Alert","Goat prices",41.39,44.69
+"Dhusamareb IRC","Alarm","Goat prices",44.7,47.17
+"Dhusamareb NRC","Normal","Goat prices",0,37.93
+"Dhusamareb NRC","Alert","Goat prices",37.94,43.1
+"Dhusamareb NRC","Alarm","Goat prices",43.11,44.83
+"Dinsoor","Normal","Goat prices",0,50
+"Dinsoor","Alert","Goat prices",50.01,62.5
+"Dinsoor","Alarm","Goat prices",62.51,100
+"Elbarde","Normal","Goat prices",0,30.68
+"Elbarde","Alert","Goat prices",30.69,36.36
+"Elbarde","Alarm","Goat prices",36.37,45.45
+"Erigavo","Normal","Goat prices",0,147.06
+"Erigavo","Alert","Goat prices",147.07,164.71
+"Erigavo","Alarm","Goat prices",164.72,197.65
+"Galdogob","Normal","Goat prices",0,27.04
+"Galdogob","Alert","Goat prices",27.05,27.05
+"Galdogob","Alarm","Goat prices",27.06,27.05
+"Galkaayo IRC","Normal","Goat prices",0,44.74
+"Galkaayo IRC","Alert","Goat prices",44.75,50
+"Galkaayo IRC","Alarm","Goat prices",50.01,60
+"Hamarwen","Normal","Goat prices",0,48.98
+"Hamarwen","Alert","Goat prices",48.99,73.47
+"Hamarwen","Alarm","Goat prices",73.48,100
+"Hobyo","Normal","Goat prices",0,47.5
+"Hobyo","Alert","Goat prices",47.51,62.5
+"Hobyo","Alarm","Goat prices",62.51,65
+"Hodan","Normal","Goat prices",0,110
+"Hodan","Alert","Goat prices",110.01,130
+"Hodan","Alarm","Goat prices",130.01,155.8
+"Holwadag","Normal","Goat prices",0,110
+"Holwadag","Alert","Goat prices",110.01,130
+"Holwadag","Alarm","Goat prices",130.01,155.8
+"Hudur","Normal","Goat prices",0,36
+"Hudur","Alert","Goat prices",36.01,44
+"Hudur","Alarm","Goat prices",44.01,60
+"Iskushuban","Normal","Goat prices",0,0.26
+"Iskushuban","Alert","Goat prices",0.27,0.27
+"Iskushuban","Alarm","Goat prices",0.28,0.06
+"Kahda","Normal","Goat prices",0,64
+"Kahda","Alert","Goat prices",64.01,88
+"Kahda","Alarm","Goat prices",88.01,104
+"Karaan","Normal","Goat prices",0,84
+"Karaan","Alert","Goat prices",84.01,96
+"Karaan","Alarm","Goat prices",96.01,128
+"Kismayo","Normal","Goat prices",0,38.46
+"Kismayo","Alert","Goat prices",38.47,48.08
+"Kismayo","Alarm","Goat prices",48.09,57.69
+"Lascanod","Normal","Goat prices",0,41.67
+"Lascanod","Alert","Goat prices",41.68,47.22
+"Lascanod","Alarm","Goat prices",47.23,58.33
+"Luuq","Normal","Goat prices",0,24
+"Luuq","Alert","Goat prices",24.01,30
+"Luuq","Alarm","Goat prices",30.01,38
+"Mataban","Normal","Goat prices",0,32.8
+"Mataban","Alert","Goat prices",32.81,34.8
+"Mataban","Alarm","Goat prices",34.81,40
+"Qardho","Normal","Goat prices",0,0.26
+"Qardho","Alert","Goat prices",0.27,0.27
+"Qardho","Alarm","Goat prices",0.28,50
+"Wadajir","Normal","Goat prices",0,88
+"Wadajir","Alert","Goat prices",88.01,124
+"Wadajir","Alarm","Goat prices",124.01,148
+"Wajid","Normal","Goat prices",0,33.2
+"Wajid","Alert","Goat prices",33.21,36.6
+"Wajid","Alarm","Goat prices",36.61,46
+"Wanlaweyn","Normal","Goat prices",0,72
+"Wanlaweyn","Alert","Goat prices",72.01,80
+"Wanlaweyn","Alarm","Goat prices",80.01,100
+"Yaqshid","Normal","Goat prices",0,86.4
+"Yaqshid","Alert","Goat prices",86.41,96
+"Yaqshid","Alarm","Goat prices",96.01,156
+"Adaado","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Adaado","Alert","Water prices (20 litre jerrycan)",0.15,0.21
+"Adaado","Alarm","Water prices (20 litre jerrycan)",0.22,0.32
+"Galkaayo CESVI","Normal","Water prices (20 litre jerrycan)",0,0.3
+"Galkaayo CESVI","Alert","Water prices (20 litre jerrycan)",0.31,0.4
+"Galkaayo CESVI","Alarm","Water prices (20 litre jerrycan)",0.41,0.45
+"Afgoye CESVI","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Afgoye CESVI","Alert","Water prices (20 litre jerrycan)",0.09,0.16
+"Afgoye CESVI","Alarm","Water prices (20 litre jerrycan)",0.17,0.32
+"Afgoye CWW","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Afgoye CWW","Alert","Water prices (20 litre jerrycan)",0.09,0.16
+"Afgoye CWW","Alarm","Water prices (20 litre jerrycan)",0.17,0.4
+"Afmadow","Normal","Water prices (20 litre jerrycan)",0,0.16
+"Afmadow","Alert","Water prices (20 litre jerrycan)",0.17,0.24
+"Afmadow","Alarm","Water prices (20 litre jerrycan)",0.25,0.4
+"Baidoa","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Baidoa","Alert","Water prices (20 litre jerrycan)",0.09,0.14
+"Baidoa","Alarm","Water prices (20 litre jerrycan)",0.15,0.16
+"Bardera","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Bardera","Alert","Water prices (20 litre jerrycan)",0.15,0.17
+"Bardera","Alarm","Water prices (20 litre jerrycan)",0.18,0.19
+"Beledweyne","Normal","Water prices (20 litre jerrycan)",0,0.32
+"Beledweyne","Alert","Water prices (20 litre jerrycan)",0.33,0.36
+"Beledweyne","Alarm","Water prices (20 litre jerrycan)",0.37,0.5
+"Belet-Hawa","Normal","Water prices (20 litre jerrycan)",0,0.25
+"Belet-Hawa","Alert","Water prices (20 litre jerrycan)",0.26,0.37
+"Belet-Hawa","Alarm","Water prices (20 litre jerrycan)",0.38,0.57
+"Bondhere","Normal","Water prices (20 litre jerrycan)",0,0.06
+"Bondhere","Alert","Water prices (20 litre jerrycan)",0.07,0.1
+"Bondhere","Alarm","Water prices (20 litre jerrycan)",0.11,0.17
+"Borama","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Borama","Alert","Water prices (20 litre jerrycan)",0.15,0.28
+"Borama","Alarm","Water prices (20 litre jerrycan)",0.29,0.38
+"Burtinle","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Burtinle","Alert","Water prices (20 litre jerrycan)",0.15,0.19
+"Burtinle","Alarm","Water prices (20 litre jerrycan)",0.2,0.24
+"Daynile","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Daynile","Alert","Water prices (20 litre jerrycan)",0.09,0.12
+"Daynile","Alarm","Water prices (20 litre jerrycan)",0.13,0.2
+"Dhusamareb IRC","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Dhusamareb IRC","Alert","Water prices (20 litre jerrycan)",0.15,0.21
+"Dhusamareb IRC","Alarm","Water prices (20 litre jerrycan)",0.22,0.31
+"Dhusamareb NRC","Normal","Water prices (20 litre jerrycan)",0,0.12
+"Dhusamareb NRC","Alert","Water prices (20 litre jerrycan)",0.13,0.21
+"Dhusamareb NRC","Alarm","Water prices (20 litre jerrycan)",0.22,0.31
+"Dinsoor","Normal","Water prices (20 litre jerrycan)",0,0.12
+"Dinsoor","Alert","Water prices (20 litre jerrycan)",0.13,0.21
+"Dinsoor","Alarm","Water prices (20 litre jerrycan)",0.22,0.33
+"Elbarde","Normal","Water prices (20 litre jerrycan)",0,0.11
+"Elbarde","Alert","Water prices (20 litre jerrycan)",0.12,0.23
+"Elbarde","Alarm","Water prices (20 litre jerrycan)",0.24,0.34
+"Erigavo","Normal","Water prices (20 litre jerrycan)",0,0.18
+"Erigavo","Alert","Water prices (20 litre jerrycan)",0.19,0.35
+"Erigavo","Alarm","Water prices (20 litre jerrycan)",0.36,0.65
+"Galdogob","Normal","Water prices (20 litre jerrycan)",0,0.12
+"Galdogob","Alert","Water prices (20 litre jerrycan)",0.13,0.19
+"Galdogob","Alarm","Water prices (20 litre jerrycan)",0.2,0.24
+"Galkaayo IRC","Normal","Water prices (20 litre jerrycan)",0,0.3
+"Galkaayo IRC","Alert","Water prices (20 litre jerrycan)",0.31,0.4
+"Galkaayo IRC","Alarm","Water prices (20 litre jerrycan)",0.41,0.45
+"Hamarwen","Normal","Water prices (20 litre jerrycan)",0,0.06
+"Hamarwen","Alert","Water prices (20 litre jerrycan)",0.07,0.1
+"Hamarwen","Alarm","Water prices (20 litre jerrycan)",0.11,0.16
+"Hobyo","Normal","Water prices (20 litre jerrycan)",0,0.17
+"Hobyo","Alert","Water prices (20 litre jerrycan)",0.18,0.3
+"Hobyo","Alarm","Water prices (20 litre jerrycan)",0.31,0.38
+"Hodan","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Hodan","Alert","Water prices (20 litre jerrycan)",0.09,0.12
+"Hodan","Alarm","Water prices (20 litre jerrycan)",0.13,0.2
+"Holwadag","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Holwadag","Alert","Water prices (20 litre jerrycan)",0.09,0.12
+"Holwadag","Alarm","Water prices (20 litre jerrycan)",0.13,0.2
+"Hudur","Normal","Water prices (20 litre jerrycan)",0,0.16
+"Hudur","Alert","Water prices (20 litre jerrycan)",0.17,0.2
+"Hudur","Alarm","Water prices (20 litre jerrycan)",0.21,0.24
+"Kahda","Normal","Water prices (20 litre jerrycan)",0,0.1
+"Kahda","Alert","Water prices (20 litre jerrycan)",0.11,0.14
+"Kahda","Alarm","Water prices (20 litre jerrycan)",0.15,0.2
+"Iskushuban","Normal","Water prices (20 litre jerrycan)",0,0.05
+"Iskushuban","Alert","Water prices (20 litre jerrycan)",0.06,0.07
+"Iskushuban","Alarm","Water prices (20 litre jerrycan)",0.08,0.1
+"Karaan","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Karaan","Alert","Water prices (20 litre jerrycan)",0.09,0.12
+"Karaan","Alarm","Water prices (20 litre jerrycan)",0.13,0.16
+"Kismayo","Normal","Water prices (20 litre jerrycan)",0,0.12
+"Kismayo","Alert","Water prices (20 litre jerrycan)",0.13,0.13
+"Kismayo","Alarm","Water prices (20 litre jerrycan)",0.14,0.35
+"Lascanod","Normal","Water prices (20 litre jerrycan)",0,0.06
+"Lascanod","Alert","Water prices (20 litre jerrycan)",0.07,0.08
+"Lascanod","Alarm","Water prices (20 litre jerrycan)",0.09,0.15
+"Luuq","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Luuq","Alert","Water prices (20 litre jerrycan)",0.09,0.16
+"Luuq","Alarm","Water prices (20 litre jerrycan)",0.17,0.32
+"Mataban","Normal","Water prices (20 litre jerrycan)",0,0.14
+"Mataban","Alert","Water prices (20 litre jerrycan)",0.15,0.16
+"Mataban","Alarm","Water prices (20 litre jerrycan)",0.17,0.2
+"Qardho","Normal","Water prices (20 litre jerrycan)",0,0.05
+"Qardho","Alert","Water prices (20 litre jerrycan)",0.06,0.07
+"Qardho","Alarm","Water prices (20 litre jerrycan)",0.08,0.1
+"Wadajir","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Wadajir","Alert","Water prices (20 litre jerrycan)",0.09,0.12
+"Wadajir","Alarm","Water prices (20 litre jerrycan)",0.13,0.14
+"Wajid","Normal","Water prices (20 litre jerrycan)",0,0.13
+"Wajid","Alert","Water prices (20 litre jerrycan)",0.14,0.16
+"Wajid","Alarm","Water prices (20 litre jerrycan)",0.17,0.2
+"Wanlaweyn","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Wanlaweyn","Alert","Water prices (20 litre jerrycan)",0.09,0.2
+"Wanlaweyn","Alarm","Water prices (20 litre jerrycan)",0.21,0.48
+"Yaqshid","Normal","Water prices (20 litre jerrycan)",0,0.08
+"Yaqshid","Alert","Water prices (20 litre jerrycan)",0.09,0.1
+"Yaqshid","Alarm","Water prices (20 litre jerrycan)",0.11,0.12
+"Adaado","Normal","Labour prices",12.54,11.62
+"Adaado","Alert","Labour prices",11.61,9.65
+"Adaado","Alarm","Labour prices",9.64,0
+"Galkaayo CESVI","Normal","Labour prices",6,5.51
+"Galkaayo CESVI","Alert","Labour prices",5.5,5.01
+"Galkaayo CESVI","Alarm","Labour prices",5,0
+"Afgoye CESVI","Normal","Labour prices",5,4.01
+"Afgoye CESVI","Alert","Labour prices",4,2.51
+"Afgoye CESVI","Alarm","Labour prices",2.5,0
+"Afgoye CWW","Normal","Labour prices",8.8,7.81
+"Afgoye CWW","Alert","Labour prices",7.8,6.01
+"Afgoye CWW","Alarm","Labour prices",6,0
+"Afmadow","Normal","Labour prices",6.8,0.57
+"Afmadow","Alert","Labour prices",0.56,4.01
+"Afmadow","Alarm","Labour prices",4,0
+"Baidoa","Normal","Labour prices",5.2,4.81
+"Baidoa","Alert","Labour prices",4.8,4.01
+"Baidoa","Alarm","Labour prices",4,0
+"Bardera","Normal","Labour prices",4.31,4.15
+"Bardera","Alert","Labour prices",4.14,3.8
+"Bardera","Alarm","Labour prices",3.79,0
+"Beledweyne","Normal","Labour prices",11.36,9.1
+"Beledweyne","Alert","Labour prices",9.09,7.28
+"Beledweyne","Alarm","Labour prices",7.27,0
+"Belet-Hawa","Normal","Labour prices",8.33,6.68
+"Belet-Hawa","Alert","Labour prices",6.67,5.34
+"Belet-Hawa","Alarm","Labour prices",5.33,0
+"Bondhere","Normal","Labour prices",7.29,5.22
+"Bondhere","Alert","Labour prices",5.21,4.18
+"Bondhere","Alarm","Labour prices",4.17,0
+"Borama","Normal","Labour prices",15.2,14.01
+"Borama","Alert","Labour prices",14,12.01
+"Borama","Alarm","Labour prices",12,0
+"Burtinle","Normal","Labour prices",8.04,7.25
+"Burtinle","Alert","Labour prices",7.24,5.64
+"Burtinle","Alarm","Labour prices",5.63,0
+"Daynile","Normal","Labour prices",6,5.21
+"Daynile","Alert","Labour prices",5.2,4.61
+"Daynile","Alarm","Labour prices",4.6,0
+"Dhusamareb IRC","Normal","Labour prices",10.34,8.63
+"Dhusamareb IRC","Alert","Labour prices",8.62,7.77
+"Dhusamareb IRC","Alarm","Labour prices",7.76,0
+"Dhusamareb NRC","Normal","Labour prices",9.93,9.11
+"Dhusamareb NRC","Alert","Labour prices",9.1,7.46
+"Dhusamareb NRC","Alarm","Labour prices",7.45,0
+"Dinsoor","Normal","Labour prices",4.17,5.01
+"Dinsoor","Alert","Labour prices",5,8.34
+"Dinsoor","Alarm","Labour prices",8.33,0
+"Elbarde","Normal","Labour prices",3.64,3.19
+"Elbarde","Alert","Labour prices",3.18,2.51
+"Elbarde","Alarm","Labour prices",2.5,0
+"Erigavo","Normal","Labour prices",47.06,43.54
+"Erigavo","Alert","Labour prices",43.53,41.19
+"Erigavo","Alarm","Labour prices",41.18,0
+"Galdogob","Normal","Labour prices",5.41,4.87
+"Galdogob","Alert","Labour prices",4.86,4.06
+"Galdogob","Alarm","Labour prices",4.05,0
+"Galkaayo IRC","Normal","Labour prices",9.74,9.48
+"Galkaayo IRC","Alert","Labour prices",9.47,8.96
+"Galkaayo IRC","Alarm","Labour prices",8.95,0
+"Hamarwen","Normal","Labour prices",6.12,5.72
+"Hamarwen","Alert","Labour prices",5.71,5.11
+"Hamarwen","Alarm","Labour prices",5.1,0
+"Hobyo","Normal","Labour prices",2.88,2.63
+"Hobyo","Alert","Labour prices",2.62,2.26
+"Hobyo","Alarm","Labour prices",2.25,0
+"Hodan","Normal","Labour prices",9.6,8.81
+"Hodan","Alert","Labour prices",8.8,7.21
+"Hodan","Alarm","Labour prices",7.2,0
+"Holwadag","Normal","Labour prices",12,10.01
+"Holwadag","Alert","Labour prices",10,9.01
+"Holwadag","Alarm","Labour prices",9,0
+"Hudur","Normal","Labour prices",12,10.01
+"Hudur","Alert","Labour prices",10,9.01
+"Hudur","Alarm","Labour prices",9,0
+"Iskushuban","Normal","Labour prices",1,0.76
+"Iskushuban","Alert","Labour prices",0.75,0.63
+"Iskushuban","Alarm","Labour prices",0.62,0
+"Kahda","Normal","Labour prices",6.4,6.01
+"Kahda","Alert","Labour prices",6,4.81
+"Kahda","Alarm","Labour prices",4.8,0
+"Karaan","Normal","Labour prices",10,9.21
+"Karaan","Alert","Labour prices",9.2,8.61
+"Karaan","Alarm","Labour prices",8.6,0
+"Kismayo","Normal","Labour prices",10.77,9.63
+"Kismayo","Alert","Labour prices",9.62,8.47
+"Kismayo","Alarm","Labour prices",8.46,0
+"Lascanod","Normal","Labour prices",6.39,5.57
+"Lascanod","Alert","Labour prices",5.56,5.02
+"Lascanod","Alarm","Labour prices",5.01,0
+"Luuq","Normal","Labour prices",8.8,7.61
+"Luuq","Alert","Labour prices",7.6,6.41
+"Luuq","Alarm","Labour prices",6.4,0
+"Mataban","Normal","Labour prices",9.2,7.61
+"Mataban","Alert","Labour prices",7.6,7.61
+"Mataban","Alarm","Labour prices",7.6,0
+"Qardho","Normal","Labour prices",1.25,1.01
+"Qardho","Alert","Labour prices",1,0.76
+"Qardho","Alarm","Labour prices",0.75,0
+"Wadajir","Normal","Labour prices",8,7.21
+"Wadajir","Alert","Labour prices",7.2,6.61
+"Wadajir","Alarm","Labour prices",6.6,0
+"Wajid","Normal","Labour prices",10.4,9.61
+"Wajid","Alert","Labour prices",9.6,7.61
+"Wajid","Alarm","Labour prices",7.6,0
+"Wanlaweyn","Normal","Labour prices",6.8,6.41
+"Wanlaweyn","Alert","Labour prices",6.4,5.61
+"Wanlaweyn","Alarm","Labour prices",5.6,0
+"Yaqshid","Normal","Labour prices",8,7.21
+"Yaqshid","Alert","Labour prices",7.2,6.01
+"Yaqshid","Alarm","Labour prices",6,0
