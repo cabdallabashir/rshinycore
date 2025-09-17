@@ -1,9 +1,13 @@
 
-<style>
-  .shiny-input-container{
-    width: 100%;
-  }
+  <style>
+    .shiny-input-container{
+      width: 100%;
+    }
+    
+    
 </style>
+
+
 
 <div class="page-wrapper" style="margin-top:60px">
   
@@ -16,7 +20,7 @@
     								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
     								</div>
     								<div class="ms-3">
-    									<h6 class="mb-0 ">BRCIS BASELINE REGISTRATION SELECTION</h6>
+    									<h6 class="mb-0 ">BRCIS REGISTRATION</h6>
     									
     								</div>
     							</div>
@@ -41,33 +45,20 @@
 <div class="row">
   <div class="col-12">
             {{warningToLoadDATA}}
-						 <div class="row">
-          <div class="col-lg-2 col-md-2  col-sm-12">
-            <div class="mb-3">
-									
-										{{fromDateController}}
-									</div>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="mb-3">
-										
-											{{toDateController}}
-									</div>
-          </div>,
-         <div class="col-lg-2 col-md-2 col-sm-12">
-                          <div class="mb-3">
-                        			{{Segrigation}}
-                        	</div>
-                        </div>
-               <div class="col-lg-3 col-md-3 col-sm-12">
-                  <div class="mb-3">
-                			{{Segrigation_element}}
-                	</div>
-               </div>
-               
-    
-         
-        </div>
+					  
+					  <div class="row">
+					    	 <div class="col-4">
+  									    {{activityDropdown}}
+  									  </div>
+  									  
+  							  <div class="col-4">
+  									    {{groupDropdown}}
+  									  </div>
+  									  
+  							 <div class="col-4">
+  									    {{InfraDropdown}}
+  									  </div>
+					  </div>
 						<hr>
 						<div class="card" style="background: unset;box-shadow:unset">
 							<div class="card-body">
@@ -78,6 +69,16 @@
 												<div class="tab-icon">
 												</div>
 												<div class="tab-title">Summary</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#screeningTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Screening Validation</div>
 											</div>
 										</a>
 									</li>
@@ -111,14 +112,49 @@
 											</div>
 										</a>
 									</li>
+									
+						    <li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#allData" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Beneficiary Information</div>
+											</div>
+										</a>
+									</li>
 								
 								</ul>
 								<div class="tab-content py-3">
 									<div class="tab-pane fade active show" id="summaryTab" role="tabpanel">                                       
 									
+									<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Total Registraions</p>
+              									<h4 class="my-1 text-warning">{{totalRegistrations}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
   									<div class="row mt-5">
   									     <div class=" col-lg-12 col-md-12 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					    <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Total Number of Registration by Month</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
                 					   <div class="card-body">
                 						    {{interviewProgressByMonth}}
                 					   </div>
@@ -237,11 +273,98 @@
   									</div>
 								
 							</div>
+							    <div class="tab-pane fade" id="screeningTab" role="tabpanel">
+							        <div class="row">
+      									<div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-success">Valid Screened Respondants</p>
+              									<h4 class="my-1 text-success">{{valid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-success opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-danger">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-danger">In-Valid Screened Respondants</p>
+              									<h4 class="my-1 text-danger">{{invalid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-danger opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				  
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-warning">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Not Sreened at all</p>
+              									<h4 class="my-1 text-warning">{{not_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+      								
+      								<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Grouped Screening</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{groupedScreening}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
+      								
+  									<div class="row mt-4">
+  									  <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center d-flex justify-content-between">
+                  								<div>
+                  									<h6 class="mb-0">Respondants Information</h6>
+                  								</div>
+                  								{{deleteButton}}
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{respondatsInfoTable}}
+                					   </div>
+                					</div>
+            				    </div>
+  									</div>
+							</div>
 							    <div class="tab-pane fade" id="IndividualTab" role="tabpanel">
 							       <span class="mb-0">Respondant Information</span>
   									  <hr>
   									  
-  									  <div class="row">
+  									  <div class="row mt-5 ">
       									<div class=" col-lg-12 col-md-12 col-sm-12">
               					 <div class="card radius-10 border-start border-0 border-4 border-primary">
               						<div class="card-body">
@@ -258,8 +381,60 @@
               					 </div>
               				   </div>
       								</div>
+      								
+      						
+  									
+      								 <div class="row mt-5">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Registration Activities</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{registrationActivitiesChart}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
 							      <div class="row mt-5">
   									     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Gender Classification</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsGenderClassification}}
+                					   </div>
+                					</div>
+            				    </div>
+  									    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Age Groups</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsAgeGroups}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					  <div class="card-header">
                   							<div class="d-flex align-items-center">
@@ -270,15 +445,365 @@
                   							</div>
                   						</div>
                 					   <div class="card-body">
-                						    {{respondantMaritaStatus}}
+                						    {{indiRespondantsMaritalStatus}}
                 					   </div>
                 					</div>
             				    </div>
-  									  
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Education Level</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsEducLevel}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Residential Status</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsResStatus}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Migration Decisions</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsMigraDec}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Livelihood Zones</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantslvhd_zone}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Income Sources</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsIncomeSources}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Main Income Sources</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsMainIncomeSources}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Average Monthly Income</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsAverageIncome}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Vulnerability Creteria</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsVulCreteria}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Disability Type</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsDisabilityType}}
+                					   </div>
+                					</div>
+            				    </div>
   							        
             				    
   									</div>
+  									
 							    </div>
+							    <div class="tab-pane fade" id="GroupTab" role="tabpanel">
+							      <div class="row">
+      									<div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-primary">Total Individual registered as group members</p>
+              									<h4 class="my-1 text-primary">{{groupRespondents}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-primary">Total Groups Registered</p>
+              									<h4 class="my-1 text-primary">{{groupsRegestered}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-primary">Average Group size</p>
+              									<h4 class="my-1 text-primary">{{averageGrpupSize}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+      								<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Groups</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{registeredGroups}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
+      								<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center d-flex justify-content-between">
+                  								<div>
+                  									<h6 class="mb-0">Group Members</h6>
+                  								</div>
+                  							
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{groupMembers}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
+							    </div>
+							    <div class="tab-pane fade" id="InfraTab" role="tabpanel">
+							       <div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-primary">Total Infrastructures Registered</p>
+              									<h4 class="my-1 text-primary">{{infraRegistered}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-primary opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				  
+      								</div>
+							      	<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Infrastructure Types Registered</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{infrTypes}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Wast Management Infrastructure</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{wastinfrTypes}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Water Management Infrastructure</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{waterinfrTypes}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Ecosystem Infrastructure</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ecoinfrTypes}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center ">
+                  								<div>
+                  									<h6 class="mb-0">Infrastructures Info</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{infrTable}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
+							    </div>
+							    
+							    <div class="tab-pane fade" id="allData" role="tabpanel">
+							       <div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+  									  <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Beneficiary Info</h6>
+                  								</div>
+                  								
+                  		</div>
+  									  <div class="card-body row mt-5">
+  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									      {{benefInfo}}
+  									    </div>
+  									    
+  									  </div>
+  						
+  									</div>
+							    </div>
+							    
 						</div>
 					</div>
 </div>
@@ -303,7 +828,14 @@
 												 {{messageBox}}
 							
 												</div>
-							
+								<div class="row mb-3">
+							  
+							   <div class="col-lg-12">
+                          <div class="mb-3">
+                        			{{ProjectSelection}}
+                        	</div>
+                        </div>
+							</div>
 							          <div class="row mb-3">
 							    
 								<div class="col-12">
@@ -335,6 +867,53 @@
 	</div>
 </div>
 
+<div class="switcher-wrapper" style="z-index:1081">
+		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+		</div>
+		<div class="switcher-body">
+			<div class="d-flex align-items-center">
+				<h5 class="mb-0 text-uppercase">Settings</h5>
+				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+			</div>
+			<hr/>
+		<div class="row sticky-section">
+          <div class="col-lg-12 col-md-12  col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>
+         
+         <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="mb-3">
+                        			{{Segrigation}}
+                        	</div>
+                        </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="mb-3">
+                			{{Segrigation_element}}
+                	</div>
+               </div>
+              
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="mb-3">
+                			{{registrationType}}
+                	</div>
+               </div>
+             
+              
+               
+    
+         
+        </div>
+		</div>
+	</div>
 
 
 <script src="assets/plugins/validation/jquery.validate.min.js"></script>
@@ -348,6 +927,20 @@
         })
         
         
+         $(document).on("click","#brcisRegistration-sb",function(){
+          $("#brcisRegistration-ms").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+								</div></div>`)
+        })
+        
     });
+    
+	$(document).on("click",".switcher-btn", function () {
+	  $(".switcher-wrapper").addClass("switcher-toggled");
+	});
+	
+	/*$(document).on("click",".close-switcher", function () {
+		$(".switcher-wrapper").removeClass("switcher-toggled");
+	});*/
+
 </script>
 

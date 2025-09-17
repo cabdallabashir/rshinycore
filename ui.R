@@ -10,7 +10,7 @@ for (file in files) {
 
 ui <- tagList(
   useShinyjs(),
-  htmlTemplate("views/layout/header.html"),
+  uiOutput("headerLayout"),
   tags$script("
     
    
@@ -29,8 +29,10 @@ ui <- tagList(
     
   });
 "),
-  uiOutput("mainOutputLayout") %>% withSpinner(),
-  htmlTemplate("views/layout/footer.html")
+ 
+  uiOutput("mainOutputLayout") %>% withSpinner(type = 8),
+  
+ uiOutput("footerLayout")
 )
 
 

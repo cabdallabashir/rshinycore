@@ -335,9 +335,56 @@ brcisBaseline <- function(input ,output , session,sharedValues){
    
     onauser <- input$onaUser
     onapass <- input$onaPass
-    baseline_survey  <- get_data(onauser,onapass,"785645")
-    spotcheck_survey <- get_data(onauser,onapass,"786596")
-    backcheck_survey <- get_data(onauser,onapass,"786597")
+    
+    Authresult <- validate_member_ona_credentials(onauser,onapass,"785645")
+    
+    if(!Authresult$status){
+      output$messageBox <- renderUI({
+        
+        HTML(
+          paste(
+            '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">',Authresult$message,'</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>',sep=""
+          )
+        )
+      })
+      return()
+    }
+    
+    
+    
+    if(is.null(Authresult$message)){
+      output$messageBox <- renderUI({
+        
+        HTML(
+          '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">Invalid Member</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>'
+        )
+      })
+      return()
+    }
+    
+    baseline_survey  <- get_data("abdullahiaweis","tutka_sulsulaaye@123","785645")
+    spotcheck_survey <- get_data("abdullahiaweis","tutka_sulsulaaye@123","786596")
+    backcheck_survey <- get_data("abdullahiaweis","tutka_sulsulaaye@123","786597")
     
     # baseline_survey$latitude = as.numeric(sapply(strsplit(baseline_survey$hh_geopoint, " "), `[`, 1))
     # baseline_survey$longitude = as.numeric(sapply(strsplit(baseline_survey$hh_geopoint, " "), `[`, 2))
@@ -855,14 +902,45 @@ brcisBaseline <- function(input ,output , session,sharedValues){
       # 
       # 
       
+      if(Authresult$message != 'CMU'){
+       
+        baseline_survey %<>% filter(str_to_lower(member) ==str_to_lower(Authresult$message) )
+        main_survey_analysis %<>% filter(str_to_lower(member) == str_to_lower(Authresult$message) )
+        duplicate_surveys %<>% filter(str_to_lower(member) ==str_to_lower(Authresult$message) )
+        spotcheck_survey_questions %<>% filter(str_to_lower(member) ==str_to_lower(Authresult$message) )
+        backcheck_survey_questions %<>% filter(str_to_lower(member) ==str_to_lower(Authresult$message) )
+      }
+      
       global_vars$all_survey_Data = baseline_survey
       global_vars$global_baseline_survey <- main_survey_analysis
       global_vars$duplicate_survey <- duplicate_surveys
       global_vars$global_spotcheck_survey <- spotcheck_survey_questions
       global_vars$global_backcheck_survey <- backcheck_survey_questions
       
-      output$messageBox <- renderUI({
-        HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+      if(nrow(main_survey_analysis) == 0){
+        output$messageBox <- renderUI({
+          HTML(paste(
+            '<div class="row">
+              <div class="col-12">
+                <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+									<div class="d-flex align-items-center">
+										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+										</div>
+										<div class="ms-3">
+											<h6 class="mb-0 text-dark">Info</h6>
+											<div class="text-dark">NOTE: No Data Found for ',Authresult$message,'</div>
+										</div>
+									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+              </div>
+            </div>',sep=""
+          ))
+          
+        })
+      }else{
+        output$messageBox <- renderUI({
+          HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
 									<div class="d-flex align-items-center">
 										<div class="font-35 text-white"><i class="bx bxs-check-circle"></i>
 										</div>
@@ -873,7 +951,8 @@ brcisBaseline <- function(input ,output , session,sharedValues){
 									</div>
 									
 								</div>')
-      })
+        })
+      }
       
     }else{
       output$messageBox <- renderUI({

@@ -1,0 +1,269 @@
+
+  <div class="container">
+    <!-- Header with logo -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center gap-2">
+        <div style="color: #F97316;" class="font-bold text-2xl">BRCIS</div>
+        <div class="text-sm text-secondary font-bold">{{commentTop}}</div>
+      </div>
+      <div class="text-sm text-secondary">Last updated: May 15, 2025</div>
+    </div>
+    <!-- Filter Bar -->
+    <div class="card mb-4">
+      <div class="card-content">
+       
+          <div class="filter-bar filter-container">
+             <div class="filter-row main-filters">
+                <!-- Project Filter -->
+                {{projectSelectionDropDown}}
+      
+                <!-- Member Filter -->
+               {{memberSelectionDropDown}}
+      
+                <!-- District Filter -->
+               {{districSelectionDropDown}}
+      
+                <!-- Milestone Filter -->
+               {{milestoneSelectionDropDown}}
+                <!-- Period Filter -->
+              {{quarterSelectionDropDown}}
+              <!-- Indicator Group Filter -->
+              {{indicatorGroupSelectionDropDown}}
+              
+              
+              </div>
+              <div class="filter-row secondary-filters">
+                  {{activitySelectionDropDown}}
+                  <!-- Indicator Filter -->
+                  {{indicatorSelectionDropDown}}
+              </div>
+              
+              <div class="filter-row secondary-filters">
+                  {{generateData}}
+                  
+              </div>
+          </div>
+        
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" data-tab="overview">Overview</div>
+      <div class="tab" data-tab="indicators">Indicator Summary</div>
+      <div class="tab" data-tab="members">Member Summary</div>
+      <div class="tab" data-tab="district">District Summary</div>
+      <div class="tab" data-tab="report">Quarter Summary</div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content active" id="overview">
+      <!-- Overview Grid -->
+      <div class="grid">
+        <!-- Overall Achievement Progress -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="indicator bg-blue"></div>
+              Overall Performance towards target Progress
+            </div>
+          </div>
+          <div class="card-content">
+            <div style="display:grid; justify-content:center">
+              
+              {{mainTargetVsAchievement}}
+              <text x="0" y="40" text-anchor="middle" style="font-size: 10; fill: rgb(156, 163, 175);text-align:center;">{{mainTargetVsAchievementStatus}}</text>
+            </div>
+            
+                {{measurementCategoryCounts}}
+          </div>
+        </div>
+
+        <!-- Total People Reached -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="indicator bg-purple"></div>
+              Total People Reached
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="people-note">
+              <strong>Note:</strong> These figures reflect the <u>total number of individuals reached</u>; however, some individuals may be registered in multiple activities, potentially resulting in duplicates.
+            </div>
+
+            <div style="display:grid; justify-content:center">
+               {{totalPeopleReached}}
+            </div>
+           
+            {{totalPeopleReachedDisaggregation}}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- Member Achievement -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="indicator bg-amber"></div>
+              Member Performance towards target Progress
+            </div>
+          </div>
+          <div class="card-content">
+            {{memberAchievementDash}}
+          </div>
+        </div>
+  
+        <!-- Geographic Distribution -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="indicator bg-green"></div>
+              District Performance towards target Progress
+            </div>
+          </div>
+          <div class="card-content">
+            {{districtAchievementDash}}
+          </div>
+        </div>
+        
+        
+      </div>
+       <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="indicator bg-amber"></div>
+              Quarterly Performance towards target Progress
+            </div>
+          </div>
+          <div class="card-content">
+            {{quarterlyAchievementDash}}
+          </div>
+        </div>
+    </div>
+
+    <!-- Indicators Tab -->
+    <div class="tab-content" id="indicators">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-purple"></div>
+            Indicators Performance towards target Progress
+          </div>
+        </div>
+        <div class="card-content">
+         {{mainIndicatorProgressTable}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Tab -->
+    <div class="tab-content" id="members">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-amber"></div>
+            Indicator Performance by Member
+          </div>
+        </div>
+        <div class="card-content">
+          {{mainIndicatorProgressByMemberTable}}
+        </div>
+      </div>
+      
+      <div class="card mt-4">
+          <div class="card-header">
+            <div class="card-title">
+              <div class="card-title-indicator bg-amber"></div>
+              Member Demographics Disaggregation
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="table-container">
+              {{mainMemberDemographicTable}}
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- District Tab -->
+    <div class="tab-content" id="district">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-green"></div>
+            Indicator Performance by District
+          </div>
+        </div>
+        <div class="card-content">
+          {{mainIndicatorProgressByDistrictTable}}
+        </div>
+      </div>
+      
+       <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-green"></div>
+            District Demographics Disaggregation
+          </div>
+        </div>
+        <div class="card-content">
+          {{mainDistrictDemographicTable}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Tab -->
+    <div class="tab-content" id="report">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-purple"></div>
+            Indicator Achievement by Quarter
+          </div>
+        </div>
+        <div class="card-content">
+          {{mainIndicatorProgressByQuareterTable}}
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="indicator bg-green"></div>
+            Quarter Demographics Disaggregation
+          </div>
+        </div>
+        <div class="card-content">
+          {{mainQuarterDemographicTable}}
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabId = tab.getAttribute('data-tab');
+
+      // Remove active class from all tabs and contents
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      // Add active class to clicked tab and corresponding content
+      tab.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+  
+      // 🔥 Notify Shiny of the active tab
+      Shiny.setInputValue("ittdash-current_tab", tabId, {priority: "event"});
+    });
+  });
+  
+  
+</script>
+
+  

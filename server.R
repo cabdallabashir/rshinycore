@@ -13,6 +13,25 @@ server <- function(input , output, session){
     if(is.null(hashValue) || hashValue =="" ){
       hashValue = "baseline_home"
     }
+    
+    if(hashValue == "ittdash"){
+      output$headerLayout <- renderUI({
+        htmlTemplate("views/layout/header_itt.html")
+      })
+      
+      output$footerLayout <- renderUI({
+        htmlTemplate("views/layout/footer_itt.html")
+      })
+    }else{
+      output$headerLayout <- renderUI({
+        htmlTemplate("views/layout/header.html")
+      })
+      
+      output$footerLayout <- renderUI({
+        htmlTemplate("views/layout/footer.html")
+      })
+    }
+    
    
     if(!(hashValue %in% allowedURL)){
       hashValue = "notFound"
@@ -38,9 +57,13 @@ server <- function(input , output, session){
   observe({
     if (!is.null(vals$selected_tab_new)) {
       
+     
+      
       output$mainOutputLayout <- renderUI({
         rlang::as_function(paste0(vals$selected_tab_new, "UI"))(vals$selected_tab_new)
       })
+      
+      
       
       callModule(rlang::as_function(vals$selected_tab_new), id = vals$selected_tab_new,sharedValues=sharedValues)
     }

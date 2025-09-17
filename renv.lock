@@ -100,6 +100,25 @@
       ],
       "Hash": "45f0398006e83a5b10b72a90663d8d8c"
     },
+    "RPostgres": {
+      "Package": "RPostgres",
+      "Version": "1.4.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "DBI",
+        "R",
+        "bit64",
+        "blob",
+        "cpp11",
+        "hms",
+        "lubridate",
+        "methods",
+        "plogr",
+        "withr"
+      ],
+      "Hash": "a3ccabc3de4657c14185c91f3e6d4b60"
+    },
     "RSQLite": {
       "Package": "RSQLite",
       "Version": "2.3.5",

@@ -5,10 +5,11 @@ createDb<- function(){
   return(TRUE)
 }
 
-createTable <- function(tableName , dataFrame){
-  conn <- dbConnect(RSQLite::SQLite(), "db/coreDB.db")
+
+createTable <- function(conn , tableName , dataFrame){
+  
   dbWriteTable(conn, tableName, dataFrame,overwrite = TRUE)
-  dbDisconnect(conn)
+ 
   return(TRUE)
 }
 
@@ -29,10 +30,8 @@ listTables <- function(tables){
   )
 }
 
-readTable <- function(table){
-  conn <- dbConnect(RSQLite::SQLite(), "db/coreDB.db")
+readTable <- function(conn,table){
   tableResult <- dbReadTable(conn , table)
-  dbDisconnect(conn)
   return(
     tableResult
   )
@@ -58,7 +57,7 @@ execute <- function(query){
 }
 
 getOnaData <- function(){
-  
+
 }
 
 

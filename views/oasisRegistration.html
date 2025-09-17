@@ -1,0 +1,1029 @@
+
+  <style>
+    .shiny-input-container{
+      width: 100%;
+    }
+    
+    
+</style>
+
+
+
+<div class="page-wrapper" style="margin-top:60px">
+  
+	<div class="page-content">
+	  <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
+	  d-flex justify-content-between">
+	            <div class="row" style="width:100%">
+	              <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12">
+	                <div class="d-flex align-items-center">
+    								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
+    								</div>
+    								<div class="ms-3">
+    									<h6 class="mb-0 ">OASIS REGISTRATION</h6>
+    									
+    								</div>
+    							</div>
+	              </div>
+	              <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 d-flex 
+	              justify-content-end align-items-center">
+	                	<div class="row">
+	              <div class="col d-flex justify-content-center align-items-center">
+  								<button type="button" class="btn btn-primary" 
+  								data-bs-toggle="modal" data-bs-target  ="#exampleVerticallycenteredModal"><i 
+  								class="bx bx-cloud-download mr-1"></i>Load Data
+  								</button>
+							  </div>
+	           </div>
+	              </div>
+	            </div>
+							
+						
+						</div>
+						
+
+<div class="row">
+  <div class="col-12">
+            {{warningToLoadDATA}}
+						 
+						<div class="row">
+					    	 <div class="col-4">
+  									    {{activityFroupTypeController}}
+  									  </div>
+  									  
+  							  <div class="col-4">
+  									    {{activityGroupController}}
+  									  </div>
+  									  
+  							 <div class="col-4">
+  									    {{actvitiesController}}
+  									  </div>
+					  </div>
+						<div class="card" style="background: unset;box-shadow:unset">
+							<div class="card-body">
+								<ul class="nav nav-tabs nav-success" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" data-bs-toggle="tab" href="#summaryTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Summary</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#screeningTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Screening Validation</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#demographicInfoSummaey" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Demographic information Summary</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#GroupTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Group Registration</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#TrainingTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Trainings Info</div>
+											</div>
+										</a>
+									</li>
+									
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#allData" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Beneficiaries Information</div>
+											</div>
+										</a>
+									</li>
+									
+								
+								
+								</ul>
+								<div class="tab-content py-3">
+									<div class="tab-pane fade active show" id="summaryTab" role="tabpanel">                                       
+									  <div class="row">
+      									<div class=" col-lg-4 col-md-4 col-sm-4">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-info">Total Registraions</p>
+              									<h4 class="my-1 text-success">{{totalRegistrations}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="fa fa-users"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-4">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-info">Group Registraions</p>
+              									<h4 class="my-1 text-success">{{GroupRegistrations}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="fa fa-list"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   
+              				   <div class=" col-lg-4 col-md-4 col-sm-4">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-info">Trainings Held</p>
+              									<h4 class="my-1 text-success">{{trainingsHeld}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-info opacity-15 text-white ms-auto"><i class="fa fa-chalkboard-user"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+      							<div class="row mt-5">
+  									     <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					    <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Total Number of Registration Over the Days</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{interviewProgressByMonth}}
+                					   </div>
+                					</div>
+            				    </div>
+  					
+  									</div>
+  									<div class="row mt-5">
+  									     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Consent Info</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{consentChart}}
+                					   </div>
+                					</div>
+            				    </div>
+  									  
+  							         <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Registration Categories</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{verification_category_chart}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+  									</div>
+  								
+  										
+  									<div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+            			   <div class=" col-lg-12 col-md-12 col-sm-12">
+          					  <div class="">
+          					    <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Activity Group Summary</h6>
+                  								</div>
+                  								
+                  		</div>
+          						<div class="card-body">
+          						   <div class="row">
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						       {{activityGroupsBaseTable}}
+          						     </div>
+          						     
+          						     
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						       {{activityGroupsChart}}
+          						     </div>
+          						     <hr>
+          						     <div class="col-12 col-lg-12 col-xl-12 col-sm-12">
+          						       {{activityGroupsTable}}
+          						     </div>
+          						     
+          						   </div>
+          						</div>
+          					  </div>
+          					</div>
+            			</div>
+  									
+  									<div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+  									  <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Activity Registration Summary</h6>
+                  								</div>
+                  								
+                  		</div>
+  									  <div class="card-body row mt-5">
+  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									      {{activityTable}}
+  									    </div>
+  									    
+  									  </div>
+  						
+  									</div>
+  									
+  									
+  									
+  								
+  									
+  										<div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+            			   <div class=" col-lg-12 col-md-12 col-sm-12">
+          					  <div class="">
+          					    <div class="card-header d-flex justify-content-between">
+                  								<div>
+                  									<h6 class="mb-0">Member Summary</h6>
+                  								</div>
+                  								 <div class="mb-3" style="width:200px;">
+                              			{{performanceSummaryController}}
+                              	</div>
+                  								
+                  		</div>
+          						<div class="card-body">
+          						   <div class="row">
+          						     <div class="col-12 col-lg-12 col-xl-12 col-sm-12">
+          						       {{membersAnalysisTable}}
+          						     </div>
+          						     
+          						     
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						       {{membersAnalysisChart}}
+          						     </div>
+          						     
+          						     <div class="col-6 col-lg-6 col-xl-6 col-sm-12">
+          						       {{membersAnalysisChartbyTraining}}
+          						     </div>
+          						     
+          						     <hr>
+          						     <div class="col-12 col-lg-12 col-xl-12 col-sm-12">
+          						       {{membersAnalysisBarChart}}
+          						     </div>
+          						   </div>
+          						</div>
+          					  </div>
+          					</div>
+            			</div>
+								
+							    </div>
+							    <div class="tab-pane fade" id="screeningTab" role="tabpanel">
+							       <div class="row">
+      									<div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-success">Valid Screened Respondants</p>
+              									<h4 class="my-1 text-success">{{valid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-success opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-danger">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-danger">In-Valid Screened Respondants</p>
+              									<h4 class="my-1 text-danger">{{invalid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-danger opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-4 col-md-4 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-warning">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Not Sreened at all</p>
+              									<h4 class="my-1 text-warning">{{not_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+      								
+      								<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Screening Status Summary</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{groupedScreening}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
+      								
+  									<div class="row mt-4">
+  									  <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Respondants Information</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{respondatsInfoTable}}
+                					   </div>
+                					</div>
+            				    </div>
+  									</div>
+							    </div>
+							    <div class="tab-pane fade" id="demographicInfoSummaey" role="tabpanel">
+							   
+							         <span class="mb-0">Demographic Information</span>
+  									  <hr>
+  									  
+  									  
+  									  <div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Total Respondants</p>
+              									<h4 class="my-1 text-warning">{{totRespondants}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+  									  
+  							        <div class="row">
+            				       <div class="col-3">
+            				      <div class="card radius-10 border-start border-0 border-4 border-primary">
+            					       <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Household size of Respondants</p>
+            								   <h4 class="my-1 text-success">{{totalNumberInHH}}</h4>
+            								   
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					   
+            					    </div>
+            					    </div>
+            					     <div class="col-3">
+            					    <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Number of children under 5 years</p>
+            								   <h4 class="my-1 text-success">{{under5}}</h4>
+            								   
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					      </div>
+            					    
+            					     
+            					       <div class="col-3">
+            					          <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Number of elderly above 60 years</p>
+            								   <h4 class="my-1 text-success">{{above60}}</h4>
+            								   
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					     
+            					       </div>
+            					       <div class="col-3">
+            					          <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Number of females that are pregnant/lactating</p>
+            								   <h4 class="my-1 text-success">{{pregnantLactating}}</h4>
+            						
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					       </div>
+            					     
+            				    </div>
+            				    
+            				    <div class="row mt-5">
+            				      
+            				      
+            				     <span class="mb-0">Disabilities</span>
+  									  <hr>
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Physical Disability Types in households Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{Disability_Type_physical}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Mental Disability Types in households Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{Disability_Type_mental}}
+                					   </div>
+                					</div>
+            				    </div>
+            				      
+            				       <span class="mb-0">Demographic Background</span>
+  									  <hr>
+            				       <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Gender Classification of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{genderClassification}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Livelihood Zones of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantslvhd_zone}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Residential Status of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsResStatus}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Age Groups of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{indiRespondantsAgeGroups}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+  									     <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Educational Background of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{educationBackground}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Marital Status of Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{benMaritalStatus}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				     <span class="mb-0">Shocks</span>
+  									  <hr>
+  									  
+  									  <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Shocks Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ben_shocks}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Main Shocks Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{main_ben_shocks}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Drought Impact on Income Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ben_drought_impct_hhs_income}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Drought Impact on Well-being Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ben_drought_impct_hhs_well_being}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-12 col-md-12 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Drought Recovery Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ben_drought_recov}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    
+            				     <span class="mb-0">Income Sources</span>
+  									  <hr>
+  									  
+  									    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Income Sources reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{income_sources}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				      <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Main Income Sources Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{income_sources_main}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Type of work been reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{type_of_work}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Debt Categories Reported by Respondants</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{hh_debts}}
+                					   </div>
+                					</div>
+            				    </div>
+            				    
+            				    <div class="row">
+            				       <div class="col-3">
+            				      <div class="card radius-10 border-start border-0 border-4 border-success">
+            					       <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Average Income of Respondants</p>
+            								   <h4 class="my-1 text-success">{{averageIncome}}</h4>
+            								   <p class="mb-0 font-13">{{otherIncomContent}}</p>
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					   
+            					    </div>
+            					    </div>
+            					     <div class="col-3">
+            					    <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Average household members contribution</p>
+            								   <h4 class="my-1 text-success">{{AverageContribution}}</h4>
+            								   <p class="mb-0 font-13">{{otherContributeContent}}</p>
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					      </div>
+            					    
+            					     
+            					       <div class="col-3">
+            					          <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Average Household savings</p>
+            								   <h4 class="my-1 text-success">{{hhsavings}}</h4>
+            								   <p class="mb-0 font-13">{{Otherhhsavings}}</p>
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					     
+            					       </div>
+            					       <div class="col-3">
+            					          <div class="card radius-10 border-start border-0 border-4 border-success">
+            					      <div class="card-body">
+            						   <div class="d-flex align-items-center">
+            							   <div>
+            								   <p class="mb-0 text-secondary">Average Amount in debt USD</p>
+            								   <h4 class="my-1 text-success">{{hhdebt}}</h4>
+            								   <p class="mb-0 font-13">{{Otherhhdebt}}</p>
+            							   </div>
+            							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
+            							   </div>
+            						   </div>
+            					   </div>
+            					      </div>
+            					       </div>
+            					     
+            				    </div>
+  									</div>
+  									
+							    </div>
+							    <div class="tab-pane fade" id="GroupTab" role="tabpanel">
+							 
+							          <div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+  									  <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Groups</h6>
+                  								</div>
+                  								
+                  		</div>
+  									  <div class="card-body row mt-5">
+  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									      {{groupTable}}
+  									    </div>
+  									    
+  									  </div>
+  						
+  									</div>
+							    </div>
+							    <div class="tab-pane fade" id="TrainingTab" role="tabpanel">
+							       <div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+  									  <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Training Info</h6>
+                  								</div>
+                  								
+                  		</div>
+  									  <div class="card-body row mt-5">
+  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									      {{trainingInfo}}
+  									    </div>
+  									    
+  									  </div>
+  						
+  									</div>
+							    </div>
+							    <div class="tab-pane fade" id="allData" role="tabpanel">
+							       <div class="row mt-5 card radius-10 border-start border-0 border-4 border-info">
+  									  <div class="card-header">
+                  								<div>
+                  									<h6 class="mb-0">Beneficiary Info</h6>
+                  								</div>
+                  								
+                  		</div>
+  									  <div class="card-body row mt-5">
+  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									      {{beneAllData}}
+  									    </div>
+  									    
+  									  </div>
+  						
+  									</div>
+							    </div>
+						</div>
+					</div>
+</div>
+	
+	 
+	 
+
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Load Data</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+										
+
+											<div class="modal-body">	
+												<div class="row mb-3" style="">
+												 {{messageBox}}
+							
+												</div>
+							
+							          <div class="row mb-3">
+							    
+								<div class="col-12">
+									{{onaUser}}
+								</div>
+							  </div>
+							
+							        <div class="row mb-3">
+								
+								<div class="col-12">
+									{{onaPass}}
+								</div>
+							</div>
+						
+							
+							</div>
+							<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+														 {{submitOnaData}}
+													</div>
+										
+											
+										</div>
+									</div>
+								</div>
+			
+			
+	
+	</div>
+</div>
+
+	<div class="switcher-wrapper" style="z-index:1081">
+		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+		</div>
+		<div class="switcher-body">
+			<div class="d-flex align-items-center">
+				<h5 class="mb-0 text-uppercase">Settings</h5>
+				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+			</div>
+			<hr/>
+		<div class="row sticky-section">
+          <div class="col-lg-12 col-md-12  col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>,
+         <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="mb-3">
+                        			{{Segrigation}}
+                        	</div>
+                        </div>
+               <div class="col-lg-12col-md-12col-sm-12">
+                  <div class="mb-3">
+                			{{Segrigation_element}}
+                	</div>
+               </div>
+               
+                <div class="col-lg-12col-md-12col-sm-12">
+                  <div class="mb-3">
+                			{{regisController}}
+                	</div>
+               </div>
+               
+              
+               
+    
+         
+        </div>
+		</div>
+	</div>
+
+<script src="assets/plugins/validation/jquery.validate.min.js"></script>
+<script src="assets/plugins/validation/validation-script.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#oasisRegistration-submitOnaData").on("click",function(){
+          $("#oasisRegistration-messageBox").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+								</div></div>`)
+        })
+        
+        
+    });
+    
+  
+	$(document).on("click",".switcher-btn", function () {
+	  $(".switcher-wrapper").addClass("switcher-toggled");
+	});
+
+
+</script>
+

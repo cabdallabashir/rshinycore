@@ -5,32 +5,38 @@ value_to_label <- function(data,variable){
     
     data%<>%
       mutate({{variable}} :=  case_when(
-        get(!!variable) == "1"	~ "No rain received",
-        get(!!variable) == "2" ~	"Poor/ below average",
-        get(!!variable) == "3"	~ "Average/normal",
-        get(!!variable) == "4" ~	"Good/ above average",
+        get(!!variable) == "1"	~ "Average-Nomal Rainfall",
+        get(!!variable) == "2" ~	"Poor-Below Average Rainfall",
+        get(!!variable) == "3"	~ "No rain received",
         .default = get(!!variable)
       ))
     
     return(data)
     
-  }else if (variable=="coping_strategies"){
+  }else if (variable=="coping"){
+
     
     data%<>%
       mutate({{variable}} :=  case_when(
-        get(!!variable) == "1"	~ "Reducing number of meals/ quantity of food eaten",
-        get(!!variable) == "2"	~ "Selling household assets/goods (non-capitals-seeds, animals)",
-        get(!!variable) == "3"	~ "Purchasing food on credit or borrowed food", 
-        get(!!variable) == "4"	~ "Spending Savings",
-        get(!!variable) == "5"	~ "Borrowing money",
-        get(!!variable) == "6"	~ "Selling productive capital assets or means of transport (sewing machine, wheelbarrow, bicycle, car, etc.)",
-        get(!!variable) == "7"	~ "Consuming seed stocks that were to be held/saved for the next season",
-        get(!!variable) == "8"	~ "Withdrawing children from school",
-        get(!!variable) == "9"	~ "Selling house or land",
-        get(!!variable) == "10"	~ "Selling last female animals",
-        get(!!variable) == "11"	~ "Some household members migrating to a new area",
-        get(!!variable) == "12"	~ "Entire households migrating to a new area",
-        get(!!variable) == "96"	~ "Other",
+        get(!!variable) == 1	~ "Reducing Number of meals/Quantity of food eaten",
+        get(!!variable) == 3	~ "Purchasing food on credit or borrowed food", 
+        get(!!variable) == 4	~ "Spending Savings",
+        get(!!variable) == 5	~ "Borrow Money from saving groups",
+        get(!!variable) == 8	~ "Selling Livestock including breeding animals or means of transport",
+        get(!!variable) == 9	~ "Consuming seed stocks that are to be saved for next season",
+        get(!!variable) == 10	~ "Withdrawing children from school",
+        get(!!variable) == 11	~ "Selling house of land",
+        get(!!variable) == 12	~ "Migration of entire household to a new area",
+        get(!!variable) == 13	~ "Minimize household water consumption by limiting water use to essential needs, (drinking and cooking)",
+        get(!!variable) == 14	~ "Wait for water trucking assistance from aid organizations",
+        get(!!variable) == 15	~ "Engaging in alternative income generating activities",
+        get(!!variable) == 16	~ "Seasonal livestock migration to find pasture and water",
+        get(!!variable) == 17	~ "Temporary migration of family members to find work and send remittances home",
+        get(!!variable) == 18	~ "Selling of non-essential assets or goods items (e.g.) furniture",
+        get(!!variable) == 19	~ "Water conservation and rationing",
+        get(!!variable) == 20	~ "Selling weak livestock first during a crisis to buy food",
+        get(!!variable) == 21	~ "Taking high interest loans from traders",
+        get(!!variable) == 96	~ "Other",
         .default = get(!!variable)
       ))
     
@@ -49,22 +55,24 @@ value_to_label <- function(data,variable){
     
     return(data)
     
-  }else if(variable == "River"){
+  }else if(variable == "River_levels"){
+
     
     data%<>%
       mutate({{variable}} :=  case_when(
-        get(!!variable) == "1" ~ "River completely dry",
-        get(!!variable) == "2" ~ "River level below normal for this time of the season", 
-        get(!!variable) == "3" ~ "River level normal for this time of the season",
-        get(!!variable) == "4" ~ "River level above normal for this time of the season",
-        get(!!variable)== "5" ~ "River is overflowing or at high risk of overflowing",
-        get(!!variable) == "6" ~ "Not applicable to this area",
-        .default = get(!!variable)
+        get(!!variable) == "1" ~ "Normal for this time of the year",
+        get(!!variable) == "2" ~ "Below Normal", 
+        get(!!variable) == "5" ~ "Above Normal", 
+        get(!!variable) == "3" ~ "River Completely dry",
+        get(!!variable) == "6" ~ "River Overflowing",
+        get(!!variable) == "7" ~ "River bamk full",
+        get(!!variable) == "4" ~ "Not Applicable",
+        .default = NA
       ))
     
     return(data)
     
-  }else if(variable == "flashfloods" | variable == "locust_infest"){
+  }else if(variable == "Flash_flood" | variable == "locust_infest"){
     
     data%<>%
       mutate({{variable}} := case_when(
@@ -75,35 +83,34 @@ value_to_label <- function(data,variable){
     
     return(data)
     
-  }else if(variable == "Cattle condition"){
+  }else if(variable == "Catchment_status"){
     
     
     data%<>%
       mutate({{variable}} := case_when(
-        get(!!variable) == "1" ~ "Extremely weak",
-        get(!!variable) == "2" ~ "Weak",
-        get(!!variable) == "3" ~ "Average",
-        get(!!variable)== "4" ~ "Fat/heavy",
+        get(!!variable) == "1" ~ "More than half-full (75%) or full",
+        get(!!variable) == "2" ~ "Half-full  ( 50%)",
+        get(!!variable) == "3" ~ "Less than half-full (25%) /empty",
         get(!!variable) == "98" ~ NA,
         .default = get(!!variable)
       ))
     
     return(data)
     
-  }else if(variable == "Sheep/goat condition"){
+  }else if(variable == "crop_condition"){
     data%<>%
       mutate({{variable}} := case_when(
-        get(!!variable) == "1" ~ "Extremely weak",
-        get(!!variable) == "2" ~ "Weak",
-        get(!!variable) == "3" ~ "Average",
-        get(!!variable)== "4" ~ "Fat/heavy",
-        get(!!variable) == "98" ~ NA,
+        get(!!variable) == "0" ~ "Failure",
+        get(!!variable) == "1" ~ "Very poor",
+        get(!!variable) == "2" ~ "Poor",
+        get(!!variable)==  "3" ~ "Fair",
+        get(!!variable) == "4" ~ "Very good",
         .default = get(!!variable)
       ))
     
     return(data)
   }else if(variable == "Pasture_longevity"){
-    
+
     data%<>%
       mutate({{variable}} := case_when(
         get(!!variable) == "1" ~ "No pasture remaining",
@@ -115,15 +122,60 @@ value_to_label <- function(data,variable){
         .default = get(!!variable)
       ))
     return(data)
-  }else if(variable == "crop_impact"){
+  }else if(variable == "Pasture_condition"){
+   
+    data%<>%
+      mutate({{variable}} := case_when(
+        get(!!variable) == "1" ~ "Normal/Good replenishment",
+        get(!!variable) == "2" ~ "Below normal",
+        get(!!variable) == "3" ~ "No replenishment yet",
+        .default = get(!!variable)
+      ))  
+    
+  }else if(variable == "Cattle"){
     
     data%<>%
       mutate({{variable}} := case_when(
-        get(!!variable) == "1" ~ "No impact or little impact",
-        get(!!variable) == "2" ~ "Less than a third of crops damaged by wilting/floods/pests",
-        get(!!variable) == "3" ~ "more than a third of crops damaged by wilting/floods/pests",
+        get(!!variable) == "0" ~ "Very poor",
+        get(!!variable) == "1" ~ "poor",
+        get(!!variable) == "2" ~ "Fair",
+        get(!!variable)==  "3" ~ "good",
+        get(!!variable) == "4" ~ "Very good",
+        get(!!variable) == "5" ~ "Failure",
         .default = get(!!variable)
-      ))  
+      )) 
+    return(data)
+    
+    
+  }else if(variable == "Goat_sheep"){
+    
+    data%<>%
+      mutate({{variable}} := case_when(
+        get(!!variable) == "0" ~ "Very poor",
+        get(!!variable) == "1" ~ "poor",
+        get(!!variable) == "2" ~ "Fair",
+        get(!!variable)==  "3" ~ "good",
+        get(!!variable) == "4" ~ "Very good",
+        get(!!variable) == "5" ~ "Failure",
+        .default = get(!!variable)
+      )) 
+    return(data)
+    
+    
+  }else if(variable == "Camel"){
+    
+    data%<>%
+      mutate({{variable}} := case_when(
+        get(!!variable) == "0" ~ "Very poor",
+        get(!!variable) == "1" ~ "poor",
+        get(!!variable) == "2" ~ "Fair",
+        get(!!variable)==  "3" ~ "good",
+        get(!!variable) == "4" ~ "Very good",
+        get(!!variable) == "5" ~ "Failure",
+        .default = get(!!variable)
+      )) 
+    return(data)
+    
     
   }else if(variable == "Outbreak_deaths"){
     
@@ -133,6 +185,18 @@ value_to_label <- function(data,variable){
         get(!!variable) == "2" ~ "Higher than normal animal mortality",
         get(!!variable) == "3" ~ "Very high animal mortality/uncontrolled outbreak",
         .default = get(!!variable)
+      )) 
+    return(data)
+    
+    
+  }else if(variable == "awd_cases"){
+    
+    data%<>%
+      mutate({{variable}} := case_when(
+        get(!!variable) == 0 ~ "0 Case",
+        get(!!variable) == 1 ~ "1 case",
+        get(!!variable) >= 2*awd_cases_previous_week  ~ "Double the average number of cases from the previous two weeks",
+        .default = paste(get(!!variable) ,"Cases reported")
       )) 
     return(data)
     

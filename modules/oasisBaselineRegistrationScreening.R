@@ -1,6 +1,6 @@
 
 
-get_data <- function(username, password ,formID,memberID){
+get_data <- function(username, password ,formID){
   
   # if(memberID == "CMU"){
   #   curl <-paste("https://api.ona.io/api/v1/data/",formID,sep = "")
@@ -83,36 +83,7 @@ data_enumirators <- readxl::read_excel("docs/oasis_enumirators.xlsx")
 
 data_enumirators$enumirator_id <- gsub("['’]", "", data_enumirators$enumirator_id )
 
-# Create the dataframe with credentials
-memberCredentials <- data.frame(
-  users = c("abdullahiaweis"),
-  password = c(""),
-  member = c("CMU")
-)
 
-# Function to validate user input
-validate_credentials <- function(username_input, password_input) {
-  # Check if the input username and password match any row in the dataframe
-  match_row <- memberCredentials$users == username_input #& memberCredentials$password == password_input
-  
-  # If there's a match, match_row will contain TRUE for the matching row(s)
-  if (any(match_row)) {
-    member_type <- memberCredentials$member[match_row]
-    return(
-      data.frame(
-        status = TRUE,
-        message = member_type
-      )
-    )
-  } else {
-    return(
-      data.frame(
-        status = FALSE,
-        message = "User Not Found"
-      )
-    )
-  }
-}
 
 
 oasisBaselineRegistrationScreeningUI <- function(id){
@@ -206,12 +177,12 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
   
   observeEvent(input$submitOnaData , {
     
-    
-    if((input$onaUser == "" | is.na(input$onaUser)) | (input$onaPass == "" | is.na(input$onaPass))){
-      output$messageBox <- renderUI({
-       
-        HTML(
-          '<div class="alert alert-warning border-0 bg-warning alert-dismissible fade show py-2">
+    tryCatch({
+      if((input$onaUser == "" | is.na(input$onaUser)) | (input$onaPass == "" | is.na(input$onaPass))){
+        output$messageBox <- renderUI({
+          
+          HTML(
+            '<div class="alert alert-warning border-0 bg-warning alert-dismissible fade show py-2">
 									<div class="d-flex align-items-center">
 										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
 										</div>
@@ -222,157 +193,215 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
 									</div>
 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								</div>'
-        )
-      })
-      return()
-    }
-   
-   
-    
-    onauser <- input$onaUser
-    onapass <- input$onaPass
-    
-#     result <- validate_credentials(onauser, onapass)
-#     
-#     if(!result$status){
-#       output$messageBox <- renderUI({
-#         
-#         HTML(
-#           '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-# 									<div class="d-flex align-items-center">
-# 										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
-# 										</div>
-# 										<div class="ms-3">
-# 											<h6 class="mb-0 text-dark">Warning</h6>
-# 											<div class="text-dark">User Not Found in the system</div>
-# 										</div>
-# 									</div>
-# 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-# 								</div>'
-#         )
-#       })
-#       return()
-#     }
-#     
-#     global_vars$memberToFilter <- result$message
-#     
-#     if(is.null(result$message)){
-#       output$messageBox <- renderUI({
-#         
-#         HTML(
-#           '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-# 									<div class="d-flex align-items-center">
-# 										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
-# 										</div>
-# 										<div class="ms-3">
-# 											<h6 class="mb-0 text-dark">Warning</h6>
-# 											<div class="text-dark">Invalid Member</div>
-# 										</div>
-# 									</div>
-# 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-# 								</div>'
-#         )
-#       })
-#       return()
-#     }
-   
-    
-    baseline_survey  <- get_data(onauser,onapass,"794593","")
-    
-    required_columns <- c("enum_name","member","region","district","community",'reg_activity_id',"age_cfw_benef",
-                          "consent","benef_name","benef_sex","benef_age","tel_number","benef_hoh","HoH_fullname",
-                          "hoh_age","marital_status_hoh","hh_sex","hhsize","under_5","elderly","pregnant_lactating",
-                          "contribute_income","pwd_physical","pwd_mental","pwd_physical_number","pwd_mental_number",
-                          "montly_income","amount_debt","contribute_income","type_work","fcs" , "HDDS",
-                          "X_submission_time","start","end","debt","Disability_Type_mental","Disability_Type_physical")
-    
-    # Loop through each required column
-    for (col in required_columns) {
-      # Check if the column exists
-      if (!col %in% names(baseline_survey)) {
-        # If it does not exist, add it with NA values
-        baseline_survey[[col]] <- NA
+          )
+        })
+        return()
       }
-    }
-    
-    if(first(baseline_survey$status) == "200"   & first(baseline_survey$message) != "empty"){
-     
-      columns_to_replace_na <- c("contribute_income", "montly_income", "pwd_mental_number",
-                                 "pwd_physical_number", "pregnant_lactating", "under_5",
-                                 "hhsize", "elderly","amount_debt")
       
-      main_survey_analysis <- baseline_survey %>%
-        select(
-          X_id,enum_name,member,region,district,community,reg_activity_id,age_cfw_benef,
-          consent,benef_name,benef_sex,benef_age,tel_number,benef_hoh,HoH_fullname,
-          hoh_age,marital_status_hoh,hh_sex,hhsize,under_5,elderly,pregnant_lactating,
-          contribute_income,pwd_physical,pwd_mental,pwd_physical_number,pwd_mental_number,
-          montly_income,amount_debt,contribute_income,type_work,fcs,fcsCat , HDDS,
-          X_submission_time,start,end,debt,Disability_Type_mental,Disability_Type_physical
-         
-        ) %>%
-        mutate(
-          across(all_of(columns_to_replace_na), ~replace(., is.na(.), 0)),
-          district = gsub("\\s+", "", district),
-          community = gsub("\\s+", "", community),
-          tab_date = as.Date(format(parse_date_time(X_submission_time, orders = "Y-m-d H:M:OSz"),"%Y-%m-%d")),
-          bens_id = X_id,
-          HoH_fullname = ifelse(is.na(HoH_fullname) , benef_name ,HoH_fullname ),
-          hoh_sex= ifelse(is.na(hh_sex) ,benef_sex,hh_sex),
-          hoh_age= ifelse(is.na(hoh_age) ,benef_age,hoh_age),
-          start_time = format(parse_date_time(start, orders = "Y-m-d H:M:OSz")+hours(3),"%Y-%m-%d %H:%M:%S"),
-          end_time = format(parse_date_time(end, orders = "Y-m-d H:M:OSz")+hours(3),"%Y-%m-%d %H:%M:%S"),
+      
+      
+      onauser <- input$onaUser
+      onapass <- input$onaPass
+      
+      Authresult <- validate_member_ona_credentials(onauser,onapass,"794593")
+      
+      if(!Authresult$status){
+        output$messageBox <- renderUI({
           
-          Household_size_score = ifelse(as.numeric(hhsize) <= 6 , 0 ,2 ),
-          elderly_score = ifelse(as.numeric(elderly) == 0 , 0 ,
-                                 ifelse(as.numeric(elderly) == 1,1,2)
-                                 ),
-          woman_h_hh_score = ifelse(hoh_sex == "female" & benef_hoh == "1",5,0),
-          pregnant_lactating_score = ifelse(as.numeric(pregnant_lactating) == 0 ,0,2),
-          under_5_score = ifelse(as.numeric(under_5) == 0 ,0,
-                                 ifelse(as.numeric(under_5) == 1,1,3)
-                                 ),
-          pwd_physical_score = ifelse(as.numeric(pwd_physical_number) ==0 ,0,
-                                      ifelse(as.numeric(pwd_physical_number) == 1 , 2 , 3 )
-                                      ),
-          pwd_mental_score = ifelse(as.numeric(pwd_mental_number) ==0 ,0,
+          HTML(
+            paste(
+              '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">',Authresult$message,'</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>',sep=""
+            )
+          )
+        })
+        return()
+      }
+      
+      
+      
+      if(is.null(Authresult$message)){
+        output$messageBox <- renderUI({
+          
+          HTML(
+            '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">Invalid Member</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>'
+          )
+        })
+        return()
+      }
+      
+      baseline_survey  <- get_data("abdullahiaweis","tutka_sulsulaaye@123","794593")
+      
+      required_columns <- c("enum_name","member","region","district","community",'reg_activity_id',"age_cfw_benef",
+                            "consent","benef_name","benef_sex","benef_age","tel_number","benef_hoh","HoH_fullname",
+                            "hoh_age","marital_status_hoh","hh_sex","hhsize","under_5","elderly","pregnant_lactating",
+                            "contribute_income","pwd_physical","pwd_mental","pwd_physical_number","pwd_mental_number",
+                            "montly_income","amount_debt","contribute_income","type_work","fcs" , "HDDS",
+                            "X_submission_time","start","end","debt","Disability_Type_mental","Disability_Type_physical","hh_geopoint",
+                            "hh_geopoint_manual"
+      )
+      
+      # Loop through each required column
+      for (col in required_columns) {
+        # Check if the column exists
+        if (!col %in% names(baseline_survey)) {
+          # If it does not exist, add it with NA values
+          baseline_survey[[col]] <- NA
+        }
+      }
+      
+      if(first(baseline_survey$status) == "200"   & first(baseline_survey$message) != "empty"){
+        
+        
+        postgresConnection <- dbConnect(RPostgres::Postgres(),
+                                        dbname = "brcisShiny",
+                                        host = "brcisproddb.postgres.database.azure.com", port = 5432,
+                                        user = "brcisShiny", password = "brcisShiny@112233@",
+                                        sslmode = 'require')
+        
+        
+        columns_to_replace_na <- c("contribute_income", "montly_income", "pwd_mental_number",
+                                   "pwd_physical_number", "pregnant_lactating", "under_5",
+                                   "hhsize", "elderly","amount_debt")
+        
+        main_survey_analysis <- baseline_survey %>%
+          select(
+            X_id,enum_name,member,region,district,community,reg_activity_id,age_cfw_benef,
+            consent,benef_name,benef_sex,benef_age,tel_number,benef_hoh,HoH_fullname,
+            hoh_age,marital_status_hoh,hh_sex,hhsize,under_5,elderly,pregnant_lactating,
+            contribute_income,pwd_physical,pwd_mental,pwd_physical_number,pwd_mental_number,
+            montly_income,amount_debt,contribute_income,type_work,fcs,fcsCat , HDDS,
+            X_submission_time,start,end,debt,Disability_Type_mental,Disability_Type_physical,
+            hh_geopoint,  hh_geopoint_manual
+          ) %>%
+          mutate(
+            across(all_of(columns_to_replace_na), ~replace(., is.na(.), 0)),
+            district = gsub("\\s+", "", district),
+            community = gsub("\\s+", "", community),
+            tab_date = as.Date(format(parse_date_time(X_submission_time, orders = "Y-m-d H:M:OSz"),"%Y-%m-%d")),
+            bens_id = X_id,
+            HoH_fullname = ifelse(is.na(HoH_fullname) , benef_name ,HoH_fullname ),
+            hoh_sex= ifelse(is.na(hh_sex) ,benef_sex,hh_sex),
+            hoh_age= ifelse(is.na(hoh_age) ,benef_age,hoh_age),
+            start_time = format(parse_date_time(start, orders = "Y-m-d H:M:OSz")+hours(3),"%Y-%m-%d %H:%M:%S"),
+            end_time = format(parse_date_time(end, orders = "Y-m-d H:M:OSz")+hours(3),"%Y-%m-%d %H:%M:%S"),
+            
+            Household_size_score = ifelse(as.numeric(hhsize) <= 6 , 0 ,2 ),
+            elderly_score = ifelse(as.numeric(elderly) == 0 , 0 ,
+                                   ifelse(as.numeric(elderly) == 1,1,2)
+            ),
+            woman_h_hh_score = ifelse(hoh_sex == "female" & benef_hoh == "1",5,0),
+            pregnant_lactating_score = ifelse(as.numeric(pregnant_lactating) == 0 ,0,2),
+            under_5_score = ifelse(as.numeric(under_5) == 0 ,0,
+                                   ifelse(as.numeric(under_5) == 1,1,3)
+            ),
+            pwd_physical_score = ifelse(as.numeric(pwd_physical_number) ==0 ,0,
+                                        ifelse(as.numeric(pwd_physical_number) == 1 , 2 , 3 )
+            ),
+            pwd_mental_score = ifelse(as.numeric(pwd_mental_number) ==0 ,0,
                                       ifelse(as.numeric(pwd_mental_number) == 1 , 2 , 3 )
-                                      ),
-          monthly_income_score = ifelse(as.numeric(montly_income) < 100,5,0),
-          debt_score = ifelse(as.numeric(amount_debt) >200,5,0),
-          income_contribution_score = ifelse(as.numeric(contribute_income) == 0,5,0),
-          type_work_score = ifelse(type_work == "temporary",2,0),
-          fcs_score = ifelse(fcsCat == "Poor",10 , 
-                             ifelse(fcsCat == "Borderline",5,0) 
-                             ),
-          hdds_score = ifelse(as.numeric(HDDS) < 7,10,0),
-          total_score =  Household_size_score + elderly_score + woman_h_hh_score + # Be careful, you've listed woman_h_hh_score twice
-            pregnant_lactating_score + under_5_score + pwd_physical_score + pwd_mental_score +
-            monthly_income_score + debt_score + income_contribution_score + type_work_score +
-            fcs_score + hdds_score
+            ),
+            monthly_income_score = ifelse(as.numeric(montly_income) < 100,5,0),
+            debt_score = ifelse(as.numeric(amount_debt) >200,5,0),
+            income_contribution_score = ifelse(as.numeric(contribute_income) == 0,5,0),
+            type_work_score = ifelse(type_work == "temporary",2,0),
+            fcs_score = ifelse(fcsCat == "Poor",10 , 
+                               ifelse(fcsCat == "Borderline",5,0) 
+            ),
+            hdds_score = ifelse(as.numeric(HDDS) < 7,10,0),
+            total_score =  Household_size_score + elderly_score + woman_h_hh_score + # Be careful, you've listed woman_h_hh_score twice
+              pregnant_lactating_score + under_5_score + pwd_physical_score + pwd_mental_score +
+              monthly_income_score + debt_score + income_contribution_score + type_work_score +
+              fcs_score + hdds_score
           )%>%
-        select(
-          tab_date,start_time,end_time,bens_id,enum_name,member,region,district,community,reg_activity_id,age_cfw_benef,
-          consent,benef_name,benef_sex,benef_age,tel_number,benef_hoh,HoH_fullname,debt,
-          hoh_age,marital_status_hoh,hoh_sex,hhsize,under_5,elderly,pregnant_lactating,
-          contribute_income,pwd_physical,pwd_mental,pwd_physical_number,pwd_mental_number,
-          montly_income,amount_debt,contribute_income,type_work,fcs ,fcsCat, HDDS,
-          X_submission_time,Household_size_score,elderly_score,woman_h_hh_score,woman_h_hh_score,pregnant_lactating_score,under_5_score,
-          pwd_physical_score,pwd_mental_score,monthly_income_score,debt_score,income_contribution_score,type_work_score,fcs_score,
-          hdds_score,total_score,Disability_Type_mental,Disability_Type_physical
-        )
-      
- 
-     
-      main_survey_analysis$enum_name <- gsub("['’]", "", main_survey_analysis$enum_name)
-      
-      
-    
-      global_vars$global_baseline_survey <- main_survey_analysis
-      
-
-      output$messageBox <- renderUI({
-        HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+          select(
+            tab_date,start_time,end_time,bens_id,enum_name,member,region,district,community,reg_activity_id,age_cfw_benef,
+            consent,benef_name,benef_sex,benef_age,tel_number,benef_hoh,HoH_fullname,debt,
+            hoh_age,marital_status_hoh,hoh_sex,hhsize,under_5,elderly,pregnant_lactating,
+            contribute_income,pwd_physical,pwd_mental,pwd_physical_number,pwd_mental_number,
+            montly_income,amount_debt,contribute_income,type_work,fcs ,fcsCat, HDDS,
+            X_submission_time,Household_size_score,elderly_score,woman_h_hh_score,woman_h_hh_score,pregnant_lactating_score,under_5_score,
+            pwd_physical_score,pwd_mental_score,monthly_income_score,debt_score,income_contribution_score,type_work_score,fcs_score,
+            hdds_score,total_score,Disability_Type_mental,Disability_Type_physical,hh_geopoint,  hh_geopoint_manual
+          )
+        
+        
+        
+        main_survey_analysis$enum_name <- gsub("['’]", "", main_survey_analysis$enum_name)
+        
+        tables <- dbListTables(postgresConnection)
+        if("oasisScreening" %in% tables){
+          existing_ids <- dbGetQuery(postgresConnection, 'SELECT bens_id FROM "oasisScreening"')
+          df_to_insert <- main_survey_analysis[!main_survey_analysis$bens_id %in% existing_ids$bens_id,]
+          
+          if (nrow(df_to_insert) > 0) {
+            print("Writing To Database..")
+            dbWriteTable(postgresConnection, name = "oasisScreening", value = df_to_insert, append = TRUE, row.names = FALSE)
+          } else {
+            print("No new records to insert.")
+          }
+        }else{
+          dbWriteTable(postgresConnection , "oasisScreening" , main_survey_analysis)
+        }
+        
+        if(Authresult$message != 'CMU'){
+          main_survey_analysis <- dbGetQuery(postgresConnection,sprintf('SELECT * FROM "oasisScreening" WHERE access_status = \'A\' and member = \'%s\'', Authresult$message) )
+        }else{
+          main_survey_analysis <- dbGetQuery(postgresConnection,'SELECT * FROM "oasisScreening" WHERE access_status = \'A\'')
+        }
+        
+        
+        dbDisconnect(postgresConnection)
+        
+        
+        
+        
+        global_vars$global_baseline_survey <- main_survey_analysis
+        
+        
+        if(nrow(main_survey_analysis) == 0){
+          output$messageBox <- renderUI({
+            HTML(paste(
+              '<div class="row">
+              <div class="col-12">
+                <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+									<div class="d-flex align-items-center">
+										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+										</div>
+										<div class="ms-3">
+											<h6 class="mb-0 text-dark">Info</h6>
+											<div class="text-dark">NOTE: No Data Found for ',Authresult$message,'</div>
+										</div>
+									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+              </div>
+            </div>',sep=""
+            ))
+            
+          })
+        }else{
+          output$messageBox <- renderUI({
+            HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
 									<div class="d-flex align-items-center">
 										<div class="font-35 text-white"><i class="bx bxs-check-circle"></i>
 										</div>
@@ -383,15 +412,17 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
 									</div>
 									
 								</div>')
-      })
-      
-    }else{
-      output$messageBox <- renderUI({
-       
-        resp <- if_else(first(baseline_survey$status) != "200" ,first(baseline_survey$message) , paste("Data Cannot be loaded please contact CMU MEAL"))
+          })
+        }
         
-        HTML(paste(sep = "",
-          '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+        
+      }else{
+        output$messageBox <- renderUI({
+          
+          resp <- if_else(first(baseline_survey$status) != "200" ,first(baseline_survey$message) , paste("Data Cannot be loaded please contact CMU MEAL"))
+          
+          HTML(paste(sep = "",
+                     '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
 									<div class="d-flex align-items-center">
 										<div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
 										</div>
@@ -402,9 +433,30 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
 									</div>
 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								</div>' 
-        ))
+          ))
         })
-    }
+      }
+      
+      
+    }, error = function(e) {
+      output$messageBox <- renderUI({
+        HTML(paste(sep = "",
+                   '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+									<div class="d-flex align-items-center">
+										<div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
+										</div>
+										<div class="ms-3">
+											<h6 class="mb-0 text-white">Error</h6>
+											<div class="text-white">',e$message,'</div>
+										</div>
+									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>' 
+        ))
+      })
+      print(e$message)
+    })
+    
     
    
     
@@ -448,7 +500,6 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
   
   
   observe({
-    print("test")
     if( is.null(nrow(global_vars$global_baseline_survey)) || nrow(global_vars$global_baseline_survey) == 0){
       return()
     }
@@ -492,7 +543,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
     # 
     
     
-    output$communityScores <- renderDT({
+    output$communityScores <- renderDT(server = FALSE,{
       top_target <- sum(as.numeric(screening_target$r_target),na.rm = TRUE)
       
       communityScoresTable <- main_survey%>%
@@ -553,7 +604,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
       )
     })
     
-    output$communityScoresDetails <- renderDT({
+    output$communityScoresDetails <- renderDT(server = FALSE,{
       top_target <- sum(as.numeric(screening_target$r_target),na.rm = TRUE)
       
       communityScoresDetails <- main_survey%>%
@@ -570,7 +621,6 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
       
       datatable(
         communityScoresDetails,
-        
         extensions = 'Buttons', 
         options = list(
           scrollX = TRUE, 
@@ -617,7 +667,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
       )
     })
     
-    output$communityScoresCategoryDetails <- renderDT({
+    output$communityScoresCategoryDetails <- renderDT(server = FALSE,{
       communityScoresCategoryDetails <- main_survey %>%
         filter(consent == "1")%>%
         select(
@@ -703,7 +753,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
         
     })
     
-    output$memberScoresDetails <- renderDT({
+    output$memberScoresDetails <- renderDT(server = FALSE,{
       communityScoresDetails <- main_survey%>%
         filter(consent == "1")%>%
         select(
@@ -726,7 +776,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
         )
       )
     })
-    output$regionScoresDetails <- renderDT({
+    output$regionScoresDetails <- renderDT(server = FALSE,{
       communityScoresDetails <- main_survey%>%
         filter(consent == "1")%>%
         select(
@@ -749,7 +799,7 @@ oasisBaselineRegistrationScreening <- function(input ,output , session,sharedVal
         )
       )
     })
-    output$districtScoresDetails <- renderDT({
+    output$districtScoresDetails <- renderDT(server = FALSE,{
       communityScoresDetails <- main_survey%>%
         filter(consent == "1")%>%
         select(

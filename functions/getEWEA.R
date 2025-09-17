@@ -14,7 +14,7 @@ update_ewea <- function(user , pass , date_to_update){
   get_data_ewea <- function(username, password ){
     
     # Make the API request
-    response_ewea_data <- GET(url = "https://api.ona.io/api/v1/data/453775", authenticate(username, password))
+    response_ewea_data <- GET(url = "https://api.ona.io/api/v1/data/826805", authenticate(username, password))
     status <- status_code(response_ewea_data)
     if (status == 200) {
       ewea <- prettify(rawToChar(response_ewea_data$content))%>% fromJSON()%>%

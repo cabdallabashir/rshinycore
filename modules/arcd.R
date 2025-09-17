@@ -115,12 +115,14 @@ arcdUI <- function(id){
                  ),
                  
                  messageBox = uiOutput(ns("messageBox")),
-                
-                 memberController = selectInput(
-                   ns("memberController"),
+                 
+                 projectController = selectInput(
+                   ns("projectController"),
                    "Member",
-                   choices = c("all",unique(communities$member))
+                   choices = c(unique(communities$project))
                  ),
+                 
+                 memberController = uiOutput(ns("memberControllerFill")),
                  
                  
                  regionController = uiOutput(ns("regionControllerFill")),
@@ -214,7 +216,54 @@ arcd <- function(input ,output , session,sharedValues){
     
     onauser <- input$onaUser
     onapass <- input$onaPass
-    baseline_survey  <- get_data(onauser,onapass,"776693")
+    
+    Authresult <- validate_member_ona_credentials(onauser,onapass,"776693")
+    
+    if(!Authresult$status){
+      output$messageBox <- renderUI({
+        
+        HTML(
+          paste(
+            '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">',Authresult$message,'</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>',sep=""
+          )
+        )
+      })
+      return()
+    }
+    
+    
+    
+    if(is.null(Authresult$message)){
+      output$messageBox <- renderUI({
+        
+        HTML(
+          '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+    									<div class="d-flex align-items-center">
+    										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+    										</div>
+    										<div class="ms-3">
+    											<h6 class="mb-0 text-dark">Warning</h6>
+    											<div class="text-dark">Invalid Member</div>
+    										</div>
+    									</div>
+    									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    								</div>'
+        )
+      })
+      return()
+    }
+    
+    baseline_survey  <- get_data("abdullahiaweis","tutka_sulsulaaye@123","776693")
 
     if(first(baseline_survey$status) == "200"  & first(baseline_survey$message) != "empty"){
  
@@ -223,13 +272,16 @@ arcd <- function(input ,output , session,sharedValues){
       
       baseline_survey %<>%
         mutate(
+        project = ifelse(is.na(project),"brcisiii" , project),
         Member_id = ifelse(is.na(Member_id),member , Member_id),
         Region_id = ifelse(is.na(Region_id),region , Region_id),
         District_id = ifelse(is.na(District_id),district , District_id),
         Community_id = ifelse(is.na(Community_id),community , Community_id),
-        Member_id =str_to_lower(Member_id),
         Member_id = case_when(
           Member_id == "cww" ~ "concern",
+          Member_id == "kaalo_terra_project" ~ "KAALO",
+          Member_id == "nrc_terra_project" ~ "nrc",
+          Member_id == "concern_terra_project" ~ "concern",
           .default = Member_id
         ),
         Region_id = case_when(
@@ -242,6 +294,9 @@ arcd <- function(input ,output , session,sharedValues){
           Region_id == "Hiran" ~ "Hiran",
           Region_id == "Middle shabelle" ~ "Middle_Shabelle",
           Region_id == "Bakool" ~ "Bakool",
+          Region_id == "Gedo_Terra_Project" ~ "Gedo",
+          Region_id == "Mudug_Terra_Project" ~ "Mudug",
+          Region_id == "Bay_Terra_project" ~ "Bay",
           .default = Region_id
         ),
         District_id = case_when(
@@ -265,7 +320,9 @@ arcd <- function(input ,output , session,sharedValues){
           District_id == "Wajid" ~ "Waajid",
           District_id == "Beletweyne (Mataban)" ~ "Belet_weyne",
           District_id == "Hudur" ~ "Hudur",
-         
+          District_id == "Baidoa_Terra_project" ~ "Baidoa",
+          District_id == "Galkayo_Terra_project" ~ "Galkacyo",
+          District_id == "Bardere_Terra_project" ~ "Baardhere",
           .default = District_id
         ),
         Community_id = case_when(
@@ -302,12 +359,19 @@ arcd <- function(input ,output , session,sharedValues){
           Community_id == "Towfiiq"  & Member_id == 'kaalo' ~ "Inter_or_intra_communal_conflict_(cattle_rustling_gang_violence_disputes_over_natural_resources_etc)",
           Community_id == 'Beergadid' & Member_id == 'sci' ~ "Inter_or_intra_communal_conflict_(cattle_rustling_gang_violence_disputes_over_natural_resources_etc)",
           .default = risk_scenario2
+        ),
+        Member_id =str_to_lower(Member_id),
+        tab_date = as.Date(format(parse_date_time(X_submission_time, orders = "Y-m-d H:M:OSz"),"%Y-%m-%d")),
+        Community_id = case_when(
+          project == "terra" & Member_id == "nrc" & is.na(Community_id) ~ "CA9",
+          .default = Community_id
+        ),
+        District_id = case_when(
+          project == "terra" & Member_id == "nrc" & is.na(District_id) ~ "Baidoa",
+          .default = District_id
         )
       )%>%
-        mutate(
-          tab_date = as.Date(format(parse_date_time(X_submission_time, orders = "Y-m-d H:M:OSz"),"%Y-%m-%d")),
-          
-        )
+        filter(!is.na(Community_id))
       
       # write.xlsx(main_survey_part_a, "main_survey_part_a3333.xlsx")
       
@@ -316,7 +380,7 @@ arcd <- function(input ,output , session,sharedValues){
     
       
       main_survey_part_a <- baseline_survey%>%
-        select(Member_id,tab_date,Region_id,District_id,Community_id,
+        select(project,Member_id,tab_date,Region_id,District_id,Community_id,
           total_number_of_households,
           total_number_of_households,
           total_no_of_population,
@@ -351,7 +415,7 @@ arcd <- function(input ,output , session,sharedValues){
       # write.xlsx(main_survey_part_a, "main_survey_part_a.xlsx")
       
       main_survey_part_b <- baseline_survey %>%
-        select(Member_id,tab_date,X_submission_time,Region_id,District_id,Community_id,risk_scenario1,risk_scenario2,
+        select(project,Member_id,tab_date,X_submission_time,Region_id,District_id,Community_id,risk_scenario1,risk_scenario2,
           DR_level_menFGD,
           DR_level_OBSERVATION_MenFGD,
           DR_level_womenFGD,
@@ -743,7 +807,7 @@ arcd <- function(input ,output , session,sharedValues){
           # Assuming 'text_field' is the column from which you want to remove "_3"
           question = str_remove_all(question, "_2$")
          )%>%
-         select(Member_id,tab_date,Region_id,District_id,Community_id,risk_scenario,risk_scenario_value,question,category,scores)
+         select(project,Member_id,tab_date,Region_id,District_id,Community_id,risk_scenario,risk_scenario_value,question,category,scores)
          
       
       # write.xlsx(main_survey_part_b, "systemcheck.xlsx")
@@ -761,12 +825,38 @@ arcd <- function(input ,output , session,sharedValues){
       
       # write.xlsx(main_survey_part_b, "againnnnnnnnnnnnnnnnnnnnnn.xlsx")
       
+      if(Authresult$message != 'CMU'){
+        main_survey_part_a %<>% filter(str_to_lower(Member_id) == str_to_lower(Authresult$message))
+        main_survey_part_b %<>% filter(str_to_lower(Member_id) == str_to_lower(Authresult$message))
+      }
  
       global_vars$global_arcd_survey_part_a <- main_survey_part_a
       global_vars$global_arcd_survey_part_b <- main_survey_part_b
       
-      output$messageBox <- renderUI({
-        HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+      if(nrow(main_survey_part_a) == 0){
+        output$messageBox <- renderUI({
+          HTML(paste(
+            '<div class="row">
+              <div class="col-12">
+                <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+									<div class="d-flex align-items-center">
+										<div class="font-35 text-dark"><i class="bx bx-info-circle"></i>
+										</div>
+										<div class="ms-3">
+											<h6 class="mb-0 text-dark">Info</h6>
+											<div class="text-dark">NOTE: No Data Found for ',Authresult$message,'</div>
+										</div>
+									</div>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+              </div>
+            </div>',sep=""
+          ))
+          
+        })
+      }else{
+        output$messageBox <- renderUI({
+          HTML('<div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
 									<div class="d-flex align-items-center">
 										<div class="font-35 text-white"><i class="bx bxs-check-circle"></i>
 										</div>
@@ -777,7 +867,8 @@ arcd <- function(input ,output , session,sharedValues){
 									</div>
 									
 								</div>')
-      })
+        })
+      }
       
     }else{
       output$messageBox <- renderUI({
@@ -808,17 +899,46 @@ arcd <- function(input ,output , session,sharedValues){
   
   # 
   
-  
+  output$memberControllerFill <- renderUI({
+    
+    
+    if(is.null(input$projectController)) {
+      members <- communities %>%
+        filter(FALSE)%>%
+        distinct(member) %>%
+        pull(member)
+    }else{
+      members <- communities %>%
+        filter(project == input$projectController)%>%
+        distinct(member) %>%
+        pull(member)
+    }
+    
+    selectInput(
+      ns1("memberController"),
+      paste("Member"),
+      choices = c("all",members)
+    )
+  })
   
   output$regionControllerFill <- renderUI({
 
-   
+    communities1 <- communities
+    
+    if(is.null(input$projectController)) {
+      communities1 <- communities %>%
+        filter(FALSE)
+    }else{
+      communities1 <- communities %>%
+        filter(project == input$projectController)
+    }
+    
     if(is.null(input$memberController) || input$memberController == "all") {
-      regions <- communities %>%
+      regions <- communities1 %>%
         distinct(region) %>%
         pull(region)
     }else{
-      regions <- communities %>%
+      regions <- communities1 %>%
         filter(member == input$memberController)%>%
         distinct(region) %>%
         pull(region)
@@ -834,8 +954,18 @@ arcd <- function(input ,output , session,sharedValues){
   output$districtControllerFill <- renderUI({
     
     communities1 <- communities
+    
+    if(is.null(input$projectController)) {
+      communities1 <- communities %>%
+        filter(FALSE)
+    }else{
+      communities1 <- communities %>%
+        filter(project == input$projectController)
+    }
+    
+    
     if(!is.null(input$memberController) && input$memberController != "all") {
-      communities1 <-communities %>%
+      communities1 <-communities1 %>%
         filter(member == input$memberController)
     }
     
@@ -859,14 +989,24 @@ arcd <- function(input ,output , session,sharedValues){
   
   output$communityControllerFill <- renderUI({
     
+    
     communities1 <- communities
+    
+    if(is.null(input$projectController)) {
+      communities1 <- communities %>%
+        filter(FALSE)
+    }else{
+      communities1 <- communities %>%
+        filter(project == input$projectController)
+    }
+    
     if(!is.null(input$memberController) && input$memberController != "all") {
-      communities1 <-communities %>%
+      communities1 <-communities1 %>%
         filter(member == input$memberController)
     }
     
     if(!is.null(input$regionController) &&  input$regionController != "all") {
-      communities1 <-communities %>%
+      communities1 <-communities1 %>%
         filter(region == input$regionController)
     }
     
@@ -1105,6 +1245,111 @@ arcd <- function(input ,output , session,sharedValues){
     
     main_survey_part_a <- isolate(global_vars$global_arcd_survey_part_a)
     main_survey_part_b <- isolate(global_vars$global_arcd_survey_part_b)
+    main_communities <- communities
+    
+    if(!is.null((input$memberController))){
+      main_survey_part_a %<>% filter(
+        project == input$projectController
+      )
+      
+      main_survey_part_b %<>% filter(
+        project == input$projectController
+      )
+      
+      main_communities %<>% filter(
+        project == input$projectController
+      )
+      
+    }
+    
+    if(!is.null((input$memberController))){
+      if((input$memberController) != "all"){
+        
+        main_survey_part_a %<>% filter(
+          Member_id == input$memberController
+        )
+        
+        main_survey_part_b %<>% filter(
+          Member_id == input$memberController
+        )
+        main_communities %<>% filter(
+          member  == input$memberController
+        )
+        
+      }
+      
+    }
+    
+    if(!is.null((input$regionController))){
+      if((input$regionController) != "all"){
+        
+        main_survey_part_a %<>% filter(
+          Region_id == input$regionController
+        )
+        
+        main_survey_part_b %<>% filter(
+          Region_id == input$regionController
+        )
+        
+        main_communities %<>% filter(
+          region  == input$regionController
+        )
+        
+      }
+      
+    }
+    
+    if(!is.null((input$districtController))){
+      if((input$districtController) != "all"){
+        
+        main_survey_part_a %<>% filter(
+          District_id == input$districtController
+        )
+        
+        main_survey_part_b %<>% filter(
+          District_id == input$districtController
+        )
+        
+        main_communities %<>% filter(
+          district  == input$districtController
+        )
+        
+      }
+      
+    }
+    
+    if(!is.null((input$communityController))){
+      if((input$communityController) != "all"){
+        
+        main_survey_part_a %<>% filter(
+          Community_id == input$communityController
+        )
+        
+        main_survey_part_b %<>% filter(
+          Community_id == input$communityController
+        )
+        
+        main_communities %<>% filter(
+          community  == input$communityController
+        )
+        
+      }
+      
+    }
+    
+    if(!is.null((input$riskController))){
+      if((input$riskController) != "all"){
+        
+        
+        
+        main_survey_part_b %<>% filter(
+          risk_scenario_value == input$riskController
+        )
+        
+        
+      }
+      
+    }
     
     if(!is.null((input$phaseController))){
       if((input$phaseController) != "all"){
@@ -1130,7 +1375,20 @@ arcd <- function(input ,output , session,sharedValues){
         question_system = paste(question_system,collapse = "#")
       )
     
+    if( is.null(nrow(main_survey_part_b)) || nrow(main_survey_part_b) == 0 || is.null(nrow(main_survey_part_a)) || nrow(main_survey_part_a) == 0){
+      return()
+    }
     
+    
+    # print(main_survey_part_b%<>%pivot_wider(
+    #   
+    #   names_from = category,
+    #   values_from = scores,
+    #   values_fn = list(scores = custom_aggregate), # Use custom function
+    #   values_fill = list(scores = NA) # Fill missing observations or scores with NA
+    #   
+    # ))
+    # return()
     main_survey_part_b%<>%pivot_wider(
       
       names_from = category,
@@ -1139,6 +1397,7 @@ arcd <- function(input ,output , session,sharedValues){
       values_fill = list(scores = NA) # Fill missing observations or scores with NA
       
     )%>%
+      
       select(Member_id,tab_date,Region_id,District_id,Community_id,risk_scenario,risk_scenario_value,question,score_all,observation,"male score","male observation",
              "female score","female observation")%>%
       left_join(arcd_questions,by = "question")%>%
@@ -1149,101 +1408,7 @@ arcd <- function(input ,output , session,sharedValues){
              score_all,observation,"male score","male observation",
              "female score","female observation")
     
-    
-    main_communities <- communities
-
-    if(!is.null((input$memberController))){
-      if((input$memberController) != "all"){
-        
-        main_survey_part_a %<>% filter(
-          Member_id == input$memberController
-        )
-
-        main_survey_part_b %<>% filter(
-          Member_id == input$memberController
-        )
-        main_communities %<>% filter(
-          member  == input$memberController
-        )
-
-      }
-
-    }
-
-    if(!is.null((input$regionController))){
-      if((input$regionController) != "all"){
-
-        main_survey_part_a %<>% filter(
-          Region_id == input$regionController
-        )
-
-        main_survey_part_b %<>% filter(
-          Region_id == input$regionController
-        )
-        
-        main_communities %<>% filter(
-          region  == input$regionController
-        )
-
-      }
-
-    }
-
-    if(!is.null((input$districtController))){
-      if((input$districtController) != "all"){
-
-        main_survey_part_a %<>% filter(
-          District_id == input$districtController
-        )
-
-        main_survey_part_b %<>% filter(
-          District_id == input$districtController
-        )
-
-        main_communities %<>% filter(
-          district  == input$districtController
-        )
-
-      }
-
-    }
-
-    if(!is.null((input$communityController))){
-      if((input$communityController) != "all"){
-
-        main_survey_part_a %<>% filter(
-          Community_id == input$communityController
-        )
-
-        main_survey_part_b %<>% filter(
-          Community_id == input$communityController
-        )
-        
-        main_communities %<>% filter(
-          community  == input$communityController
-        )
-
-      }
-
-    }
-
-    if(!is.null((input$riskController))){
-      if((input$riskController) != "all"){
-
-
-       
-        main_survey_part_b %<>% filter(
-          risk_scenario_value == input$riskController
-        )
-
-
-      }
-
-    }
-    
-    
-   
-    
+  
     output$total_population <- renderUI({
       
       format(round(sum(as.numeric(main_survey_part_a$total_number_of_populations_check),na.rm = TRUE),2), big.mark = ",")

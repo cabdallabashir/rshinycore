@@ -1,0 +1,442 @@
+variable,district,From,Up to ,status
+Sorghum, Adado-IRC ,1,1.2,Normal
+Sorghum, Afgoye-CONCERN ,1,1.2,Normal
+Sorghum, Afmadow-NRC ,0.7,0.75,Normal
+Sorghum, Baardhere-CONCERN ,0.8,1,Normal
+Sorghum, Baidoa-GREDO ,0.18,0.25,Normal
+Sorghum, Baidoa-NRC ,0.12,0.15,Normal
+Sorghum, Belet_Hawa-CONCERN ,1.2,1.5,Normal
+Sorghum,Belet_weyne-SCI,0.5,0.6,Normal
+Sorghum,El-berde-ACF,0.8,1.09,Normal
+Sorghum, Dhusamareeb-NRC ,0.9,0.92,Normal
+Sorghum, Diinsoor-GREDO ,0.23,0.4,Normal
+Sorghum, Galdogob-IRC ,0.9,1,Normal
+Sorghum, Galkacyo-KAALO ,0.7,1,Normal
+Sorghum, Galkacyo-IRC ,1,1.2,Normal
+Sorghum,Hudur-ACF,0.24,0.45,Normal
+Sorghum, Jariiban-KAALO ,0.8,1,Normal
+Sorghum,Jawhar-SCI,0.3,0.5,Normal
+Sorghum, Kismayo-NRC ,0.71,0.75,Normal
+Sorghum,Rab_dhure-ACF,0.7,0.94,Normal
+Sorghum,Waajid-ACF,0.85,0.94,Normal
+Sorghum, Wanla_Weyn-CONCERN ,0.8,1,Normal
+Sorghum, Adado-IRC ,1.3,1.5,Alert
+Sorghum, Afgoye-CONCERN ,1.3,2.1,Alert
+Sorghum, Afmadow-NRC ,0.76,0.8,Alert
+Sorghum, Baardhere-CONCERN ,1.1,1.5,Alert
+Sorghum, Baidoa-GREDO ,0.26,0.37,Alert
+Sorghum, Baidoa-NRC ,0.16,0.3,Alert
+Sorghum, Belet_Hawa-CONCERN ,1.6,2.3,Alert
+Sorghum,Belet_weyne-SCI,0.7,0.8,Alert
+Sorghum,El-berde-ACF,1.1,1.69,Alert
+Sorghum, Dhusamareeb-NRC ,0.93,0.95,Alert
+Sorghum, Diinsoor-GREDO ,0.45,0.69,Alert
+Sorghum, Galdogob-IRC ,1.1,1.4,Alert
+Sorghum, Galkacyo-KAALO ,1.1,1.5,Alert
+Sorghum, Galkacyo-IRC ,1.3,1.5,Alert
+Sorghum,Hudur-ACF,0.46,0.69,Alert
+Sorghum, Jariiban-KAALO ,1.1,1.5,Alert
+Sorghum,Jawhar-SCI,0.6,0.7,Alert
+Sorghum, Kismayo-NRC ,0.76,0.89,Alert
+Sorghum,Rab_dhure-ACF,0.95,1.44,Alert
+Sorghum,Waajid-ACF,0.95,1.44,Alert
+Sorghum, Wanla_Weyn-CONCERN ,1.1,1.45,Alert
+Sorghum, Adado-IRC ,1.6,2,Alarm
+Sorghum, Afgoye-CONCERN ,2.2,2.5,Alarm
+Sorghum, Afmadow-NRC ,0.9,1,Alarm
+Sorghum, Baardhere-CONCERN ,1.51,2,Alarm
+Sorghum, Baidoa-GREDO ,0.38,0.55,Alarm
+Sorghum, Baidoa-NRC ,0.31,0.45,Alarm
+Sorghum, Belet_Hawa-CONCERN ,2.4,3.3,Alarm
+Sorghum,Belet_weyne-SCI,0.9,0.95,Alarm
+Sorghum,El-berde-ACF,1.7,2,Alarm
+Sorghum, Dhusamareeb-NRC ,0.96,1,Alarm
+Sorghum, Diinsoor-GREDO ,0.7,1,Alarm
+Sorghum, Galdogob-IRC ,1.5,1.6,Alarm
+Sorghum, Galkacyo-KAALO ,1.6,2.5,Alarm
+Sorghum, Galkacyo-IRC ,1.6,2,Alarm
+Sorghum,Hudur-ACF,0.7,1,Alarm
+Sorghum, Jariiban-KAALO ,1.6,2.8,Alarm
+Sorghum,Jawhar-SCI,0.71,0.95,Alarm
+Sorghum, Kismayo-NRC ,0.9,1,Alarm
+Sorghum,Rab_dhure-ACF,1.45,2,Alarm
+Sorghum,Waajid-ACF,1.45,1.8,Alarm
+Sorghum, Wanla_Weyn-CONCERN ,1.46,2,Alarm
+Maize,Adado-IRC,0.8,1,Normal
+Maize,Afgoye-CONCERN,1.2,1.35,Normal
+Maize,Afmadow-NRC,0.7,0.78,Normal
+Maize,Baardhere-CONCERN,1,1.2,Normal
+Maize,Baidoa-GREDO,0.26,0.37,Normal
+Maize,Baidoa-NRC,0.17,0.25,Normal
+Maize,Belet_Hawa-CONCERN,1.2,1.5,Normal
+Maize,Belet_weyne-SCI,0.5,0.6,Normal
+Maize,El-berde-ACF,0.7,1.05,Normal
+Maize,Dhusamareeb-NRC,0.5,0.52,Normal
+Maize,Diinsoor-GREDO,0.23,0.42,Normal
+Maize,Galdogob-IRC,0.9,1.1,Normal
+Maize,Galkacyo-KAALO,0.8,0.9,Normal
+Maize,Galkacyo-IRC,1,1.2,Normal
+Maize,Hudur-ACF,0.5,0.65,Normal
+Maize,Jariiban-KAALO,0.6,0.8,Normal
+Maize,Jawhar-SCI,0.37,0.57,Normal
+Maize,Kismayo-NRC,0.5,0.6,Normal
+Maize,Rab_dhure-ACF,0.7,1.09,Normal
+Maize,Waajid-ACF,0.9,1.49,Normal
+Maize,Wanla_Weyn-CONCERN,1.2,1.35,Normal
+Maize,Adado-IRC,1.1,1.5,Alert
+Maize,Afgoye-CONCERN,1.36,2,Alert
+Maize,Afmadow-NRC,0.79,0.92,Alert
+Maize,Baardhere-CONCERN,1.21,1.5,Alert
+Maize,Baidoa-GREDO,0.38,0.63,Alert
+Maize,Baidoa-NRC,0.26,0.37,Alert
+Maize,Belet_Hawa-CONCERN,1.51,2.3,Alert
+Maize,Belet_weyne-SCI,0.61,0.8,Alert
+Maize,El-berde-ACF,1.06,1.69,Alert
+Maize,Dhusamareeb-NRC,0.53,0.6,Alert
+Maize,Diinsoor-GREDO,0.43,0.63,Alert
+Maize,Galdogob-IRC,1.11,1.5,Alert
+Maize,Galkacyo-KAALO,1,1.4,Alert
+Maize,Galkacyo-IRC,1.21,1.5,Alert
+Maize,Hudur-ACF,0.66,0.75,Alert
+Maize,Jariiban-KAALO,0.81,1.5,Alert
+Maize,Jawhar-SCI,0.57,0.85,Alert
+Maize,Kismayo-NRC,0.61,0.72,Alert
+Maize,Rab_dhure-ACF,1.1,1.59,Alert
+Maize,Waajid-ACF,1.5,1.6,Alert
+Maize,Wanla_Weyn-CONCERN,1.36,2,Alert
+Maize,Adado-IRC,1.51,2,Alarm
+Maize,Afgoye-CONCERN,2.1,2.5,Alarm
+Maize,Afmadow-NRC,0.93,1.07,Alarm
+Maize,Baardhere-CONCERN,1.51,2.2,Alarm
+Maize,Baidoa-GREDO,0.64,0.85,Alarm
+Maize,Baidoa-NRC,0.38,0.47,Alarm
+Maize,Belet_Hawa-CONCERN,2.31,3,Alarm
+Maize,Belet_weyne-SCI,0.81,0.9,Alarm
+Maize,El-berde-ACF,1.7,2,Alarm
+Maize,Dhusamareeb-NRC,0.61,0.8,Alarm
+Maize,Diinsoor-GREDO,0.64,1.3,Alarm
+Maize,Galdogob-IRC,1.51,1.6,Alarm
+Maize,Galkacyo-KAALO,1.8,2.5,Alarm
+Maize,Galkacyo-IRC,1.51,2,Alarm
+Maize,Hudur-ACF,0.76,1.48,Alarm
+Maize,Jariiban-KAALO,1.51,2,Alarm
+Maize,Jawhar-SCI,0.86,1,Alarm
+Maize,Kismayo-NRC,0.72,1,Alarm
+Maize,Rab_dhure-ACF,1.6,2,Alarm
+Maize,Waajid-ACF,1.61,2,Alarm
+Maize,Wanla_Weyn-CONCERN,2.1,2.5,Alarm
+Rice,Adado-IRC,0.8,0.9,Normal
+Rice,Afgoye-CONCERN,0.8,1,Normal
+Rice,Afmadow-NRC,0.9,0.99,Normal
+Rice,Baardhere-CONCERN,1.2,1.3,Normal
+Rice,Baidoa-GREDO,0.8,1,Normal
+Rice,Baidoa-NRC,0.8,1,Normal
+Rice,Belet_Hawa-CONCERN,0.8,0.85,Normal
+Rice,Belet_weyne-SCI,0.75,0.8,Normal
+Rice,El-berde-ACF,0.65,0.94,Normal
+Rice,Dhusamareeb-NRC,0.76,0.9,Normal
+Rice,Diinsoor-GREDO,0.9,1,Normal
+Rice,Galdogob-IRC,0.5,0.8,Normal
+Rice,Galkacyo-KAALO,0.75,0.85,Normal
+Rice,Galkacyo-IRC,0.5,0.8,Normal
+Rice,Hudur-ACF,0.68,1.03,Normal
+Rice,Jariiban-KAALO,0.8,1,Normal
+Rice,Jawhar-SCI,0.81,1,Normal
+Rice,Kismayo-NRC,0.7,0.72,Normal
+Rice,Rab_dhure-ACF,0.8,1.15,Normal
+Rice,Waajid-ACF,0.8,1.15,Normal
+Rice,Wanla_Weyn-CONCERN,0.8,1,Normal
+Rice,Adado-IRC,1,1.3,Alert
+Rice,Afgoye-CONCERN,1.1,1.5,Alert
+Rice,Afmadow-NRC,1,1.1,Alert
+Rice,Baardhere-CONCERN,1.31,1.8,Alert
+Rice,Baidoa-GREDO,1.1,1.26,Alert
+Rice,Baidoa-NRC,1.1,1.24,Alert
+Rice,Belet_Hawa-CONCERN,0.86,1.2,Alert
+Rice,Belet_weyne-SCI,0.81,1,Alert
+Rice,El-berde-ACF,0.95,1.09,Alert
+Rice,Dhusamareeb-NRC,0.91,1.2,Alert
+Rice,Diinsoor-GREDO,1.1,1.3,Alert
+Rice,Galdogob-IRC,0.81,1.3,Alert
+Rice,Galkacyo-KAALO,0.86,1.2,Alert
+Rice,Galkacyo-IRC,0.81,1.3,Alert
+Rice,Hudur-ACF,1.04,1.16,Alert
+Rice,Jariiban-KAALO,1.1,1.3,Alert
+Rice,Jawhar-SCI,1.1,1.2,Alert
+Rice,Kismayo-NRC,0.73,0.8,Alert
+Rice,Rab_dhure-ACF,1.16,1.59,Alert
+Rice,Waajid-ACF,1.16,1.69,Alert
+Rice,Wanla_Weyn-CONCERN,1.1,1.5,Alert
+Rice,Adado-IRC,1.31,1.5,Alarm
+Rice,Afgoye-CONCERN,1.51,2.3,Alarm
+Rice,Afmadow-NRC,1.11,1.5,Alarm
+Rice,Baardhere-CONCERN,1.81,2.5,Alarm
+Rice,Baidoa-GREDO,1.27,1.4,Alarm
+Rice,Baidoa-NRC,1.25,1.37,Alarm
+Rice,Belet_Hawa-CONCERN,1.21,2,Alarm
+Rice,Belet_weyne-SCI,1.1,1.2,Alarm
+Rice,El-berde-ACF,1.1,1.5,Alarm
+Rice,Dhusamareeb-NRC,1.21,1.3,Alarm
+Rice,Diinsoor-GREDO,1.3,1.52,Alarm
+Rice,Galdogob-IRC,1.31,1.5,Alarm
+Rice,Galkacyo-KAALO,1.21,1.6,Alarm
+Rice,Galkacyo-IRC,1.31,1.5,Alarm
+Rice,Hudur-ACF,1.17,1.48,Alarm
+Rice,Jariiban-KAALO,1.4,1.8,Alarm
+Rice,Jawhar-SCI,1.3,1.45,Alarm
+Rice,Kismayo-NRC,0.81,1,Alarm
+Rice,Rab_dhure-ACF,1.6,2,Alarm
+Rice,Waajid-ACF,1.7,2,Alarm
+Rice,Wanla_Weyn-CONCERN,1.51,2.3,Alarm
+Water, Adado-IRC ,0.4,0.6,Normal
+Water, Afgoye-CONCERN ,0,0,Normal
+Water, Afmadow-NRC ,0.07,0.09,Normal
+Water, Baardhere-CONCERN ,0.3,0.4,Normal
+Water, Baidoa-GREDO ,0.08,0.12,Normal
+Water, Baidoa-NRC ,0.03,0.09,Normal
+Water, Belet_Hawa-CONCERN ,0.4,0.5,Normal
+Water,Belet_weyne-SCI,0.1,0.2,Normal
+Water,El-berde-ACF,0.15,0.2,Normal
+Water, Dhusamareeb-NRC ,0.01,0.023,Normal
+Water, Diinsoor-GREDO ,0.11,0.15,Normal
+Water, Galdogob-IRC ,0.5,0.6,Normal
+Water, Galkacyo-KAALO ,0.25,0.35,Normal
+Water, Galkacyo-IRC ,0.5,0.6,Normal
+Water,Hudur-ACF,0.15,0.24,Normal
+Water, Jariiban-KAALO ,0.2,0.3,Normal
+Water,Jawhar-SCI,0.15,0.17,Normal
+Water, Kismayo-NRC ,0.25,0.27,Normal
+Water,Rab_dhure-ACF,0.18,0.29,Normal
+Water,Waajid-ACF,0.3,0.59,Normal
+Water, Wanla_Weyn-CONCERN ,0.3,0.4,Normal
+Water, Adado-IRC ,0.61,0.7,Alert
+Water, Afgoye-CONCERN ,0,0,Alert
+Water, Afmadow-NRC ,0.1,0.25,Alert
+Water, Baardhere-CONCERN ,0.41,0.8,Alert
+Water, Baidoa-GREDO ,0.13,0.18,Alert
+Water, Baidoa-NRC ,0.1,0.15,Alert
+Water, Belet_Hawa-CONCERN ,0.51,0.85,Alert
+Water,Belet_weyne-SCI,0.21,0.3,Alert
+Water,El-berde-ACF,0.21,0.23,Alert
+Water, Dhusamareeb-NRC ,0.024,0.027,Alert
+Water, Diinsoor-GREDO ,0.16,0.23,Alert
+Water, Galdogob-IRC ,0.61,0.9,Alert
+Water, Galkacyo-KAALO ,0.36,0.6,Alert
+Water, Galkacyo-IRC ,0.61,1,Alert
+Water,Hudur-ACF,0.25,0.34,Alert
+Water, Jariiban-KAALO ,0.31,0.5,Alert
+Water,Jawhar-SCI,0.18,0.25,Alert
+Water, Kismayo-NRC ,0.28,0.3,Alert
+Water,Rab_dhure-ACF,0.3,0.49,Alert
+Water,Waajid-ACF,0.6,0.99,Alert
+Water, Wanla_Weyn-CONCERN ,0.51,0.8,Alert
+Water, Adado-IRC ,0.71,1.5,Alarm
+Water, Afgoye-CONCERN ,0,0,Alarm
+Water, Afmadow-NRC ,0.26,0.3,Alarm
+Water, Baardhere-CONCERN ,0.81,1,Alarm
+Water, Baidoa-GREDO ,0.19,0.25,Alarm
+Water, Baidoa-NRC ,0.16,0.22,Alarm
+Water, Belet_Hawa-CONCERN ,0.86,1.3,Alarm
+Water,Belet_weyne-SCI,0.31,0.6,Alarm
+Water,El-berde-ACF,0.24,0.25,Alarm
+Water, Dhusamareeb-NRC ,0.028,0.03,Alarm
+Water, Diinsoor-GREDO ,0.24,0.34,Alarm
+Water, Galdogob-IRC ,0.91,2,Alarm
+Water, Galkacyo-KAALO ,0.61,1,Alarm
+Water, Galkacyo-IRC ,1.1,1.5,Alarm
+Water,Hudur-ACF,0.35,0.4,Alarm
+Water, Jariiban-KAALO ,0.51,0.7,Alarm
+Water,Jawhar-SCI,0.26,0.5,Alarm
+Water, Kismayo-NRC ,0.31,0.33,Alarm
+Water,Rab_dhure-ACF,0.5,0.7,Alarm
+Water,Waajid-ACF,1,1.5,Alarm
+Water, Wanla_Weyn-CONCERN ,0.81,1,Alarm
+Fuel,Adado-IRC,0.9,1,Normal
+Fuel,Afgoye-CONCERN,,,Normal
+Fuel,Afmadow-NRC,0.9,0.95,Normal
+Fuel,Baardhere-CONCERN,,,Normal
+Fuel,Baidoa-GREDO,0.9,1.1,Normal
+Fuel,Baidoa-NRC,0.88,1.2,Normal
+Fuel,Belet_Hawa-CONCERN,0.8,1,Normal
+Fuel,Belet_weyne-SCI,1,1.1,Normal
+Fuel,El-berde-ACF,0.9,1.3,Normal
+Fuel,Dhusamareeb-NRC,,,Normal
+Fuel,Diinsoor-GREDO,1.5,1.7,Normal
+Fuel,Galdogob-IRC,0.8,0.9,Normal
+Fuel,Galkacyo-KAALO,1,1.2,Normal
+Fuel,Galkacyo-IRC,0.8,0.9,Normal
+Fuel,Hudur-ACF,1.5,2.09,Normal
+Fuel,Jariiban-KAALO,1,1.1,Normal
+Fuel,Jawhar-SCI,1,1.1,Normal
+Fuel,Kismayo-NRC,0.8,1,Normal
+Fuel,Rab_dhure-ACF,1.2,1.49,Normal
+Fuel,Waajid-ACF,1.9,2.29,Normal
+Fuel,Wanla_Weyn-CONCERN,0.8,1,Normal
+Fuel,Adado-IRC,1.1,1.2,Alert
+Fuel,Afgoye-CONCERN,1.3,1.5,Alert
+Fuel,Afmadow-NRC,0.96,1.1,Alert
+Fuel,Baardhere-CONCERN,,,Alert
+Fuel,Baidoa-GREDO,1.11,1.6,Alert
+Fuel,Baidoa-NRC,1.21,1.6,Alert
+Fuel,Belet_Hawa-CONCERN,1.1,1.5,Alert
+Fuel,Belet_weyne-SCI,1.11,1.25,Alert
+Fuel,El-berde-ACF,1.31,1.59,Alert
+Fuel,Dhusamareeb-NRC,,,Alert
+Fuel,Diinsoor-GREDO,1.71,2.2,Alert
+Fuel,Galdogob-IRC,0.91,1,Alert
+Fuel,Galkacyo-KAALO,1.21,1.4,Alert
+Fuel,Galkacyo-IRC,0.91,1,Alert
+Fuel,Hudur-ACF,2.1,2.59,Alert
+Fuel,Jariiban-KAALO,1.11,1.3,Alert
+Fuel,Jawhar-SCI,1.11,1.3,Alert
+Fuel,Kismayo-NRC,1.1,1.2,Alert
+Fuel,Rab_dhure-ACF,1.5,1.79,Alert
+Fuel,Waajid-ACF,2.3,2.89,Alert
+Fuel,Wanla_Weyn-CONCERN,1.1,1.5,Alert
+Fuel,Adado-IRC,1.21,1.5,Alarm
+Fuel,Afgoye-CONCERN,1.51,3,Alarm
+Fuel,Afmadow-NRC,1.11,2,Alarm
+Fuel,Baardhere-CONCERN,,,Alarm
+Fuel,Baidoa-GREDO,1.61,2,Alarm
+Fuel,Baidoa-NRC,1.61,2.1,Alarm
+Fuel,Belet_Hawa-CONCERN,1.51,2.5,Alarm
+Fuel,Belet_weyne-SCI,1.26,1.4,Alarm
+Fuel,El-berde-ACF,1.6,2,Alarm
+Fuel,Dhusamareeb-NRC,,,Alarm
+Fuel,Diinsoor-GREDO,2.21,2.8,Alarm
+Fuel,Galdogob-IRC,1.1,1.6,Alarm
+Fuel,Galkacyo-KAALO,1.41,1.6,Alarm
+Fuel,Galkacyo-IRC,1.1,1.6,Alarm
+Fuel,Hudur-ACF,2.6,4,Alarm
+Fuel,Jariiban-KAALO,1.31,1.5,Alarm
+Fuel,Jawhar-SCI,1.31,1.8,Alarm
+Fuel,Kismayo-NRC,1.21,1.5,Alarm
+Fuel,Rab_dhure-ACF,1.8,2,Alarm
+Fuel,Waajid-ACF,2.9,3,Alarm
+Fuel,Wanla_Weyn-CONCERN,1.51,2.5,Alarm
+Goat,Adado-IRC,35,40,Normal
+Goat,Afgoye-CONCERN,25,45,Normal
+Goat,Afmadow-NRC,54,60,Normal
+Goat,Baardhere-CONCERN,25,30,Normal
+Goat,Baidoa-GREDO,46,62,Normal
+Goat,Baidoa-NRC,40,59,Normal
+Goat,Belet_Hawa-CONCERN,45,50,Normal
+Goat,Belet_weyne-SCI,45,50,Normal
+Goat,El-berde-ACF,20,29,Normal
+Goat,Dhusamareeb-NRC,40,45,Normal
+Goat,Diinsoor-GREDO,45,50,Normal
+Goat,Galdogob-IRC,55,60,Normal
+Goat,Galkacyo-KAALO,40,50,Normal
+Goat,Galkacyo-IRC,50,60,Normal
+Goat,Hudur-ACF,30,49,Normal
+Goat,Jariiban-KAALO,45,50,Normal
+Goat,Jawhar-SCI,66,68,Normal
+Goat,Kismayo-NRC,70,75,Normal
+Goat,Rab_dhure-ACF,25,38,Normal
+Goat,Waajid-ACF,30,49,Normal
+Goat,Wanla_Weyn-CONCERN,20,30,Normal
+Goat,Adado-IRC,41,60,Alert
+Goat,Afgoye-CONCERN,41,80,Alert
+Goat,Afmadow-NRC,61,80,Alert
+Goat,Baardhere-CONCERN,31,45,Alert
+Goat,Baidoa-GREDO,63,71,Alert
+Goat,Baidoa-NRC,60,70,Alert
+Goat,Belet_Hawa-CONCERN,51,65,Alert
+Goat,Belet_weyne-SCI,51,65,Alert
+Goat,El-berde-ACF,30,40,Alert
+Goat,Dhusamareeb-NRC,46,58,Alert
+Goat,Diinsoor-GREDO,51,57,Alert
+Goat,Galdogob-IRC,61,70,Alert
+Goat,Galkacyo-KAALO,51,75,Alert
+Goat,Galkacyo-IRC,61,75,Alert
+Goat,Hudur-ACF,50,69,Alert
+Goat,Jariiban-KAALO,51,65,Alert
+Goat,Jawhar-SCI,69,77,Alert
+Goat,Kismayo-NRC,76,95,Alert
+Goat,Rab_dhure-ACF,39,49,Alert
+Goat,Waajid-ACF,50,69,Alert
+Goat,Wanla_Weyn-CONCERN,31,45,Alert
+Goat,Adado-IRC,61,75,Alarm
+Goat,Afgoye-CONCERN,81,90,Alarm
+Goat,Afmadow-NRC,81,90,Alarm
+Goat,Baardhere-CONCERN,46,60,Alarm
+Goat,Baidoa-GREDO,72,80,Alarm
+Goat,Baidoa-NRC,71,78,Alarm
+Goat,Belet_Hawa-CONCERN,66,80,Alarm
+Goat,Belet_weyne-SCI,66,80,Alarm
+Goat,El-berde-ACF,41,70,Alarm
+Goat,Dhusamareeb-NRC,59,65,Alarm
+Goat,Diinsoor-GREDO,58,70,Alarm
+Goat,Galdogob-IRC,71,80,Alarm
+Goat,Galkacyo-KAALO,71,80,Alarm
+Goat,Galkacyo-IRC,76,80,Alarm
+Goat,Hudur-ACF,70,75,Alarm
+Goat,Jariiban-KAALO,66,80,Alarm
+Goat,Jawhar-SCI,78,89,Alarm
+Goat,Kismayo-NRC,96,130,Alarm
+Goat,Rab_dhure-ACF,50,60,Alarm
+Goat,Waajid-ACF,70,80,Alarm
+Goat,Wanla_Weyn-CONCERN,46,60,Alarm
+labour,Adado-IRC,25,19.5,Normal
+labour,Afgoye-CONCERN,8,6.5,Normal
+labour,Afmadow-NRC,7,5.5,Normal
+labour,Baardhere-CONCERN,8.5,7.5,Normal
+labour,Baidoa-GREDO,15,10.5,Normal
+labour,Baidoa-NRC,10,5.5,Normal
+labour,Belet_Hawa-CONCERN,8.5,7.4,Normal
+labour,Belet_weyne-SCI,10.7,10,Normal
+labour,El-berde-ACF,7,5.5,Normal
+labour,Dhusamareeb-NRC,20,14.5,Normal
+labour,Diinsoor-GREDO,20,14.5,Normal
+labour,Galdogob-IRC,30,15.5,Normal
+labour,Galkacyo-KAALO,10,7.5,Normal
+labour,Galkacyo-IRC,30,14.5,Normal
+labour,Hudur-ACF,7,6.1,Normal
+labour,Jariiban-KAALO,7,6.5,Normal
+labour,Jawhar-SCI,9,9.5,Normal
+labour,Kismayo-NRC,15,10.5,Normal
+labour,Rab_dhure-ACF,8,5.95,Normal
+labour,Waajid-ACF,7.5,5.55,Normal
+labour,Wanla_Weyn-CONCERN,8,6.5,Normal
+labour,Adado-IRC,19,9.5,Alert
+labour,Afgoye-CONCERN,6,4.5,Alert
+labour,Afmadow-NRC,5,4.5,Alert
+labour,Baardhere-CONCERN,7,6.5,Alert
+labour,Baidoa-GREDO,10,7.5,Alert
+labour,Baidoa-NRC,5,3.5,Alert
+labour,Belet_Hawa-CONCERN,7.3,7,Alert
+labour,Belet_weyne-SCI,9.5,9,Alert
+labour,El-berde-ACF,5,3.5,Alert
+labour,Dhusamareeb-NRC,14,9.5,Alert
+labour,Diinsoor-GREDO,14,9.5,Alert
+labour,Galdogob-IRC,15,8.5,Alert
+labour,Galkacyo-KAALO,7,5.5,Alert
+labour,Galkacyo-IRC,14,9.5,Alert
+labour,Hudur-ACF,6.09,5.1,Alert
+labour,Jariiban-KAALO,6,5,Alert
+labour,Jawhar-SCI,,,Alert
+labour,Kismayo-NRC,10,7.5,Alert
+labour,Rab_dhure-ACF,5.94,3.55,Alert
+labour,Waajid-ACF,5.54,3.5,Alert
+labour,Wanla_Weyn-CONCERN,6,4.5,Alert
+labour,Adado-IRC,9,7,Alarm
+labour,Afgoye-CONCERN,4,3,Alarm
+labour,Afmadow-NRC,4,3.5,Alarm
+labour,Baardhere-CONCERN,6,5,Alarm
+labour,Baidoa-GREDO,7,4,Alarm
+labour,Baidoa-NRC,3,2.5,Alarm
+labour,Belet_Hawa-CONCERN,6.5,6,Alarm
+labour,Belet_weyne-SCI,8.5,7.5,Alarm
+labour,El-berde-ACF,3,2.5,Alarm
+labour,Dhusamareeb-NRC,9,8,Alarm
+labour,Diinsoor-GREDO,9,5,Alarm
+labour,Galdogob-IRC,8,6,Alarm
+labour,Galkacyo-KAALO,5,4,Alarm
+labour,Galkacyo-IRC,9,5,Alarm
+labour,Hudur-ACF,5.09,4,Alarm
+labour,Jariiban-KAALO,4.5,4,Alarm
+labour,Jawhar-SCI,,,Alarm
+labour,Kismayo-NRC,7,5,Alarm
+labour,Rab_dhure-ACF,3.45,2.5,Alarm
+labour,Waajid-ACF,3.49,2,Alarm
+labour,Wanla_Weyn-CONCERN,4,3,Alarm

@@ -16,7 +16,7 @@
     								<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
     								</div>
     								<div class="ms-3">
-    									<h6 class="mb-0 ">BRCIS BASELINE REGISTRATION SELECTION</h6>
+    									<h6 class="mb-0 ">BRCIS BASELINE SCREENING</h6>
     									
     								</div>
     							</div>
@@ -41,37 +41,7 @@
 <div class="row">
   <div class="col-12">
             {{warningToLoadDATA}}
-						 <div class="row">
-          <div class="col-lg-2 col-md-2  col-sm-12">
-            <div class="mb-3">
-									
-										{{fromDateController}}
-									</div>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="mb-3">
-										
-											{{toDateController}}
-									</div>
-          </div>,
-         <div class="col-lg-2 col-md-2 col-sm-12">
-                          <div class="mb-3">
-                        			{{Segrigation}}
-                        	</div>
-                        </div>
-               <div class="col-lg-3 col-md-3 col-sm-12">
-                  <div class="mb-3">
-                			{{Segrigation_element}}
-                	</div>
-               </div>
-               
-          <div class="col-lg-2 col-md-2 col-sm-12">
-                  <div class="mb-3">
-                			{{verificationCreteria}}
-                	</div>
-               </div>
-         
-        </div>
+						 
 						<hr>
 						<div class="card" style="background: unset;box-shadow:unset">
 							<div class="card-body">
@@ -85,13 +55,41 @@
 											</div>
 										</a>
 									</li>
+									
+										<li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#creteriaTab" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon">
+												</div>
+												<div class="tab-title">Selection Creteria</div>
+											</div>
+										</a>
+									</li>
 								
 								</ul>
 								<div class="tab-content py-3">
 									<div class="tab-pane fade active show" id="summaryTab" role="tabpanel">                                       
 									
+									<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-warning">Total Respondants</p>
+              									<h4 class="my-1 text-warning">{{indiRespondants}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-warning opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+      								</div>
+									
   									<div class="row mt-5">
-  									     <div class=" col-lg-4 col-md-4 col-sm-12">
+  									     <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					  <div class="card-header">
                   							<div class="d-flex align-items-center">
@@ -107,7 +105,7 @@
                 					</div>
             				    </div>
   									  
-  							         <div class=" col-lg-4 col-md-4 col-sm-12">
+  							         <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					  <div class="card-header">
                   							<div class="d-flex align-items-center">
@@ -123,7 +121,7 @@
                 					</div>
             				    </div>
             				    
-            				    <div class=" col-lg-4 col-md-4 col-sm-12">
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					  <div class="card-header">
                   							<div class="d-flex align-items-center">
@@ -138,10 +136,26 @@
                 					   </div>
                 					</div>
             				    </div>
+            				    
+            				    <div class=" col-lg-6 col-md-6 col-sm-12">
+                					<div class="card radius-10 border-start border-0 border-4 border-info">
+                					  <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Age Groups</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{ageGroups}}
+                					   </div>
+                					</div>
+            				    </div>
   									</div>
   									
   										<div class="row mt-5">
-    									      <div class=" col-lg-4 col-md-4 col-sm-12">
+    									      <div class=" col-lg-6 col-md-6 col-sm-12">
       						              <div class="card radius-10 w-100">
                     						<div class="card-header">
                     							<div class="d-flex align-items-center">
@@ -161,7 +175,7 @@
                     						   
                     					   </div>
       				          </div>
-      				              <div class=" col-lg-4 col-md-4 col-sm-12">
+      				              <div class=" col-lg-6 col-md-6 col-sm-12">
       						              <div class="card radius-10 w-100">
                     						<div class="card-header">
                     							<div class="d-flex align-items-center">
@@ -181,7 +195,7 @@
                     						   
                     					   </div>
       				          </div>
-      				              <div class=" col-lg-4 col-md-4 col-sm-12">
+      				              <div class=" col-lg-12 col-md-12 col-sm-12">
       						              <div class="card radius-10 w-100">
                     						<div class="card-header">
                     							<div class="d-flex align-items-center">
@@ -204,17 +218,15 @@
     								</div> 
   									
   									<div class="row mt-5">
-  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+  									    <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					   <div class="card-body">
                 						    {{groups_chart}}
                 					   </div>
                 					</div>
             				    </div>
-  									</div>
-  									
-  									<div class="row mt-5">
-  									    <div class=" col-lg-12 col-md-12 col-sm-12">
+            				    
+            				      <div class=" col-lg-6 col-md-6 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4 border-info">
                 					   <div class="card-body">
                 						    {{selection_creteria_chart}}
@@ -223,15 +235,67 @@
             				    </div>
   									</div>
   									
+  							<div class="row">
+      									<div class=" col-lg-6 col-md-6 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-success">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-success">Valid Screened Respondants</p>
+              									<h4 class="my-1 text-success">{{valid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-success opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   <div class=" col-lg-6 col-md-6 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-danger">
+              						<div class="card-body">
+              							<div class="d-flex align-items-center">
+              								<div>
+              									<p class="mb-0 text-danger">In-Valid Screened Respondants</p>
+              									<h4 class="my-1 text-danger">{{invalid_screened}}</h4>
+              								  
+              								</div>
+              								<div class="widgets-icons-2 rounded-circle bg-danger opacity-15 text-white ms-auto"><i class="bx bx-info-circle"></i>
+              								</div>
+              							</div>
+              						</div>
+              					 </div>
+              				   </div>
+              				   
+      								</div>
+      								
+      								<div class="row">
+      									<div class=" col-lg-12 col-md-12 col-sm-12">
+              					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+              					   <div class="card-header">
+                  							<div class="d-flex align-items-center">
+                  								<div>
+                  									<h6 class="mb-0">Grouped Screening</h6>
+                  								</div>
+                  								
+                  							</div>
+                  						</div>
+                					   <div class="card-body">
+                						    {{groupedScreening}}
+                					   </div>
+              					
+              					 </div>
+              				   </div>
+      								</div>
   									<div class="row mt-5">
   									    <div class=" col-lg-12 col-md-12 col-sm-12">
                 					<div class="card radius-10 border-start border-0 border-4">
                 					  	<div class="card-header">
-                  							<div class="d-flex align-items-center">
+                  							<div class="d-flex align-items-center d-flex justify-content-between">
                   								<div>
                   									<h6 class="mb-0">HouseHold summary</h6>
                   								</div>
-                  								
+                  									{{deleteButton}}
                   							</div>
                 						</div>
                 					   <div class="card-body">
@@ -241,25 +305,57 @@
             				    </div>
   									</div>
   									
-  										<div class="row mt-5">
-  									    <div class=" col-lg-12 col-md-12 col-sm-12">
-                					<div class="card radius-10 border-start border-0 border-4">
-                					  	<div class="card-header">
-                  							<div class="d-flex align-items-center">
-                  								<div>
-                  									<h6 class="mb-0">Community summary</h6>
-                  								</div>
-                  								
-                  							</div>
-                						</div>
-                					   <div class="card-body">
-                						    {{community_chart}}
-                					   </div>
-                					</div>
-            				    </div>
-  									</div>
-								
+  						
 							</div>
+							    <div class="tab-pane fade" id="creteriaTab" role="tabpanel">  
+							    
+							        <div class="row mt-5">
+							             <div class=" col-lg-12 col-md-12 col-sm-12">
+      						              <div class="card radius-10 w-100">
+                    						<div class="card-header">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<h6 class="mb-0">Selection Creteria</h6>
+                    								</div>
+                    								
+                    							</div>
+                    						</div>
+                    						   <div class="card-body">
+                    							<div class="row">
+                    								<div class="col-12">
+                    								  {{selectionCreteriaChart}}
+                    								</div>
+                    							  </div>
+                    						   </div>
+                    						   
+                    					   </div>
+        				          </div>
+							        </div>
+							      	<div class="row mt-5">
+    									      <div class=" col-lg-12 col-md-12 col-sm-12">
+      						              <div class="card radius-10 w-100">
+                    						<div class="card-header">
+                    							<div class="d-flex align-items-center">
+                    								<div>
+                    									<h6 class="mb-0">Selection Creteria</h6>
+                    								</div>
+                    								
+                    							</div>
+                    						</div>
+                    						   <div class="card-body">
+                    							<div class="row">
+                    								<div class="col-12">
+                    								  {{selectionCreteria}}
+                    								</div>
+                    							  </div>
+                    						   </div>
+                    						   
+                    					   </div>
+      				          </div>
+      				              
+      				            
+    								</div> 
+							    </div>
 						</div>
 					</div>
 </div>
@@ -284,7 +380,14 @@
 												 {{messageBox}}
 							
 												</div>
-							
+							<div class="row mb-3">
+							  
+							   <div class="col-lg-12">
+                          <div class="mb-3">
+                        			{{ProjectSelection}}
+                        	</div>
+                        </div>
+							</div>
 							          <div class="row mb-3">
 							    
 								<div class="col-12">
@@ -316,7 +419,52 @@
 	</div>
 </div>
 
-
+<div class="switcher-wrapper" style="z-index:1081">
+		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+		</div>
+		<div class="switcher-body">
+			<div class="d-flex align-items-center">
+				<h5 class="mb-0 text-uppercase">Settings</h5>
+				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+			</div>
+			<hr/>
+		<div class="row sticky-section">
+          <div class="col-lg-12 col-md-12  col-sm-12">
+            <div class="mb-3">
+									
+										{{fromDateController}}
+									</div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="mb-3">
+										
+											{{toDateController}}
+									</div>
+          </div>
+         
+         <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="mb-3">
+                        			{{Segrigation}}
+                        	</div>
+                        </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="mb-3">
+                			{{Segrigation_element}}
+                	</div>
+               </div>
+              
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="mb-3">
+                			{{verificationCreteria}}
+                	</div>
+               </div>
+              
+               
+    
+         
+        </div>
+		</div>
+	</div>
 
 <script src="assets/plugins/validation/jquery.validate.min.js"></script>
 <script src="assets/plugins/validation/validation-script.js"></script>
@@ -328,7 +476,17 @@
 								</div></div>`)
         })
         
+         $(document).on("click","#brcisRegistration-sb",function(){
+          $("#brcis3selection-ms").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+								</div></div>`)
+        })
         
     });
+    
+   
+		$(document).on("click",".switcher-btn", function () {
+  	  $(".switcher-wrapper").addClass("switcher-toggled");
+  	});
+
 </script>
 

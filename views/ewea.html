@@ -1,108 +1,711 @@
-
-
-<div class="page-wrapper" style="margin-top:50px">
+<style>
+   .shiny-input-container{
+   width: 100%;
+   }
+</style>
+<div class="page-wrapper" style="margin-top:60px">
+<div class="page-content">
+<div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
+   d-flex justify-content-between">
+   <div class="row" style="width:100%">
+      <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12">
+         <div class="d-flex align-items-center">
+            <div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
+            </div>
+            <div class="ms-3">
+               <h6 class="mb-0 ">Real-time Risk Monitoring</h6>
+            </div>
+         </div>
+      </div>
+       <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12 d-flex 
+	              justify-content-end align-items-center">
+	                	 <ul class="nav nav-tabs nav-success" role="tablist">
+	                	   
+	              <li class="nav-item" role="presentation">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#overview" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">Overview</div>
+                     </div>
+                  </a>
+               </li>
+               <li class="nav-item" role="presentation">
+                  <a class="nav-link " data-bs-toggle="tab" href="#redflagging" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">Red-Flagged Districts</div>
+                     </div>
+                  </a>
+               </li>
+               <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#variablelevel" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">District Report</div>
+                     </div>
+                  </a>
+               </li>
+               <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#districtlevel" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">Indicator Report</div>
+                     </div>
+                  </a>
+               </li>
+               <li class="nav-item" role="presentation" style="display:none;">
+                  <a class="nav-link" data-bs-toggle="tab" href="#otherReportd" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">Other Reports</div>
+                     </div>
+                  </a>
+               </li>
+               
+            </ul>
+	              </div>
+   </div>
   
-			<div class="page-content">
-			  <div class="alert border-0 border-start border-5 border-primary alert-dismissible fade show py-2
-			  d-flex justify-content-between">
-									<div class="d-flex align-items-center">
-										<div class="font-35 text-primary"><i class="bx bx-tag-alt"></i>
-										</div>
-										<div class="ms-3">
-											<h6 class="mb-0 ">Real-time Risk Monitoring and Early Action</h6>
-											
-										</div>
+</div>
+<div class="row">
+        <div class="col-lg-3 col-md-3  col-sm-12">
+                  <div class="mb-3">
+                     {{ruralUrbanController}}
+                  </div>
+         </div>
+         <div class="col-lg-3 col-md-3  col-sm-12">
+            <div class="mb-3">
+               {{fromDateController}}
+            </div>
+         </div>
+        
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="mb-3">
+               {{Segrigation}}
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="mb-3">
+               {{Segrigation_element}}
+            </div>
+         </div>
+         
+      </div>
+<div class="row">
+   {{messageBox}}
+    {{infoMessage}}
+   <div class="col-12">
+      <hr>
+      <div class="card" style="background: unset;box-shadow:unset">
+         <div class="card-body">
+           
+            <div class="tab-content py-3">
+               <div class="tab-pane fade active show" id="overview" role="tabpanel">
+                 <div class="row">
+                 <div class="container py-2">
+						
+							<!-- timeline item 1 -->
+						
+							<!--/row-->
+							<!-- timeline item 2 -->
+							<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
 									</div>
-									 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded" style="    --bs-navbar-padding-x: unset;
-    --bs-navbar-padding-y: unset;">
-							<div class="container-fluid">	
-								<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent5" aria-controls="navbarSupportedContent5" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-								</button>
-								<div class="collapse navbar-collapse" id="navbarSupportedContent5">
-									<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-										<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Summary</a>
-										</li>
-										<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Red-flagging</a>
-										</li>
-										<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>Indicator Analysis</a>
-										</li>
-										<li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class="bx bx-home-alt me-1"></i>District Analysis</a>
-										</li>
-									
-									</ul>
-									
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-primary">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+								</div>
+								<div class="col py-2">
+									 <div class="row">
+									    <div class="col-12">
+									      <div class="card radius-15" style="height:100%">
+      										<div class="card-body">
+      											<h5 class="card-title text-muted">Overview</h5>
+      											<p class="card-text" style="text-align: justify;">The BRCiS Real-time Risk Monitoring (RTRM)and Early Action System aims to provide timely and relevant community-driven early warning information to Consortium Members and anticipatory/early action stakeholders in Somalia. The system monitors climate and non-climate shocks and their effects to inform the triggering of early actions and Crisis Modifier activation. BRCiS collects monthly early warning data, particularly on disaster risks and community vulnerabilities, from 172 communities in 19 districts in Somalia with financial support from the Foreign, Commonwealth & Development Office and Swedish International Development Agency. To this end, the RTRM dashboard serves as a platform for accessing data on a broad range of key early warning indicators to facilitate monitoring, prioritization, consensus building, rapid adjustments, coherent and informed decision making. It continues to be improved and refined based on the very helpful feedback from our users. </p>
+      										</div>
+      									</div>
+									    </div>
+									  
+									    
+									    
+									 </div>
 								</div>
 							</div>
-						</nav>
+							<!--/row-->
+							<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-primary">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
 								</div>
-								
-				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-                   <div class="col">
-					 <div class="card radius-10 border-start border-0 border-4 border-info">
-						<div class="card-body">
-							<div class="d-flex align-items-center">
-								<div>
-									<p class="mb-0 text-secondary">Total Orders</p>
-									<h4 class="my-1 text-info">4805</h4>
-									<p class="mb-0 font-13">+2.5% from last week</p>
-								</div>
-								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class="bx bxs-cart"></i>
+								<div class="col py-2">
+									 <div class="row">
+							
+									    
+									    <div class="col-12">
+									        <div class="card radius-15" style="height:100%">
+      										<div class="card-body">
+      											<h5 class="card-title text-muted">Where we work </h5>
+      											  {{whereWeWokMap}}
+      										</div>
+      									</div>
+									      
+									    </div>
+									 </div>
 								</div>
 							</div>
+							<!-- timeline item 2 -->
+							<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-primary">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+								</div>
+								<div class="col py-2">
+									 <div class="row">
+							
+									    
+									    <div class="col-12">
+									        <div class="row" style="height:100%">
+  									          <div class="col-6">  
+  									          <div class="card radius-15" style="height:100%">
+          										<div class="card-body">
+          											<h5 class="card-title text-muted">Members</h5>
+          											  <div class="card bg-warning">
+                      							<div class="card-body">
+                      								<ul class="list-group list-group-flush">
+                      									<li class="list-group-item bg-transparent text-dark">Action Against Hunger (ACF)</li>
+                      									<li class="list-group-item bg-transparent text-dark">Concern Worldwide</li>
+                      									<li class="list-group-item bg-transparent text-dark">GREDO</li>
+                      									<li class="list-group-item bg-transparent text-dark">International Rescue Committee (Rescue)</li>
+                      									<li class="list-group-item bg-transparent text-dark">KAALO</li>
+                      									<li class="list-group-item bg-transparent text-dark">Norwegian Refugee Council (NRC)</li>
+                      									<li class="list-group-item bg-transparent text-dark">Save the Children (SCI)</li>
+                      								</ul>
+                      							</div>
+                      						</div>
+          										</div>
+        									</div>
+        									  </div>
+        							    	<div class="col-6">  
+  									          <div class="card radius-15" style="height:100%">
+          										<div class="card-body">
+          											<h5 class="card-title text-muted">Partners</h5>
+          											  <div class="card bg-info">
+                      							<div class="card-body">
+                      								<ul class="list-group list-group-flush">
+                      									<li class="list-group-item bg-transparent text-dark">Zamzam Foundation</li>
+                      									<li class="list-group-item bg-transparent text-dark">HIJRA</li>
+                      									<li class="list-group-item bg-transparent text-dark">Lifeline Gedo</li>
+                      									<li class="list-group-item bg-transparent text-dark">CPD</li>
+                      									<li class="list-group-item bg-transparent text-dark">PMWDO</li>
+                      									<li class="list-group-item bg-transparent text-dark">MARDO</li>
+                      									<li class="list-group-item bg-transparent text-dark">Juba Foundation</li>
+                      									<li class="list-group-item bg-transparent text-dark">SSWC</li>
+                      								</ul>
+                      							</div>
+                      						</div>
+          										</div>
+        									</div>
+      									  </div>
+									        </div>
+									      
+									    </div>
+									 </div>
+								</div>
+							</div>
+							<!--/row-->
+							<!-- timeline item 3 -->
+							<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-light border">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+								</div>
+								<div class="col py-2">
+									<div class="row">
+									    <div class="col-12">
+									      <div class="card radius-15" style="height:100%">
+      										<div class="card-body">
+      											<h5 class="card-title text-muted">Indicators, thresholds and red flagging </h5>
+      											<p class="card-text">The system monitors of a set of qualitative and quantitative indicators to warn of shocks (i.e., drought, flood, desert locusts, acute watery Diarrhoea/cholera outbreaks and conflict) and another set to capture the impacts of these shocks (i.e., livelihood assets, market dynamics, migration and household coping strategies).Each indicator has  three indicator thresholds to measure the level of emergency when experiencing a shock: “normal”, “alert” and “alarm”. Each indicator falls under one of these thresholds, changing as the severity of the event grows or weakens. BRCiS uses the indicators and thresholds to adopt a harmonized triggering approach of early action called “red flagging”. Combined Indicator and threshold weights are used to calculate the risk score of each of the target areas. An area receives a red flag if the calculated risk score is equal to or more than 50%. </p>
+      										</div>
+      									</div>
+									    </div>
+									</div>
+								</div>
+							</div>
+							<!--/row-->
+							<!-- timeline item 4 -->
+							<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-light border">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+								</div>
+								<div class="col py-2">
+							      <div class="row">
+							        <div class="col-12">
+							          		<div class="card radius-15" style="height:100%">
+          										<div class="card-body">
+          											<h5 class="card-title text-muted">Methodology </h5>
+          											  <div class="card bg-primary">
+              							<div class="card-body">
+              								<ul class="list-group list-group-flush">
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>1 - Data collection by Early Warning Early Action Committees (EWEA) with support from BRCiS EWEA focal points </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>2 - Data is submitted on ONA (ODK platform) </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>3 - Dashboard retrieves and analyses the data </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>4 - Red flagged districts are identified </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>5 - The EWEA information and shock trends depicted on the dashboard are communicated back to the EWEA committees for use in decision- making and triggering early actions </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>6 - Members, EWEA committees and Community Resilience Committees (CRCs) with Red Flagged areas review, interpret and triangulate the data with secondary sources</li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>7 - Early actions activated for red flagged areas where relevant and subject to availability of funds </li>
+              									<li class="list-group-item bg-transparent text-white"><i class="bx bx-check font-18 align-middle me-1"></i>8 - Early Actions Implemented and monitored </li>
+              								</ul>
+              							</div>
+              						</div>
+          										</div>
+        									</div>
+							        </div>
+							        
+							       
+							      </div>
+								</div>
+							</div>
+							
+								<div class="row">
+								<div class="col-auto text-center flex-column d-none d-sm-flex">
+									<div class="row h-50">
+										<div class="col border-end">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+									<h5 class="m-2">
+									<span class="badge rounded-pill bg-light border">&nbsp;</span>
+								</h5>
+									<div class="row h-50">
+										<div class="col">&nbsp;</div>
+										<div class="col">&nbsp;</div>
+									</div>
+								</div>
+								<div class="col py-2">
+							      <div class="row">
+							         <div class="col-12">
+							          		<div class="card radius-15" style="height:100%">
+          										<div class="card-body">
+          											<h5 class="card-title text-muted">Downloadable Attachments</h5>
+          											  {{downloadButtonThreshold}}
+          										</div>
+        									</div>
+							        </div>
+							        
+							       
+							      </div>
+								</div>
+							</div>
+							<!--/row-->
 						</div>
-					 </div>
-				   </div>
-				   <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-danger">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Total Revenue</p>
-								   <h4 class="my-1 text-danger">$84,245</h4>
-								   <p class="mb-0 font-13">+5.4% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i class="bx bxs-wallet"></i>
-							   </div>
-						   </div>
-					   </div>
-					</div>
-				  </div>
-				  <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-success">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Bounce Rate</p>
-								   <h4 class="my-1 text-success">34.6%</h4>
-								   <p class="mb-0 font-13">-4.5% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bx bxs-bar-chart-alt-2"></i>
-							   </div>
-						   </div>
-					   </div>
-					</div>
-				  </div>
-				  <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-warning">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Total Customers</p>
-								   <h4 class="my-1 text-warning">8.4K</h4>
-								   <p class="mb-0 font-13">+8.4% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto"><i class="bx bxs-group"></i>
-							   </div>
-						   </div>
-					   </div>
-					</div>
-				  </div> 
-				</div>
-			
-			 
-					
-					
-			
-			</div>
-		</div>
-		
+        </div>
+        </div>
+               <div class="tab-pane fade" id="redflagging" role="tabpanel">
+                  <div class="row">
+                 
+                   
+                  <div class=" col-lg-12 col-md-12 col-sm-12">
+        					 <div class="card radius-10 border-start border-0 border-4 border-primary">
+        						<div class="card-body">
+        							<div class="d-flex align-items-center">
+        								<div>
+        									<p class="mb-0 text-danger">Total Red-flags Reported</p>
+        									<h4 class="my-1 text-danger">{{total_red_flags}}</h4>
+        								  <p class="mb-0 text-secondary font-14">{{total_red_flags_text}}</p>
+        								</div>
+        							
+        							</div>
+        						</div>
+        					 </div>
+        					
+        				   </div>
+        				   
+        				  <div class="col-4 col-lg-4 d-flex">
+                        <div class="card radius-10 w-100">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Risk Clasification</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{riskClasificationChart}}
+                           </div>
+                        </div>
+                  </div>
+        				  
+                 <div class="col-8 col-lg-8 d-flex">
+                        <div class="card radius-10 w-100">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Red Flagged Areas</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{RedFalggedDistrictMap}}
+                           </div>
+                        </div>
+                  </div>
+                   
+                 
+                  
+                   <div class="col-12 col-md-12 col-sm-12">
+                        <div class="card radius-10 w-100">
+                          
+                           <div class="card-body">
+                             <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+                                <caption style="caption-side: top; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">
+                                    Risk Levels and Actions to Be Taken
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">Risk Levels</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">Actions to be Taken</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #00A65A; color: white;">
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Normal Risk score between 0-24%</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">
+                                          <p>- Continue standard risk monitoring protocols.</p>
+                                          <p>- Maintain active communication channels with community and stakeholders regarding current conditions.</p>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #F99D1E; color: white;">
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Alert Risk score between 25-49%</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">
+                                          <p>- Intensify monitoring activities with increased frequency and depth.</p>
+                                          <p>- Notify the community of potential imminent risks and initiate preparatory actions.</p>
+                                          </td>
+                                    </tr>
+                                    <tr style="background-color: #ED7667; color: white;">
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Alarm Risk score between 50-100%</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">
+                                          <p>- Implement immediate red flagging protocols.</p>
+                                          <p>- Communicate the presence of immediate risk and activate response strategies.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                              <hr>
+                              {{weightingScoreSummary}}
+                           </div>
+                        </div>
+                     </div>
+                     
+                    </div> 
+                    
+         
+                  
+                   <div class="row">
+                   
+                       <div class="col-12 col-lg-12 d-flex">
+                          <div class="card radius-10 w-100">
+                             
+                             <div class="card-body">
+                               <div style="caption-side: top; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;" class="text-primary">
+                               Factors Contributing to district status indications (the content in this table is showing the respective status of each indicator for all districts)
+                             </div>
+                                {{factorsContributingRedFlagging}}
+                                <hr>
+                              
+                             </div>
+                          </div>
+                       </div>
+                  
+                  </div>
+                  
+                  <div class="row">
+                     
+                  
+                  
+                     
+                    
+                     <div class="col-12 col-lg-12 d-flex">
+                        <div class="card radius-10 w-100">
+                           
+                           <div class="card-body">
+                              {{redFlagStatusByDistrict}}
+                           </div>
+                        </div>
+                     </div>
+                     
+                    
+                     
+                  </div>
+                  <!--end row-->
+                  <div class="row">
+                  
+                     <div class="col-12 col-md-12 col-sm-12">
+                        <div class="card radius-10 w-100">
+                         
+                           <div class="card-body">
+                              {{redFlagBarChartSummarybyMonth}}
+                              {{redFlagBarChartSummarybyMonthTable}}
+                           </div>
+                        </div>
+                     </div>
+                    
+                     
+                     <div class="card radius-10">
+                        <div class="card-header">
+                           <div class="d-flex align-items-center">
+                              <div>
+                                 <h6 class="mb-0">Red Flagging Report</h6>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                             {{valuesOfIndicatorsForRedFlaggedDistricts}}
+                              
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="districtlevel" role="tabpanel">
+                  <div class="row d-flex justify-content-end align-items-center m-1">
+                   
+                  </div>
+                  
+                  <div class="row">
+                    
+                   
+                     
+                     <div class="col-12 col-md-12 col-sm-12 mb-5">
+                        <div class="card radius-10 w-100" style="height:100%">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Number of districts reporting alarm cases per variable by month</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{alarmCasesPerVariable}}
+                           </div>
+                        </div>
+                     </div>
+                     
+                   
+                     
+                    <div class="col-12 col-md-12 col-sm-12">
+                        <div class="card radius-10 w-100" >
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Variable Analysis</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{variableAnalysis}}
+                           </div>
+                        </div>
+                     </div>
+                  
+                  </div>
+                  
+                 
+               </div>
+               <div class="tab-pane fade" id="variablelevel" role="tabpanel">
+                  <div class="row d-flex justify-content-end align-items-center m-1">
+                     <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 ">
+                        {{variableController}}
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-12 col-md-12 col-sm-12">
+                        <div class="card radius-10 w-100">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center justify-content-between">
+                                 <div>
+                                    <h6 class="mb-0">Variable Analysis by District</h6>
+                                 </div>
+                                 <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12 ">
+                                    {{districtDropDown}}
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{districtVariableAnalysis}}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-md-12 col-sm-12">
+                        <div class="card radius-10 w-100">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Variable by District</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              {{districtsbyvariable}}
+                           </div>
+                        </div>
+                     </div>
+                    
+                  </div>
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="card radius-10">
+                           <div class="card-header">
+                              <div class="d-flex align-items-center">
+                                 <div>
+                                    <h6 class="mb-0">Variable Report</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 {{variableReportTable}}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     
+                  
+                  
+                     
+                    
+                     <div class="col-12 col-lg-12 d-flex">
+                        <div class="card radius-10 w-100">
+                           
+                           <div class="card-body">
+                             <div style="caption-side: top; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;" class="text-primary">
+                             District condition agains cndicators
+                           </div>
+                              {{factorsContributingRedFlaggingallVariables}}
+                           </div>
+                        </div>
+                     </div>
+                     
+                    
+                     
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="districtsnotreported" role="tabpanel">
+                 <div class="row">
+                   <div class="col-12">
+                          <div class="card radius-10 w-100">
+                           
+                             <div class="card-body">
+                                {{districtsnotreported}}
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+               </div>
+               <div class="tab-pane fade" id="otherReportd" role="tabpanel">
+                   <div class="row">
+                     
+                  
+                  
+                     
+                    
+                     <div class="col-12 col-lg-12 d-flex">
+                        <div class="card radius-10 w-100">
+                           
+                           <div class="card-body">
+                             <div>
+                             {{summarisetheoverallclassification}}
+                           </div>
+                              {{overallRiskClasification}}
+                           </div>
+                        </div>
+                     </div>
+                     
+                    
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script src="assets/plugins/validation/jquery.validate.min.js"></script>
+<script src="assets/plugins/validation/validation-script.js"></script>
+<script>
+   $(document).ready(function() {
+       $("#brcisRegistration-submitOnaData").on("click",function(){
+         $("#brcisRegistration-messageBox").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+   				</div></div>`)
+       })
+       
+       
+        $(document).on("click","#brcisRegistration-sb",function(){
+         $("#brcisRegistration-ms").html(`<div class="row d-flex justify-content-center align-items-center" style="width:100%"><div class="spinner-border text-danger" role="status"> <span class="visually-hidden">Loading...</span>
+   				</div></div>`)
+       })
+       
+   });
+     
+  $(document).on("click", ".switcher-btn", function () {
+    $(".switcher-wrapper").toggleClass("switcher-toggled");
+  });
+  
+  $(document).on("click", ".close-switcher", function () {
+    $(".switcher-wrapper").removeClass("switcher-toggled");
+  });
+     
+</script>
