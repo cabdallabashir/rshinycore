@@ -46,7 +46,9 @@ library(patchwork)
 
 library(haven)
 
-# install.packages("RPostgres")
+library(stringr)
+
+# install.packages("gt")
 
 # install.packages("renv")
 # renv::update()
@@ -104,13 +106,16 @@ allowedURL <- c(
 
 
 
-market_thresholds <- read.csv("docs/EW thresholds _USD.csv")%>%
-  rename(`Up to` = Up.to,
-         status = Level)
+
 
 
 reverine_districts <- c(
   "Afgoye", "Baardhere", "Belet_Hawa", "Belet_weyne", "Jawhar" , "Kismayo"
+)
+
+danwadaag_communities <- c(
+  "baidoa__ca1", "baidoa__ca3", "baidoa__ca4", "baidoa__ca11", "Shida" , "Wadajir",
+  "Fanole","Calanley","Luglow" , "Qurdubey","Kaxaarey","Oktober","x_keskey","ca19","ca6"
 )
 
 
@@ -140,4 +145,6 @@ reverine_districts <- c(
 #   left_join(activities_registered)%>%
 #   write.xlsx("../../../../../projects/BRCIS/MIDLINE Cleaning/Matched Participants with registration activities final.xlsx")
 #   
+
+
 

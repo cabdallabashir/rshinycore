@@ -22,7 +22,7 @@
 	                	 <ul class="nav nav-tabs nav-success" role="tablist">
 	                	   
 	              <li class="nav-item" role="presentation">
-                  <a class="nav-link active" data-bs-toggle="tab" href="#overview" role="tab" aria-selected="true">
+                  <a class="nav-link " data-bs-toggle="tab" href="#overview" role="tab" aria-selected="true">
                      <div class="d-flex align-items-center">
                         <div class="tab-icon">
                         </div>
@@ -31,7 +31,7 @@
                   </a>
                </li>
                <li class="nav-item" role="presentation">
-                  <a class="nav-link " data-bs-toggle="tab" href="#redflagging" role="tab" aria-selected="true">
+                  <a class="nav-link active" data-bs-toggle="tab" href="#redflagging" role="tab" aria-selected="true">
                      <div class="d-flex align-items-center">
                         <div class="tab-icon">
                         </div>
@@ -44,7 +44,17 @@
                      <div class="d-flex align-items-center">
                         <div class="tab-icon">
                         </div>
-                        <div class="tab-title">District Report</div>
+                        <div class="tab-title">Trend Analysis</div>
+                     </div>
+                  </a>
+               </li>
+               
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" data-bs-toggle="tab" href="#marketThresholds" role="tab" aria-selected="true">
+                     <div class="d-flex align-items-center">
+                        <div class="tab-icon">
+                        </div>
+                        <div class="tab-title">Market Thresholds</div>
                      </div>
                   </a>
                </li>
@@ -55,55 +65,60 @@
    </div>
   
 </div>
-<div class="card row">
-  <div class="card-body">
-    <div class="row">
-        <div class="col-lg-2 col-md-2  col-sm-12">
-              <div class="mb-3">
-                 {{ruralUrbanController}}
-              </div>
-         </div>
-         <div class="col-lg-2 col-md-2  col-sm-12">
-            <div class="mb-3">
-               {{fromDateController}}
-            </div>
-         </div>
-        
-         <div class="col-lg-2 col-md-2  col-sm-12">
-            <div class="mb-3">
-									
-										{{FMSController}}
-						</div>
+<div class="row pr-4 pl-4">
+   <div class=" col-lg-12 col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          
+          <div class="row">
+              <div class="col-lg-2 col-md-2  col-sm-12">
+                    <div class="mb-3">
+                       {{ruralUrbanController}}
+                    </div>
+               </div>
+               <div class="col-lg-2 col-md-2  col-sm-12">
+                  <div class="mb-3">
+                     {{fromDateController}}
+                  </div>
+               </div>
+              
+               <div class="col-lg-2 col-md-2  col-sm-12">
+                  <div class="mb-3">
+      									
+      										{{FMSController}}
+      						</div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                  <div class="mb-3">
+      										
+      											{{regionController}}
+      						</div>
+                </div>
+               <div class="col-lg-2 col-md-2 col-sm-12">
+                  <div class="mb-3">
+                			{{districtController}}
+                	</div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                  <div class="mb-3">
+                			{{communityController}}
+                	</div>
+                </div>
+                 <div class="col-lg-12 col-md-12  col-sm-12">
+                   <div class="d-flex align-items-center gap-3">
+        							<div class="form-check form-check-success">
+        								{{districtAggregation}}
+        							</div>
+        						  
+                     
+        						</div>
+                  </div>
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="mb-3">
-										
-											{{regionController}}
-						</div>
-          </div>
-         <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="mb-3">
-          			{{districtController}}
-          	</div>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-12">
-            <div class="mb-3">
-          			{{communityController}}
-          	</div>
-          </div>
-           <div class="col-lg-12 col-md-12  col-sm-12">
-             <div class="d-flex align-items-center gap-3">
-  							<div class="form-check form-check-success">
-  								{{districtAggregation}}
-  							</div>
-  						  
-               
-  						</div>
-            </div>
-    </div>
-    
-  </div>
+          
+        </div>
       </div>
+  </div>
+</div>
 <div class="row">
    {{messageBox}}
     {{infoMessage}}
@@ -113,7 +128,7 @@
          <div class="card-body">
            
             <div class="tab-content">
-               <div class="tab-pane fade active show" id="overview" role="tabpanel">
+               <div class="tab-pane fade" id="overview" role="tabpanel">
                  <div class="row">
                  <div class="container py-2">
 						
@@ -357,7 +372,7 @@
 						</div>
         </div>
         </div>
-               <div class="tab-pane fade" id="redflagging" role="tabpanel">
+               <div class="tab-pane fade active show" id="redflagging" role="tabpanel">
                  <div class="row">
                    <div class=" col-lg-4 col-md-4 col-sm-12">
             					 <div class="card radius-10 border-start border-0 border-4 border-danger">
@@ -414,11 +429,23 @@
         				   </div>
                  </div>
                  
-                 <div class="card row">
-                  <div class="card-body">
-                    {{mostDominantHazards}}
+                <div class="row">
+                  <div class=" col-lg-12 col-md-12 col-sm-12">
+                     <div class="card">
+                       <div class="card-header">
+                            <div class="d-flex align-items-center">
+                               <div>
+                                  <h6 class="mb-0 text-danger">Dominant Hazard</h6>
+                                  <p class="text-primary ">Red badges indicate hazards in Alarm state; yellow badges indicate hazards in Alert state.</p>
+                               </div>
+                            </div>
+                         </div>
+                      <div class="card-body">
+                        {{mostDominantHazards}}
+                      </div>
+                     </div>
                   </div>
-                 </div>
+                </div>
                  
                   <div class="row">
         				  
@@ -459,6 +486,7 @@
                               <div class="d-flex align-items-center">
                                  <div>
                                     <h6 class="mb-0">District/Community Summary</h6>
+                                    <p class="text-primary ">Red badges indicate hazards in Alarm state; yellow badges indicate hazards in Alert state.</p>
                                  </div>
                               </div>
                            </div>
@@ -604,7 +632,9 @@
                   </div>
          
                </div>
-              
+               <div class="tab-pane fade" id="marketThresholds" role="tabpanel">
+                    {{marketThresholds}}
+                </div>
                
             </div>
          </div>

@@ -1,7 +1,7 @@
 
 districts_fms <- readxl::read_excel("docs/ewea/ewea communities districts and fms.xlsx")%>%
   as.data.frame()
-
+thresholds_df <- read.csv("docs/ewea/ewea price threshold.csv")
 
 districts_fms%>%
   filter(District_Name == "Jariiban")
@@ -82,6 +82,7 @@ new_eweaUI <- function(id){
                  downloadButtonThreshold = downloadButton(class ="btn btn-success",outputId = ns("downloadButtonThreshold"),label =  "Early Warning Indicators and Thresholds"),
                  factorsContributingRedFlagging = DTOutput(ns("factorsContributingRedFlagging")) %>% withSpinner(size=0.5,proxy.height = "50px"),
                  mostDominantHazards = uiOutput(ns("mostDominantHazards"))%>% withSpinner(size=0.5,proxy.height = "50px"),
+                 marketThresholds = DTOutput(ns("marketThresholds")) %>% withSpinner(size=0.5,proxy.height = "50px")
     )
   )
   
@@ -338,7 +339,13 @@ new_ewea <- function(input ,output , session,sharedValues){
         return()
       }
      
-      print("here")
+      ids <- c("FMSController","regionController","districtController","communityController")
+      if (any(vapply(ids, function(id) {
+        x <- input[[id]]
+        !is.null(x) && length(x) > 1 && any(tolower(x) == "all")
+      }, logical(1)))) {
+        return()
+      }
      
       
       
@@ -439,6 +446,20 @@ new_ewea <- function(input ,output , session,sharedValues){
       Communities_fms_sub %<>% apply_all_filters()
       community_points    %<>% apply_all_filters()
      
+      thresholds_df_update <-
+        Communities_fms_sub%>%
+        group_by(FMS   ,  Region_name , District_Name  , Residence_type)%>%
+        summarise(
+          n= n(),
+          .groups = "drop"
+        )%>%
+        select(-n)%>%
+        mutate(
+          district_residence_type = paste(District_Name,Residence_type,sep = "-")
+        )%>%
+        left_join(thresholds_df , by =c("district_residence_type" = "district"))%>%
+        select(FMS   ,  Region_name , District_Name , Residence_type ,variable, From ,`Up.to`, status)
+      
       output$communityDropDownFill <- renderUI({
         ns1 <- NS("new_ewea")
         
@@ -594,22 +615,38 @@ new_ewea <- function(input ,output , session,sharedValues){
       output$total_alarms <- renderUI({
         
         tot <- aggregated_red_flagging%>%filter(classify =="Alarm")%>%nrow()
-        per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
-        paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Alarm")%>%nrow(),")")
+        
+        if(tot > 0){
+          per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
+          paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Alarm")%>%nrow(),")")
+        }else{
+          paste(0 ,"(",0,")")
+        }
+        
       })
       
       output$total_alerts <- renderUI({
         
         tot <- aggregated_red_flagging%>%filter(classify =="Alert")%>%nrow()
-        per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
-        paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Alert")%>%nrow(),")")
+        if(tot > 0){
+          per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
+          paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Alert")%>%nrow(),")")
+        }else{
+          paste(0 ,"(",0,")")
+        }
+        
       })
       
       output$total_normals <- renderUI({
         
         tot <- aggregated_red_flagging%>%filter(classify =="Normal")%>%nrow()
-        per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
-        paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Normal")%>%nrow(),")")
+        if(tot > 0){
+          per = paste0(round((tot / length(aggregated_red_flagging$Community_name))*100),'%')
+          paste(per ,"(",aggregated_red_flagging%>%filter(classify =="Normal")%>%nrow(),")")
+        }else{
+          paste(0 ,"(",0,")")
+        }
+        
       })
       
       output$mostDominantHazards <- renderUI({
@@ -961,6 +998,12 @@ new_ewea <- function(input ,output , session,sharedValues){
                         opacity = 0.3, fillOpacity = 1,
                         popup = paste(somalia_districts$District ,  sep = "<br>",
                                       somalia_districts$admin1Name)) %>%
+            addPolygons(data = not_reported_districts , fillColor = "#40419A",
+                        weight = 0.5, smoothFactor = 0.5,
+                        opacity = 0.3, fillOpacity = 1,
+                        color = "black",
+                        popup = paste(not_reported_districts$District_Name ,  sep = "<br>",
+                                      not_reported_districts$REG_NAME)) %>%
             addCircleMarkers(
               data = community_points,
               lng = ~geopoint_longitude,
@@ -1159,37 +1202,42 @@ new_ewea <- function(input ,output , session,sharedValues){
   
       
       output$redFlagStatusByDistrict <- renderPlotly({
-        redFlagStatusByDistrict <- aggregated_red_flagging%>%
-          select(Community_name,District_Name,Alarm, Normal ,Alert)%>%
-          pivot_longer(cols = c(Alarm, Normal ,Alert) , names_to = "status",values_to = "status_value")%>%
-          group_by(Community_name,District_Name,status)%>%
-          reframe(
-            count = sum(status_value)
+        
+        tryCatch({
+          redFlagStatusByDistrict <- aggregated_red_flagging%>%
+            select(Community_name,District_Name,Alarm, Normal ,Alert)%>%
+            pivot_longer(cols = c(Alarm, Normal ,Alert) , names_to = "status",values_to = "status_value")%>%
+            group_by(Community_name,District_Name,status)%>%
+            reframe(
+              count = sum(status_value)
+            )
+          
+          if(!input$districtAggregation){
+            runjs(paste0("document.getElementById('new_ewea-redFlagStatusByDistrict').style.height = '2000px';"))
+          }else{
+            runjs(paste0("document.getElementById('new_ewea-redFlagStatusByDistrict').style.height = '100%';"))
+          }
+          
+          
+          
+          ggplotly(
+            ggplot(redFlagStatusByDistrict, aes(x = count, y = Community_name, fill = status)) +
+              geom_col() +
+              geom_text(aes(label = count), hjust = -0.2, size = 4) +
+              facet_grid(cols = vars(status), scales = "free") +  # Facet by 'status'
+              theme_minimal() +
+              labs(title = paste("Indicator categorization per status", input$fromDateController),
+                   x = NULL, y = NULL) +
+              theme(
+                strip.text = element_text(face = "bold"),  # Make facet titles bold
+                plot.margin = margin(t = 20, r = 10, b = 10, l = 10, unit = "pt")
+              ) +
+              scale_fill_manual(values = c("Alert" = "#F99D1E", "Normal" = "#00A65A", "Alarm" = "#ED7667")) +  # Apply custom colors
+              xlim(0, max(redFlagStatusByDistrict$count) * 1.2)  # Extend x-axis to ensure text is visible
           )
-        
-        if(!input$districtAggregation){
-          runjs(paste0("document.getElementById('new_ewea-redFlagStatusByDistrict').style.height = '2000px';"))
-        }else{
-          runjs(paste0("document.getElementById('new_ewea-redFlagStatusByDistrict').style.height = '100%';"))
-        }
-        
-        
-        
-        ggplotly(
-          ggplot(redFlagStatusByDistrict, aes(x = count, y = Community_name, fill = status)) +
-            geom_col() +
-            geom_text(aes(label = count), hjust = -0.2, size = 4) +
-            facet_grid(cols = vars(status), scales = "free") +  # Facet by 'status'
-            theme_minimal() +
-            labs(title = paste("Indicator categorization per status", input$fromDateController),
-                 x = NULL, y = NULL) +
-            theme(
-              strip.text = element_text(face = "bold"),  # Make facet titles bold
-              plot.margin = margin(t = 20, r = 10, b = 10, l = 10, unit = "pt")
-            ) +
-            scale_fill_manual(values = c("Alert" = "#F99D1E", "Normal" = "#00A65A", "Alarm" = "#ED7667")) +  # Apply custom colors
-            xlim(0, max(redFlagStatusByDistrict$count) * 1.2)  # Extend x-axis to ensure text is visible
-        )
+        },error = function(e) {
+          
+        })
 
       })
       
@@ -1397,6 +1445,72 @@ new_ewea <- function(input ,output , session,sharedValues){
 
             )
           ))
+      })
+      
+      output$marketThresholds <- renderDT(server = FALSE, {
+        df_wide <- thresholds_df_update %>%
+          rename(Up_to = `Up.to`) %>%
+          mutate(status = recode(status, Normal = "Acceptable")) %>%
+          mutate(status = factor(status, levels = c("Acceptable", "Alert", "Alarm"))) %>%
+          select(FMS, Region_name, District_Name, Residence_type, variable, status, From, Up_to) %>%  # Added New_Variable
+          group_by(FMS, Region_name, District_Name, Residence_type, variable, status) %>%  # Added New_Variable
+          summarise(From = first(From), Up_to = first(Up_to), .groups = "drop") %>%
+          tidyr::pivot_wider(
+            names_from = status,
+            values_from = c(From, Up_to),
+            names_glue = "{status}_{.value}"
+          ) %>%
+          arrange(FMS, Region_name, District_Name, Residence_type, variable)  # Added New_Variable
+        
+        tbl <- df_wide %>%
+          select(
+            FMS, Region_name, District_Name, Residence_type, variable,  # Added New_Variable
+            Acceptable_From, Acceptable_Up_to,
+            Alert_From, Alert_Up_to,
+            Alarm_From, Alarm_Up_to
+          )
+        
+        sketch <- withTags(
+          table(
+            class = 'display',
+            thead(
+              tr(
+                th(rowspan = 2, "FMS"),
+                th(rowspan = 2, "Region"),
+                th(rowspan = 2, "District"),
+                th(rowspan = 2, "Residence"),
+                th(rowspan = 2, "variable"),  # Added new variable header
+                th(colspan = 2, "Acceptable", style = "background:#eaf5e7;"),
+                th(colspan = 2, "Alert", style = "background:#fff5cc;"),
+                th(colspan = 2, "Alarm", style = "background:#f8d7da;")
+              ),
+              tr(
+                th("From"), th("Up to"),
+                th("From"), th("Up to"),
+                th("From"), th("Up to")
+              )
+            )
+          )
+        )
+        
+        DT::datatable(
+          tbl,
+          container = sketch,
+          rownames = FALSE,
+          escape = FALSE,
+          options = list(
+            paging = FALSE,
+            searching = FALSE,
+            ordering = FALSE,
+            dom = "t",
+            columnDefs = list(
+              # Adjust indices: 5:10 becomes 6:11 (0-based)
+              list(className = "dt-center", targets = 5:10)  # 0-based indices for numeric columns
+            )
+          )
+        ) |>
+          # Adjust indices: 6:11 becomes 7:12 (1-based)
+          DT::formatCurrency(6:11, currency = "$", digits = 2)
       })
 
       output$downloadButtonThreshold <-  downloadHandler(
