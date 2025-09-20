@@ -490,7 +490,8 @@ new_ewea <- function(input ,output , session,sharedValues){
                    Residence_type, classify, Alarm, Normal, Alert, variable_score,
                    variable_score_percentage, strategy, red_flagged)%>%
           summarise(
-            dominant_hazard = paste0(dominant_hazard,'-',dominant_hazard_status, collapse = ",")
+            dominant_hazard = paste0(dominant_hazard,'-',dominant_hazard_status, collapse = ","),
+            .groups = "drop"
           )
         
         aggregated_red_flagging_all%<>%
@@ -540,7 +541,8 @@ new_ewea <- function(input ,output , session,sharedValues){
                    Residence_type, classify, Alarm, Normal, Alert, variable_score,
                    variable_score_percentage, strategy, red_flagged)%>%
           summarise(
-            dominant_hazard = paste0(dominant_hazard,'-',dominant_hazard_status, collapse = ",")
+            dominant_hazard = paste0(dominant_hazard,'-',dominant_hazard_status, collapse = ","),
+            .groups = "drop"
           )
         
         
@@ -1001,6 +1003,8 @@ new_ewea <- function(input ,output , session,sharedValues){
       })
       
       output$CommunityDistrictOverview <- renderDT(server = FALSE , {
+        
+
           datatable(escape = FALSE,
             aggregated_red_flagging%>%select(reporting_month ,Member_name    ,   FMS  ,  Region_name, District_Name ,  Community_name,classify,variable_score_percentage,dominant_hazard)%>%
               rename(Status = classify , `Risk Score`=variable_score_percentage , `Dominant Hazards` = dominant_hazard)%>%

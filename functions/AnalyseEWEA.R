@@ -231,6 +231,15 @@ update_ewea <- function(user , pass , date_to_update){
       .default = reporting_month
     )
   )
+  
+  ewea_raw%<>%
+    mutate(
+      District_Name = case_when(
+        District_Name == "Galkacyo" & Member_name == "IRC" ~ "Galkacyo-South",
+        District_Name == "Galkacyo" & Member_name == "KAALO" ~ "Galkacyo-North",
+        .default = District_Name
+      )
+    )
  
   ewea_raw%<>%separate_rows(Community_name,sep = " ")
   
