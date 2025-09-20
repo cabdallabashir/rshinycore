@@ -44,7 +44,7 @@ new_eweaUI <- function(id){
                   ruralUrbanController = selectInput(
                      ns("ruralUrbanController"),
                      "Rural or Urban Areas",
-                     choices = c("Rural","Urban")
+                     choices = c("All","Rural","Urban")
                    ),
                  fromDateController = uiOutput(ns("fromDateControllerFILL")),
        
@@ -276,17 +276,28 @@ new_ewea <- function(input ,output , session,sharedValues){
   })
   
   output$fromDateControllerFILL <- renderUI({
+    
+    datevalues <- global_vars$global_ewea%>%pull(reporting_month)
+    
+    if(input$ruralUrbanController != "All"){
+      datevalues <- global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController)
+    }
+    
     selectInput(
       ns1("fromDateController"),
       paste("Date"),
-      choices = unique(sort(as.yearmon(global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController)%>%pull(reporting_month)))),
-      selected = max(as.yearmon(global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController)%>%pull(reporting_month)))  # Selects the latest month
+      choices = unique(sort(as.yearmon())),
+      selected = max(as.yearmon(datevalues%>%pull(reporting_month)))  # Selects the latest month
     )
     
   })
   
   observeEvent(input$ruralUrbanController,{
-    sub_global <- global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController) 
+     sub_global <- global_vars$global_ewea
+    
+    if(input$ruralUrbanController != "All"){
+      sub_global <- global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController) 
+    }
     output$fromDateControllerFILL <- renderUI({
       selectInput(
         ns1("fromDateController"),
@@ -331,19 +342,31 @@ new_ewea <- function(input ,output , session,sharedValues){
      
       
       
-      red_flagging<- global_vars$global_red_flagging%>%filter(Residence_type == input$ruralUrbanController) 
-      main_ewea <- global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController) 
+      red_flagging<- global_vars$global_red_flagging
+      main_ewea <- global_vars$global_ewea
       
       # Find missing districts per month
-      Communities_fms_sub <- districts_fms%>%filter(Residence_type == input$ruralUrbanController) 
+      Communities_fms_sub <- districts_fms
+      
+      
+      community_points <- somalia_districts_communities
+      
+      if(input$ruralUrbanController != "All"){
+        red_flagging<- global_vars$global_red_flagging%>%filter(Residence_type == input$ruralUrbanController) 
+        main_ewea <- global_vars$global_ewea%>%filter(Residence_type == input$ruralUrbanController) 
+        
+        # Find missing districts per month
+        Communities_fms_sub <- districts_fms%>%filter(Residence_type == input$ruralUrbanController) 
+        
+        community_points <- somalia_districts_communities%>%filter(Residency == input$ruralUrbanController) 
+      }
+     
       missing_communities_per_month <- main_ewea %>%
         group_by(reporting_month) %>%
         summarise(Communities_not_reported = list(setdiff(Communities_fms_sub$Community_name, Community_name))) %>%
         unnest(cols = c(Communities_not_reported))%>%
         left_join(Communities_fms_sub, by = c("Communities_not_reported" = "Community_name"))
       
-      community_points <- somalia_districts_communities%>%filter(Residency == input$ruralUrbanController) 
-     
       red_flagging_all <- red_flagging
       main_ewea_all <-main_ewea
      
@@ -444,9 +467,10 @@ new_ewea <- function(input ,output , session,sharedValues){
         
        
         aggregated_red_flagging%<>%
-          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name  ,  Residence_type)%>%
+          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name)%>%
           summarise(
             Community_name =first(District_Name),
+            Residence_type = paste0(unique(Residence_type),collapse = ","),
             Alarm = round(mean(Alarm)),
             Normal = round(mean(Normal)),
             Alert = round(mean(Alert)),
@@ -495,9 +519,10 @@ new_ewea <- function(input ,output , session,sharedValues){
           )
         
         aggregated_red_flagging_all%<>%
-          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name  ,  Residence_type)%>%
+          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name)%>%
           summarise(
             Community_name =first(District_Name),
+            Residence_type = paste0(unique(Residence_type),collapse = ","),
             Alarm = round(mean(Alarm)),
             Normal = round(mean(Normal)),
             Alert = round(mean(Alert)),
@@ -549,9 +574,10 @@ new_ewea <- function(input ,output , session,sharedValues){
         aggregated_main_ewea%<>%
           select(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name,Community_name  ,  Residence_type,
                  variable_desc , status , status_code)%>%
-          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name  ,  Residence_type,variable_desc)%>%
+          group_by(reporting_month, Member_name,      FMS  ,  Region_name ,District_Name  ,variable_desc)%>%
           summarise(
             Community_name =first(District_Name),
+            Residence_type = paste0(unique(Residence_type),collapse = ","),
             status_code = round(mean(status_code))
           )%>%
           mutate(
@@ -640,13 +666,19 @@ new_ewea <- function(input ,output , session,sharedValues){
       
       output$whereWeWokMap <- renderLeaflet({
 
-        whereWeWokMap <- districts_fms%>%
-          filter(Residence_type == input$ruralUrbanController)%>%
+        whereWeWokMap <- districts_fms
+        
+        if(input$ruralUrbanController != "All"){
+          whereWeWokMap <- districts_fms%>%
+            filter(Residence_type == input$ruralUrbanController)
+        }
+       
+        whereWeWokMap%<>%
           group_by(District_Name)%>%
           summarise(
-            Region_name = first(Region_name),
-            Member_name = paste(Member_name,collapse = ","),
-            Community_name = paste(Community_name,collapse = ",")
+            Region_name = first(unique(Region_name)),
+            Member_name = paste(unique(Member_name),collapse = ","),
+            Community_name = paste(unique(Community_name),collapse = ",")
           )%>%
           mutate(
             District_Name = case_when(
@@ -670,15 +702,27 @@ new_ewea <- function(input ,output , session,sharedValues){
             )
           )%>%left_join(somalia_districts,by = c("District_Name"="DIST_NAME"))%>%sf::st_as_sf()
 
+        
         d1 <- districts_fms%>%
-          filter(Residence_type == input$ruralUrbanController)%>%
           pull(District_Name)
-
+        
         sdc <- somalia_districts_communities%>%
-          filter(Residency == input$ruralUrbanController)%>%
           filter(
             district %in% d1
           )
+        
+        if(input$ruralUrbanController != "All"){
+          d1 <- districts_fms%>%
+            filter(Residence_type == input$ruralUrbanController)%>%
+            pull(District_Name)
+          
+          sdc <- somalia_districts_communities%>%
+            filter(Residency == input$ruralUrbanController)%>%
+            filter(
+              district %in% d1
+            )
+        }
+       
 
 
 
@@ -1006,7 +1050,7 @@ new_ewea <- function(input ,output , session,sharedValues){
         
 
           datatable(escape = FALSE,
-            aggregated_red_flagging%>%select(reporting_month ,Member_name    ,   FMS  ,  Region_name, District_Name ,  Community_name,classify,variable_score_percentage,dominant_hazard)%>%
+            aggregated_red_flagging%>%select(reporting_month ,Member_name    ,   FMS  ,  Region_name, District_Name ,  Community_name , Residence_type,classify,variable_score_percentage,dominant_hazard)%>%
               rename(Status = classify , `Risk Score`=variable_score_percentage , `Dominant Hazards` = dominant_hazard)%>%
               mutate(
                     Status = case_when(
